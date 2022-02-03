@@ -6,22 +6,24 @@
       </ion-fab-button>
     </ion-fab>
   </div>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <ion-list lines="none" class="ion-margin">
     <ion-list-header>Bienvenue !</ion-list-header>
     <ion-item class="ion-margin">
-      <ion-input placeholder="E-mail" type="email" clearInput="true"></ion-input>
+      <ion-input placeholder="E-mail" type="email" clearInput="true" id="email" formControlName="email"></ion-input>
     </ion-item>
     <ion-item class="ion-margin">
-      <ion-input placeholder="Mot de passe" type="password" clearInput="true"></ion-input>
+      <ion-input placeholder="Mot de passe" type="password" clearInput="true" id="motDePasse" formControlName="motDePasse"></ion-input>
     </ion-item>
     <ion-text color="medium"><p class="ion-margin-horizontal">Mot de passe oublié?</p></ion-text>
     <ion-text color="medium"><p class="ion-margin-horizontal">vous n'avez pas de compte?. <a routerLink="/signup">creez-en</a></p></ion-text>
     <div align="right">
-      <ion-button shape="round" strong="true" class="ion-margin-end" color="success" routerLink="/tabs/home">
+      <ion-button shape="round" strong="true" class="ion-margin-end" color="success"  type="submit" [disabled]="!loginForm.valid">
         S'identifier
         <ion-icon name="log-in" slot="end"></ion-icon>
       </ion-button>
     </div>
 
   </ion-list>
+</form>
 </ion-content>
