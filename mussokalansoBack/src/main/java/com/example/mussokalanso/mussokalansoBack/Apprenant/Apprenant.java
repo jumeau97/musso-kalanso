@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Apprenant;
 
+import com.example.mussokalanso.mussokalansoBack.Inscription.Inscription;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.Collection;
 
 @Entity
 @AllArgsConstructor
@@ -22,5 +24,6 @@ public class Apprenant {
     private String adresse;
     private String tel;
     private String email;
-    private String mot_de_passe;
+    private String motDePasse;
+
 }
