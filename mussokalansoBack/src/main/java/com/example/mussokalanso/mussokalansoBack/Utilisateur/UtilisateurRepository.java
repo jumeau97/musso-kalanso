@@ -5,4 +5,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long > {
+
+    Utilisateur findUtilisateurByEmailAndMotDePasse(String email, String motDePasse);
 }
