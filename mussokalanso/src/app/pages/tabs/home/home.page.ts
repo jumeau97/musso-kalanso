@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MenuController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api/api.service';
 
 @Component({
@@ -16,11 +17,16 @@ export class HomePage implements OnInit {
   popularItems: any[] = [];
   featuredItems: any[] = [];
 
-  constructor(public apiService: ApiService) { }
+  constructor(public apiService: ApiService, private menu:MenuController) { }
 
   ngOnInit() {
     this.popularItems = this.apiService.items;
     this.featuredItems = this.apiService.items;
   }
+
+  // open menu
+  openMenu(){
+    this.menu.open();
+    }
 
 }

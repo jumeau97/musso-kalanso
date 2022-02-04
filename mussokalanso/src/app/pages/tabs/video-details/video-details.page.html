@@ -26,7 +26,7 @@
       <!-- <ion-slides [options]="slideOpts"> -->
         <ion-col size="6" *ngFor="let item of popularItems">
         <!-- <ion-slide> -->
-          <ion-card class="bgCard" [routerLink]="['/', 'tabs', 'items', item.id]">
+          <ion-card class="bgCard" [routerLink]="['/', 'admin','tabs', 'items', item.id]">
             <ion-card-header>
               <ion-label>
                 {{item?.name}}
