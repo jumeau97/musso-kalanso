@@ -1,11 +1,20 @@
 package com.example.mussokalanso.mussokalansoBack.Categorie;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "api/musso_kalanso")
+@RequestMapping(path = "api/mussokalanso")
 public class CategorieControler {
+
+    @Autowired
+    CategorieService categorieService;
+
+    @GetMapping("/allCategory")
+    public @ResponseBody ResponseEntity<?> findAllCategory(){
+        return new ResponseEntity<>(categorieService.allCategory(), HttpStatus.OK);
+    }
 }

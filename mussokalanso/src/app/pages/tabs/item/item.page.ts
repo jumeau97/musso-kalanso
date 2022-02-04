@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ModalController, NavController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api/api.service';
 import { take } from 'rxjs/operators';
+import { DescriptionPage } from 'src/app/admin/description/description.page';
 
 @Component({
   selector: 'app-item',
@@ -14,7 +15,9 @@ export class ItemPage implements OnInit {
   constructor(
     public navCtrl: NavController,
     private route: ActivatedRoute,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private modalController : ModalController,
+    private router : Router,
   ) { }
 
   ngOnInit() {
@@ -30,5 +33,15 @@ export class ItemPage implements OnInit {
       console.log(this.item);
     })
   }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: DescriptionPage,
+      cssClass: 'my-custom-class'
+    });
+    return await modal.present();
+  }
+
+
 
 }
