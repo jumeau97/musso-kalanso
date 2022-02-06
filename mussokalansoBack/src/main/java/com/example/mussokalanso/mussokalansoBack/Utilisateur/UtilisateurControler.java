@@ -26,4 +26,5 @@ public class UtilisateurControler {
     public @ResponseBody ResponseEntity<?> findAllUser(){
         return new ResponseEntity<>(utilisateurService.findAllUser(),HttpStatus.OK);
     }
+
 }

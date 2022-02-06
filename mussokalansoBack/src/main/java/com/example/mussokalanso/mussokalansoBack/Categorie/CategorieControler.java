@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Categorie;
 
+import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,5 +17,18 @@ public class CategorieControler {
     @GetMapping("/allCategory")
     public @ResponseBody ResponseEntity<?> findAllCategory(){
         return new ResponseEntity<>(categorieService.allCategory(), HttpStatus.OK);
+    }
+
+    //update category
+    @PutMapping("/update/category/{id}")
+    public @ResponseBody ResponseEntity<?> updateCategory(@RequestBody Categorie categorie,
+                                                          @PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(categorieService.updateCategory(categorie, id), HttpStatus.OK);
+    }
+
+    //insert category
+    @PostMapping("/save/category")
+    public @ResponseBody ResponseEntity<?> saveCategory(@RequestBody Categorie categorie){
+        return new ResponseEntity<>(categorieService.saveCategory(categorie), HttpStatus.OK);
     }
 }
