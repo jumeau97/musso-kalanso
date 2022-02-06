@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Module;
 
+import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import com.example.mussokalanso.mussokalansoBack.Inscription.Inscription;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,4 +21,6 @@ public class Module {
     private String libelle;
     private String description;
     private boolean etat;
+    @ManyToOne
+    private Categorie categorie;
 }
