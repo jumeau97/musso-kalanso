@@ -30,4 +30,8 @@ public class ChapitreControler {
                                                           @PathVariable(value = "id") Long id){
         return new ResponseEntity<>(chapitreService.updateChapitre(chapitre, id), HttpStatus.OK);
     }
+
+    //supprimer chapitre
+  
+
 }

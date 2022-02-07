@@ -53,6 +53,21 @@ public class ChapitreService {
         return Response.success("modification reussie");
     }
 
+    //supprimer chapiter
+    public  Response supprimerChapitre(Chapitre chapitre, Long id){
+
+        try{
+            chapitreRepository.deleteById(id);
+            return Response.success("Supprimé avec succès");
+        }
+
+        catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        }
+
 
 }
 
