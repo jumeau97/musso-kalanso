@@ -1,7 +1,11 @@
 package com.example.mussokalanso.mussokalansoBack.Chapitre;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public interface ChapitreService {
+public class ChapitreService {
+
+    @Autowired
+    ChapitreRepository chapitreRepository;
 }
