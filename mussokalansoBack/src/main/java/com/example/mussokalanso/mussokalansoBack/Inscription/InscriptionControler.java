@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "api/musso_kalanso")
+@RequestMapping(path = "api/mussokalanso")
 public class InscriptionControler {
 }
