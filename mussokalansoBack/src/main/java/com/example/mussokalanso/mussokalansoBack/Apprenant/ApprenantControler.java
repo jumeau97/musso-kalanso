@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping(path = "api/musso_kalanso")
+@RequestMapping(path = "api/mussokalanso")
 public class ApprenantControler {
     
     @Autowired
