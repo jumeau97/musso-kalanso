@@ -1,0 +1,93 @@
+[33mcommit fe9e736bd021eef0a98ed439e6055f7b12bb4009[m[33m ([m[1;36mHEAD -> [m[1;32mjumeau[m[33m, [m[1;31morigin/main[m[33m)[m
+Merge: 8fc5aab d5e80f5
+Author: jumeau97 <58072574+jumeau97@users.noreply.github.com>
+Date:   Sun Feb 6 19:54:38 2022 +0000
+
+    Merge pull request #5 from jumeau97/jumeauHome
+    
+    back...
+
+[33mcommit d5e80f5f296d5406c0587e65e1f1fb7846a9d3ea[m
+Author: jumeau97 <alassanesanogojumeau@gmail.com>
+Date:   Sun Feb 6 19:48:52 2022 +0000
+
+    back...
+
+[33mcommit 8fc5aabc242c5f9486ea7b7fd47895ec1c492f25[m
+Merge: 562223a 2f7e7b4
+Author: jumeau97 <58072574+jumeau97@users.noreply.github.com>
+Date:   Fri Feb 4 17:56:39 2022 +0000
+
+    Merge pull request #4 from jumeau97/jumeau
+    
+    last commit friday
+
+[33mcommit 2f7e7b4ac0e833c022777f804bf552676fb8abbb[m[33m ([m[1;31morigin/jumeau[m[33m)[m
+Author: Alassane SANOGO <alassanesanogojumeau@gmail.com>
+Date:   Fri Feb 4 17:56:41 2022 +0000
+
+    last commit friday
+
+[33mcommit 562223a4dedde3c6db0effbf316f69f0c116a0c3[m
+Merge: 8ec0b72 5638001
+Author: jumeau97 <58072574+jumeau97@users.noreply.github.com>
+Date:   Thu Feb 3 13:57:58 2022 +0000
+
+    Merge pull request #3 from jumeau97/jumeau
+    
+    login began
+
+[33mcommit 5638001e7fdba38e8aac689cb166405d49ed0838[m
+Author: Alassane SANOGO <alassanesanogojumeau@gmail.com>
+Date:   Thu Feb 3 13:57:57 2022 +0000
+
+    login began
+
+[33mcommit 8ec0b72fda20050a51d7005918ddb6c245bdcd3b[m
+Merge: 22bfb6d 6f43b1a
+Author: jumeau97 <58072574+jumeau97@users.noreply.github.com>
+Date:   Thu Feb 3 12:12:50 2022 +0000
+
+    Merge pull request #2 from jumeau97/jumeau
+    
+    Jumeau
+
+[33mcommit 6f43b1a771df844d106b9919ab35ef9bbc16778e[m
+Author: Alassane SANOGO <alassanesanogojumeau@gmail.com>
+Date:   Thu Feb 3 12:07:33 2022 +0000
+
+    font and back advanced
+
+[33mcommit 956bb6a822bf9ebcc6250cf7823b177e69616e45[m
+Merge: 7536dee 0a3b9b3
+Author: Alassane SANOGO <alassanesanogojumeau@gmail.com>
+Date:   Wed Feb 2 12:42:42 2022 +0000
+
+    Merge branch 'awa' of https://github.com/jumeau97/musso-kalanso into jumeau
+
+[33mcommit 7536deed13215ceb2d11dd51422197c5d0065f79[m
+Author: Alassane SANOGO <alassanesanogojumeau@gmail.com>
+Date:   Wed Feb 2 12:41:36 2022 +0000
+
+    UI initialize
+
+[33mcommit 22bfb6dd01bcdd888e5dc216760cd7eac3d8260d[m
+Merge: b31793d 0a3b9b3
+Author: jumeau97 <58072574+jumeau97@users.noreply.github.com>
+Date:   Wed Feb 2 12:38:52 2022 +0000
+
+    Merge pull request #1 from jumeau97/awa
+    
+    Entity ok
+
+[33mcommit 0a3b9b3003ada4eb869af36e792963cb21c937d2[m[33m ([m[1;31morigin/awa[m[33m)[m
+Author: Awa KEITA <awakeita627@gmail.com>
+Date:   Wed Feb 2 12:37:29 2022 +0000
+
+    Entity ok
+
+[33mcommit b31793d685306c418ee60fc32b9aea3a24c370da[m[33m ([m[1;32mmain[m[33m)[m
+Author: Alassane SANOGO <alassanesanogojumeau@gmail.com>
+Date:   Mon Jan 31 13:50:30 2022 +0000
+
+    initialization
