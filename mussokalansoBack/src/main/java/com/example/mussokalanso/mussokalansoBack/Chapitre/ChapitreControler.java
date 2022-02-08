@@ -32,6 +32,6 @@ public class ChapitreControler {
     }
 
     //supprimer chapitre
-  
+
 
 }
