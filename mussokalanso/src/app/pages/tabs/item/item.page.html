@@ -23,8 +23,8 @@
         </div>
       </ion-col>
       <ion-col size="9">
-        <ion-slides pager="true">
-          <ion-slide *ngFor="let item1 of [1, 2]">
+        <ion-slides >
+          <ion-slide >
             <img [src]="item?.img" />
           </ion-slide>
         </ion-slides>
@@ -34,12 +34,12 @@
 
   <ion-item lines="none" class="ion-margin-vertical">
     <ion-label>
-      {{item?.name}}
-      <p><ion-text color="tertiary">{{item?.category}}</ion-text></p>
+      {{module?.libelle}}
+      <p><ion-text color="tertiary">{{module?.categorie.libelle}}</ion-text></p>
     </ion-label>
-    <ion-text class="price" color="primary" slot="end">
+    <!-- <ion-text class="price" color="primary" slot="end">
       <b>{{item?.price}} Fcfa</b>
-    </ion-text>
+    </ion-text> -->
   </ion-item>
 
 </ion-content>
@@ -51,7 +51,7 @@
         <ion-button fill="clear" color="light" [routerLink]="['/', 'admin', 'read-module']">S'inscrire</ion-button>
       </ion-col>
       <ion-col size="6" class="ion-text-center">
-        <ion-button fill="clear" color="dark" (click)="presentModal()">Description</ion-button>
+        <ion-button fill="clear" color="dark" (click)="presentModal(module)">Description</ion-button>
       </ion-col>
     </ion-row>
   </ion-toolbar>
