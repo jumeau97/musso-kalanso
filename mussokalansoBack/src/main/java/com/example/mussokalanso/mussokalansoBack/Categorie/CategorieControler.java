@@ -31,4 +31,10 @@ public class CategorieControler {
     public @ResponseBody ResponseEntity<?> saveCategory(@RequestBody Categorie categorie){
         return new ResponseEntity<>(categorieService.saveCategory(categorie), HttpStatus.OK);
     }
+
+    //delete category
+    @DeleteMapping()
+   public @ResponseBody ResponseEntity<?> deleteCategory(@RequestBody Categorie categorie){
+        return new ResponseEntity<>(categorieService.deleteCategory(categorie), HttpStatus.OK);
+    }
 }

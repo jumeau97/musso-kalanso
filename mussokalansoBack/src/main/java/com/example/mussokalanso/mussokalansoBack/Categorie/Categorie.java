@@ -15,6 +15,16 @@ public class Categorie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String libelle;
+    private boolean etat;
+
+    public Categorie() {
+    }
+
+    public Categorie(long id, String libelle, boolean etat) {
+        this.id = id;
+        this.libelle = libelle;
+        this.etat = etat;
+    }
 
     public long getId() {
         return id;
@@ -30,5 +40,13 @@ public class Categorie {
 
     public void setLibelle(String libelle) {
         this.libelle = libelle;
+    }
+
+    public boolean isEtat() {
+        return etat;
+    }
+
+    public void setEtat(boolean etat) {
+        this.etat = etat;
     }
 }

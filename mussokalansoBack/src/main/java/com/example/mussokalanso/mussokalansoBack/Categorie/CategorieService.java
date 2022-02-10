@@ -1,17 +1,21 @@
 package com.example.mussokalanso.mussokalansoBack.Categorie;
 
+import com.example.mussokalanso.mussokalansoBack.Module.Module;
+import com.example.mussokalanso.mussokalansoBack.Module.ModuleRepository;
 import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class CategorieService {
 
     @Autowired
     CategorieRepository categorieRepository;
+    ModuleRepository moduleRepository;
 
     //all category
     public Response allCategory(){
@@ -54,6 +58,18 @@ public class CategorieService {
 
             return Response.success("modification reussie");
         }
+
+     //delete category
+
+    public Response deleteCategory(Categorie categorie){
+        Optional<Module> c= moduleRepository.findByCategorie(categorie);
+
+        if(c.isEmpty()){
+            categorieRepository.delete(categorie);
+        }
+        return Response.success("suppression reussie avec succès");
+
+    }
 
 
 }

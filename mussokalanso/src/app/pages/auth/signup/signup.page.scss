@@ -1,10 +1,24 @@
-#bg {
-    height: 23%;
-    width: 500px;
-    background: var(--ion-color-dark) url('../../../../assets/imgs/leaves.jpg') no-repeat center center/cover;
-    border-radius: 0 0 45% 45%;
-    margin-left: -21vw;
-    position: relative;
+// #bg {
+//     // height: 23%;
+//     // width: 500px;
+//    // background: var(--ion-color-dark) url('../../../../assets/imgs/logo-app.jpg') no-repeat center center/cover;
+//     // border-radius: 0 0 45% 45%;
+//     // margin-left: -21vw;
+//     margin: auto;
+//     position: relative;
+// }
+
+ion-list-header{
+    ion-label{
+        
+        img{
+            margin-top: 3vh;
+            height: 25vh;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
 }
 ion-fab {
     ion-icon {
@@ -13,7 +27,7 @@ ion-fab {
 }
 
 ion-list {
-    margin-top: 6vh;
+    margin-top: 3vh;
     ion-list-header {
         font-weight: 1000;
         font-size: 1.5rem;
