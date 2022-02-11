@@ -6,6 +6,7 @@ import { take } from 'rxjs/operators';
 import { DescriptionPage } from 'src/app/admin/description/description.page';
 import { HomeService } from '../home/service/home.service';
 import { Module } from 'src/app/model/Module';
+import { Subscribe } from 'src/app/model/payload/Subscribe';
 
 @Component({
   selector: 'app-item',
@@ -15,6 +16,8 @@ import { Module } from 'src/app/model/Module';
 export class ItemPage implements OnInit {
   item: any;
   module:Module;
+  subscribe:Subscribe = new Subscribe();
+  guest: any;
   constructor(
     public navCtrl: NavController,
     private route: ActivatedRoute,
@@ -23,7 +26,11 @@ export class ItemPage implements OnInit {
     private router : Router,
     private homeService:HomeService,
     private alertController:AlertController,
-  ) { }
+  ) 
+  { 
+    console.log("session", JSON.parse(localStorage.getItem("session_auth")));
+    this.guest = JSON.parse(localStorage.getItem("session_auth"))
+  }
 
   ngOnInit() {
     this.getDetailsModuleByid();
@@ -59,6 +66,25 @@ export class ItemPage implements OnInit {
   });
 
   await alert.present();
+
+  }
+
+  // learner subscribe on module
+  subscribeIn(event:any){
+    console.log("s'inscrire sur", event);
+    this.subscribe.module=event;
+    this.subscribe.apprenant = this.guest;
+    console.log("subscribe", this.subscribe);
+    this.homeService.subscribeLerner(this.subscribe).subscribe((data:any)=>{
+      console.log("inscription.... OK", data);  
+    });
+  }
+
+  getApprenantByModuleSubs(){
+    this.homeService.getApprenantByModuleSubs(this.subscribe).subscribe((data:any)=>{
+      console.log("check if user's connected!", data);
+      
+    });
 
   }
 

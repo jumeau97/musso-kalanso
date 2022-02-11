@@ -19,11 +19,27 @@ public class InscriptionService {
         Inscription nSubscribe = new Inscription();
         nSubscribe.setApprenant(subscribeLearner.getApprenant());
         nSubscribe.setModule(subscribeLearner.getModule());
-        //nSubscribe.getDateInsc(new Date());
+        nSubscribe.setDateInsc(new Date());
         inscriptionRepository.save(nSubscribe);
         return Response.success("enregistrer avec succès");
 
+    }
 
+    //find learner by module
+    public Response getApprenantByModuleSubs(SubscribeLearner subscribeLearner){
+        Inscription ins = inscriptionRepository.findInscriptionByApprenantAndModule(subscribeLearner.getApprenant(),
+                subscribeLearner.getModule());
 
+        try{
+            if(ins == null){
+               return Response.error("vous n'êtes pas inscrit sur ce module");
+            }
+
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.success("vous êtes dejà inscrit sur ce module");
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface ApprenantRepository extends JpaRepository<Apprenant, Long> {
 
-   //
+    Apprenant findApprenantByEmailAndMotDePasse(String email, String motDePasse);
 }

@@ -5,8 +5,10 @@ import com.example.mussokalanso.mussokalansoBack.Module.Module;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
+import java.sql.Timestamp;
 import java.util.Date;
 
 
@@ -19,7 +21,7 @@ public class Inscription {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     private long id;
-
+    @Temporal(TemporalType.DATE)
     private Date dateInsc;
     @ManyToOne
     private Apprenant apprenant;

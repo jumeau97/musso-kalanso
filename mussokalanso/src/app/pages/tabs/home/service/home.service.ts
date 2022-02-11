@@ -23,4 +23,14 @@ host=environment.host;
   getDetailsModuleById(id:any){
    return this.http.get(this.host+"/module/"+id);
   }
+
+  //get subscribe learner
+  subscribeLerner(data:any){
+    return this.http.post(this.host+"/subscribe", data);
+  }
+
+  // get apprenant by module subscribe
+  getApprenantByModuleSubs(data:any){
+    return this.http.post(this.host+"/get/subscribe",data);
+  }
 }

@@ -2,8 +2,8 @@ package com.example.mussokalanso.mussokalansoBack.payload;
 
 public class Auth {
 
-    private String email;
-    private String motDePasse;
+    public String email;
+    public String motDePasse;
 
     public String getEmail() {
         return email;
