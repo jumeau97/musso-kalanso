@@ -25,7 +25,7 @@ public class ChapitreService {
         return Response.with("",chp);
     }
 
-    //insert new chapiter
+    //insert new chapitre
     public Response saveChapitre(Chapitre chapitre){
         try{
             chapitreRepository.save(chapitre);
@@ -36,7 +36,7 @@ public class ChapitreService {
         return Response.success("insertion reussie");
     }
 
-    //update chapiter
+    //update chapitre
     public  Response updateChapitre(Chapitre chapitre, Long id){
 
         try{
@@ -53,7 +53,7 @@ public class ChapitreService {
         return Response.success("modification reussie");
     }
 
-    //supprimer chapiter
+    //supprimer chapitre
     public  Response supprimerChapitre(Chapitre chapitre, Long id){
 
         try{

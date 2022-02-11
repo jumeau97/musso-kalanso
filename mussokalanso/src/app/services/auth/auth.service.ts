@@ -10,7 +10,7 @@ host=environment.host;
   constructor(private http: HttpClient) { }
 
 login(user:any){
-  return this.http.post(this.host+"/login", user);
+  return this.http.post(this.host+"/learn/login", user);
 }
   
 }

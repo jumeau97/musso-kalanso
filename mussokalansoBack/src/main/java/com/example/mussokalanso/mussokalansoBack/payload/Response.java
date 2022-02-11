@@ -3,7 +3,7 @@ package com.example.mussokalanso.mussokalansoBack.payload;
 public class Response {
     public String status= null;
     public String msg= null;
-    public Object body= null;
+    public Object body=null;
 
     public Response(String status, String msg) {
         this.status = status;
