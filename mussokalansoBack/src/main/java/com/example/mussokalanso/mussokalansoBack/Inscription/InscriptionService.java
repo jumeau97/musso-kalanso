@@ -1,6 +1,5 @@
 package com.example.mussokalanso.mussokalansoBack.Inscription;
 
-import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import com.example.mussokalanso.mussokalansoBack.payload.SubscribeLearner;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +25,8 @@ public class InscriptionService {
     }
 
     //find learner by module
-    public Response getApprenantByModuleSubs(SubscribeLearner subscribeLearner){
-        Inscription ins = inscriptionRepository.findInscriptionByApprenantAndModule(subscribeLearner.getApprenant(),
-                subscribeLearner.getModule());
+    public Response getApprenantByModuleSubs(Long id, Long idm){
+        Inscription ins = inscriptionRepository.getInscriptionByApprenantAndModule(id, idm);
 
         try{
             if(ins == null){
