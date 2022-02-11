@@ -1,20 +1,42 @@
 <div class="container-scroller">
-    <!-- side-menu -->
-    <app-side-menu></app-side-menu>
-    <!-- ===================== -->
-      <div class="container-fluid page-body-wrapper">
-    <!-- ----------------top-bar--------------- -->
-    <app-top-bar></app-top-bar>
-    <!-- -------------------------------------- -->
-        <div class="main-panel">
-          <div class="content-wrapper pb-0">
-            <p>list module!</p>
-          </div>
-          <!-- ----------footer-------------- -->
-    <app-footer></app-footer>
-          <!-- ---------footer--------------- -->
+  <!-- side-menu -->
+  <app-side-menu></app-side-menu>
+  <!-- ===================== -->
+    <div class="container-fluid page-body-wrapper">
+  <!-- ----------------top-bar--------------- -->
+  <app-top-bar></app-top-bar>
+  <!-- -------------------------------------- -->
+      <div class="main-panel">
+        <div class="content-wrapper pb-0">
+          <div class="page-header flex-wrap">
+              <h3 class="mb-0"> Hi, welcome back! <span class="pl-0 h6 pl-sm-2 text-muted d-inline-block">Your web analytics dashboard template.</span>
+              </h3>
+            </div>
+        
+            <p-table>
+              <ng-template pTemplate="header">
+                  <tr>
+                      <th>Code</th>
+                      <th>Name</th>
+                      <th>Category</th>
+                      <th>Quantity</th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                  <tr>
+                      <td>{{product.code}}</td>
+                      <td>{{product.name}}</td>
+                      <td>{{product.category}}</td>
+                      <td>{{product.quantity}}</td>
+                  </tr>
+              </ng-template>
+          </p-table>
         </div>
-        <!-- main-panel ends -->
+        <!-- ----------footer-------------- -->
+  <app-footer></app-footer>
+        <!-- ---------footer--------------- -->
       </div>
-      <!-- page-body-wrapper ends -->
+      <!-- main-panel ends -->
     </div>
+    <!-- page-body-wrapper ends -->
+  </div>

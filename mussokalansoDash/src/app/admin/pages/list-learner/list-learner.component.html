@@ -1,20 +1,46 @@
 <div class="container-scroller">
-    <!-- side-menu -->
-    <app-side-menu></app-side-menu>
-    <!-- ===================== -->
-      <div class="container-fluid page-body-wrapper">
-    <!-- ----------------top-bar--------------- -->
-    <app-top-bar></app-top-bar>
-    <!-- -------------------------------------- -->
-        <div class="main-panel">
-          <div class="content-wrapper pb-0">
-            <p>list learner!</p>
-          </div>
-          <!-- ----------footer-------------- -->
-    <app-footer></app-footer>
-          <!-- ---------footer--------------- -->
+  <!-- side-menu -->
+  <app-side-menu></app-side-menu>
+  <!-- ===================== -->
+    <div class="container-fluid page-body-wrapper">
+  <!-- ----------------top-bar--------------- -->
+  <app-top-bar></app-top-bar>
+  <!-- -------------------------------------- -->
+      <div class="main-panel">
+        <div class="content-wrapper pb-0">
+          <div class="page-header flex-wrap">
+              <h3 class="mb-0"> La liste des Apprenants</h3>
+            </div>
+        
+            <p-table [value]="products">
+              <ng-template pTemplate="header">
+                  <tr>
+                      <th>N°</th>
+                      <th>Nom Prenom</th>
+                      <th>Adresse</th>
+                      <th>Téléphone</th>
+                      <th>Action</th>
+                  </tr>
+              </ng-template>
+              <ng-template pTemplate="body" let-product>
+                  <tr>
+                      <td>1</td>
+                      <td>Awa KEITA</td>
+                      <td>Hamdallaye</td>
+                      <td>65765434</td>
+                      <td>
+                        <button pButton pRipple  icon="pi pi-info" class="p-button-rounded p-button-info" (click)="detailsModule()"></button>
+                        <button pButton pRipple  icon="pi pi-times" class="p-button-rounded p-button-danger"></button>
+                      </td>
+                  </tr>
+              </ng-template>
+          </p-table>
         </div>
-        <!-- main-panel ends -->
+        <!-- ----------footer-------------- -->
+  <app-footer></app-footer>
+        <!-- ---------footer--------------- -->
       </div>
-      <!-- page-body-wrapper ends -->
+      <!-- main-panel ends -->
     </div>
+    <!-- page-body-wrapper ends -->
+  </div>
