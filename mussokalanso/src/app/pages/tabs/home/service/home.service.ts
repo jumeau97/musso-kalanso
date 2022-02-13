@@ -30,7 +30,7 @@ host=environment.host;
   }
 
   // get apprenant by module subscribe
-  getApprenantByModuleSubs(data:any){
-    return this.http.post(this.host+"/get/subscribe",data);
+  getApprenantByModuleSubs(id, idm){
+    return this.http.get(this.host+"/get/subscribe/"+id+"/"+idm);
   }
 }

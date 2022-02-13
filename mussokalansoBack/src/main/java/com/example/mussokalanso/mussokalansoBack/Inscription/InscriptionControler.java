@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
+
 @CrossOrigin
 @RestController
 @RequestMapping(path = "api/mussokalanso")
@@ -22,9 +24,12 @@ public class InscriptionControler {
     }
 
     //check if your subscribe on this module
-    @PostMapping("/get/subscribe")
-    public @ResponseBody ResponseEntity<?> getApprenantByModuleSubs(SubscribeLearner subscribeLearner){
-        return new ResponseEntity<>(inscriptionService.getApprenantByModuleSubs(subscribeLearner), HttpStatus.OK);
+    @GetMapping("/get/subscribe/{id}/{idm}")
+    public @ResponseBody ResponseEntity<?> getApprenantByModuleSubs(
+            @PathVariable(value = "id") Long id,
+            @PathVariable(value = "idm") Long idm
+    ){
+        return new ResponseEntity<>(inscriptionService.getApprenantByModuleSubs(id, idm), HttpStatus.OK);
     }
 
 
