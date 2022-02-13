@@ -22,6 +22,8 @@ import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { HttpClientModule} from '@angular/common/http';
+import { InputTextModule } from 'primeng/inputtext';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -50,6 +52,9 @@ import { HttpClientModule} from '@angular/common/http';
     ButtonModule,
     TableModule,
     HttpClientModule,
+    InputTextModule,
+    ReactiveFormsModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent],
