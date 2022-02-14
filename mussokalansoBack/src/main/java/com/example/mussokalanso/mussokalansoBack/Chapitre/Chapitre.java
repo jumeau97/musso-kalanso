@@ -1,13 +1,11 @@
 package com.example.mussokalanso.mussokalansoBack.Chapitre;
 
+import com.example.mussokalanso.mussokalansoBack.Module.Module;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 @AllArgsConstructor
@@ -23,6 +21,18 @@ public class Chapitre {
     private String description;
     private String doc1;
     private String doc2;
+
+    @ManyToOne
+    private Module module;
+
+
+    public Module getModule() {
+        return module;
+    }
+
+    public void setModule(Module module) {
+        this.module = module;
+    }
 
     public long getId() {
         return id;

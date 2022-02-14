@@ -1,12 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Product } from './Product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-
+host=environment.host;
   productNames: string[] = [
     "Bamboo Watch", 
     "Black Watch", 
@@ -46,5 +47,9 @@ export class ProductService {
     .toPromise()
     .then(res => <Product[]>res.data)
     .then(data => { return data; });
+}
+
+findAllLearner(){
+  return this.http.get(this.host+"learn/all/learner");
 }
 }

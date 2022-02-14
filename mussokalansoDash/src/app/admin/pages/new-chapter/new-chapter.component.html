@@ -1,20 +1,59 @@
-<div class="container-scroller">
-    <!-- side-menu -->
-    <app-side-menu></app-side-menu>
-    <!-- ===================== -->
-      <div class="container-fluid page-body-wrapper">
-    <!-- ----------------top-bar--------------- -->
-    <app-top-bar></app-top-bar>
-    <!-- -------------------------------------- -->
-        <div class="main-panel">
-          <div class="content-wrapper pb-0">
-            <p>new chapter</p>
+<div class="col-12 grid-margin">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Renseignez les champs</h4>
+      <form class="form-sample" [formGroup]="formChap" (ngSubmit)="saveChapter()">
+        <!-- <p class="card-description">Personal info</p> -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Libelle</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="libelle" formControlName="libelle" />
+              </div>
+            </div>
           </div>
-          <!-- ----------footer-------------- -->
-    <app-footer></app-footer>
-          <!-- ---------footer--------------- -->
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">lien video</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" name="video" formControlName="video" />
+              </div>
+            </div>
+          </div>
         </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Fichier 1</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Fichier 2</label>
+              <div class="col-sm-9">
+                <input type="text" class="form-control" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Description</label>
+              <div class="col-sm-9">
+                <textarea class="form-control" name="" id="" rows="5" name="description" 
+                formControlName="description">
+              </textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary mr-2"> Enregistrer </button>
+      </form>
     </div>
+  </div>
+</div>
