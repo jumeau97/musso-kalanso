@@ -30,7 +30,7 @@
                         <th>Quantity</th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-product>
+                <ng-template pTemplate="body" let-product of listCategorie>
                     <tr>
                         <td>{{product.code}}</td>
                         <td>{{product.name}}</td>

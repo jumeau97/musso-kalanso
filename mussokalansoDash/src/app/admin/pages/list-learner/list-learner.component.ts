@@ -35,5 +35,6 @@ export class ListLearnerComponent implements OnInit {
   console.log("bonkour");
   
   }
+  
 
 }

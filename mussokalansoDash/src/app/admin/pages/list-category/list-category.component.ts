@@ -15,10 +15,13 @@ export class ListCategoryComponent implements OnInit {
 
   products!: Product[];
   ref!: DynamicDialogRef;
+  http: any;
+  listCategorie: any;
   constructor(
     public dialogService: DialogService,
      public messageService: MessageService,
-     public productService: ProductService
+     public productService: ProductService,
+     public service: ProductService
     ) { }
 
   ngOnInit(): void {
@@ -35,5 +38,7 @@ export class ListCategoryComponent implements OnInit {
     });
 
   }
+
+  
 
 }
