@@ -73,6 +73,19 @@ public class ModuleService {
         return Response.success("Enregistrer avec succès");
     }
 
+    //find all module
+    public Response findAllModule(){
+        List<Module> listModule = new ArrayList<>();
+
+        try {
+            listModule = moduleRepository.findAll();
+        }catch(Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("Une erreur est survenue");
+        }
+        return Response.with("la liste des modules", listModule);
+    }
+
 
 
 

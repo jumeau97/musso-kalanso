@@ -54,7 +54,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     InputTextModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
