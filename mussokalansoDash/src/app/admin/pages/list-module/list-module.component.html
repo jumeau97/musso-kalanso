@@ -21,21 +21,26 @@
               </div>
             </div>
         
-            <p-table>
+            <p-table [value]="listModule">
               <ng-template pTemplate="header">
                   <tr>
-                      <th>Code</th>
-                      <th>Name</th>
-                      <th>Category</th>
-                      <th>Quantity</th>
-                  </tr>
+                      <th>libelle</th>
+                      <th>description</th>
+                      <th>Catégorie</th>
+                      <th>Action</th>
+                       </tr>
               </ng-template>
-              <ng-template pTemplate="body" let-product>
+              <ng-template pTemplate="body" let-module>
                   <tr>
-                      <td>{{product.code}}</td>
-                      <td>{{product.name}}</td>
-                      <td>{{product.category}}</td>
-                      <td>{{product.quantity}}</td>
+                      <td>{{module.libelle}}</td>
+                      <td>{{module.description}}</td>
+                      <td>{{module.categorie.libelle}}</td>
+                      <td>
+                        <button pButton pRipple type="button" icon="pi pi-plus-circle"
+                         class="p-button-rounded p-button-info" (click)="addChapter(module)"
+                         ></button>
+                        <button pButton pRipple type="button" icon="pi pi-info" class="p-button-rounded p-button-info"></button>
+                      </td>
                   </tr>
               </ng-template>
           </p-table>

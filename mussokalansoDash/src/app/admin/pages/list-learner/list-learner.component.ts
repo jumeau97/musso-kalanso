@@ -14,15 +14,17 @@ import { NewCategorieComponent } from '../new-categorie/new-categorie.component'
 export class ListLearnerComponent implements OnInit {
   ref!:DynamicDialogRef;
   products!:Product[];
+  listLearn: any;
   constructor(
     private productService: ProductService,
     private dialogService:DialogService,
-    ) { 
-      
-    }
+    ) 
+    {
+      this.findAllLearn();
+     }
 
   ngOnInit(): void {
-    this.productService.getProductsSmall().then(data => this.products = data);
+    // this.productService.getProductsSmall().then(data => this.products = data);
   }
 
 
@@ -37,6 +39,16 @@ export class ListLearnerComponent implements OnInit {
   console.log("bonkour");
   
   }
+  
+
+  findAllLearn(){
+    this.productService.findAllLearner().subscribe((data:any)=>{
+      console.log("la liste des apprenants", data);
+      this.listLearn=data.body;
+      
+    })
+  }
+
   
 
 }

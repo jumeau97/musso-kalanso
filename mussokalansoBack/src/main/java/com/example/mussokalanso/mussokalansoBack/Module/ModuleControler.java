@@ -41,4 +41,10 @@ public class ModuleControler {
     ResponseEntity<?> saveModule(@RequestBody Module module){
         return new ResponseEntity<>(moduleService.saveModule(module), HttpStatus.OK);
     }
+    
+    //all module
+    @GetMapping("/all/module")
+    public @ResponseBody ResponseEntity<?> findAllModule(){
+        return new ResponseEntity<>(moduleService.findAllModule(), HttpStatus.OK);
+    }
 }

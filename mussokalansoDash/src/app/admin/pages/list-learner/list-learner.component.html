@@ -10,27 +10,26 @@
         <div class="content-wrapper pb-0">
           <div class="page-header flex-wrap">
               <h3 class="mb-0"> La liste des Apprenants</h3>
-            </div>
-            
-            <p-table [value]="products">
+            </div>       
+            <p-table [value]="listLearn">
               <ng-template pTemplate="header">
                   <tr>
-                      <th>N°</th>
+                      <!-- <th>N°</th> -->
                       <th>Nom Prenom</th>
                       <th>Adresse</th>
                       <th>Téléphone</th>
                       <th>Action</th>
                   </tr>
               </ng-template>
-              <ng-template pTemplate="body" let-product>
+              <ng-template pTemplate="body" let-learn>
                   <tr>
-                      <td>1</td>
-                      <td>Awa KEITA</td>
-                      <td>Hamdallaye</td>
-                      <td>65765434</td>
+                      <!-- <td>1</td> -->
+                      <td>{{learn.nom_prenom}}</td>
+                      <td>{{learn.adresse}}</td>
+                      <td>{{learn.tel}}</td>
                       <td>
                         <button pButton pRipple  icon="pi pi-info" class="p-button-rounded p-button-info" (click)="detailsModule()"></button>
-                        <button pButton pRipple  icon="pi pi-times" class="p-button-rounded p-button-danger"></button>
+                        <button pButton pRipple  icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
                       </td>
                   </tr>
               </ng-template>

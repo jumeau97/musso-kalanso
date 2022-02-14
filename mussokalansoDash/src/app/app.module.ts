@@ -59,6 +59,7 @@ import { ListModuleByCategComponent } from './list-module-by-categ/list-module-b
     ReactiveFormsModule,
     ToastModule,
     // DynamicDialogConfig
+
   ],
   providers: [],
   bootstrap: [AppComponent],

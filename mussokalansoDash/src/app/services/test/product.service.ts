@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Host, Injectable } from '@angular/core';
+
+import { Injectable } from '@angular/core';
+
 import { environment } from 'src/environments/environment';
 import { Product } from './Product';
 
@@ -50,9 +52,15 @@ export class ProductService {
     .then(data => { return data; });
 }
 
+
  //list module by category
  findAllModuleByCateg(data:any){
   return this.http.post(this.host+"categorie/modules", data);
+}
+
+
+findAllLearner(){
+  return this.http.get(this.host+"learn/all/learner");
 }
 
 }

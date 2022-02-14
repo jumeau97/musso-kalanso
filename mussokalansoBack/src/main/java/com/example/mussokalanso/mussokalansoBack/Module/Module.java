@@ -2,6 +2,7 @@ package com.example.mussokalanso.mussokalansoBack.Module;
 
 import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import com.example.mussokalanso.mussokalansoBack.Inscription.Inscription;
+import com.example.mussokalanso.mussokalansoBack.Utilisateur.Utilisateur;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,14 +22,27 @@ public class Module {
     @ManyToOne
     private Categorie categorie;
 
+    @ManyToOne
+    private Utilisateur utilisateur;
+
     public Module() {
     }
 
-    public Module(String libelle, String description, boolean etat, Categorie categorie) {
+    public Module(long id, String libelle, String description, boolean etat, Categorie categorie, Utilisateur utilisateur) {
+        this.id = id;
         this.libelle = libelle;
         this.description = description;
         this.etat = etat;
         this.categorie = categorie;
+        this.utilisateur = utilisateur;
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 
     public long getId() {
