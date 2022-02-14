@@ -5,10 +5,12 @@ import { ListCategoryComponent } from './admin/pages/list-category/list-category
 import { ListChapterComponent } from './admin/pages/list-chapter/list-chapter.component';
 import { ListLearnerComponent } from './admin/pages/list-learner/list-learner.component';
 import { ListModuleComponent } from './admin/pages/list-module/list-module.component';
+import { ListUserComponent } from './admin/pages/list-user/list-user.component';
 import { ManageLearnerComponent } from './admin/pages/manage-learner/manage-learner.component';
 import { NewCategorieComponent } from './admin/pages/new-categorie/new-categorie.component';
 import { NewChapterComponent } from './admin/pages/new-chapter/new-chapter.component';
 import { NewModuleComponent } from './admin/pages/new-module/new-module.component';
+import { NewUserComponent } from './admin/pages/new-user/new-user.component';
 
 const routes: Routes = [
   {
@@ -46,6 +48,14 @@ const routes: Routes = [
   {
     path:"manage/learner",
     component:ManageLearnerComponent
+  },
+  {
+    path:"new/user",
+    component:NewUserComponent
+  },
+  {
+    path:"list/user",
+    component:ListUserComponent
   }
 ];
 
