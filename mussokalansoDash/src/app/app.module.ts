@@ -25,6 +25,8 @@ import { HttpClientModule} from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ListModuleByCategComponent } from './list-module-by-categ/list-module-by-categ.component';
+import { NewUserComponent } from './admin/pages/new-user/new-user.component';
+import { ListUserComponent } from './admin/pages/list-user/list-user.component';
 
 
 @NgModule({
@@ -43,6 +45,8 @@ import { ListModuleByCategComponent } from './list-module-by-categ/list-module-b
     ManageLearnerComponent,
     ListLearnerComponent,
     ListModuleByCategComponent,
+    NewUserComponent,
+    ListUserComponent,
     
   ],
   imports: [
