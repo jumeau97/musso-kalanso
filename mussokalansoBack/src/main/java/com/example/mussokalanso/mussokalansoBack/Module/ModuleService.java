@@ -59,6 +59,20 @@ public class ModuleService {
         return Response.with("module retourné avec succès", m);
     }
 
+    //save a new module
+    public Response saveModule(Module module){
+        module.setEtat(false);
+
+        try{
+            moduleRepository.save(module);
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une ereeur est survenue");
+        }
+
+        return Response.success("Enregistrer avec succès");
+    }
+
 
 
 

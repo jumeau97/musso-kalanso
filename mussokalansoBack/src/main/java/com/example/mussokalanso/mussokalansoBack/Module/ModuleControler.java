@@ -34,4 +34,11 @@ public class ModuleControler {
     ResponseEntity<?> togetByIdModule(@PathVariable(value = "id") Long id){
         return new ResponseEntity<>(moduleService.togetByIdModule(id), HttpStatus.OK);
     }
+
+    //save new module
+    @PostMapping("save/module")
+    public @ResponseBody
+    ResponseEntity<?> saveModule(@RequestBody Module module){
+        return new ResponseEntity<>(moduleService.saveModule(module), HttpStatus.OK);
+    }
 }
