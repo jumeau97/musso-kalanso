@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
+
 import { Injectable } from '@angular/core';
+
 import { environment } from 'src/environments/environment';
 import { Product } from './Product';
 
@@ -7,7 +9,8 @@ import { Product } from './Product';
   providedIn: 'root'
 })
 export class ProductService {
-host=environment.host;
+  host=environment.host;
+
   productNames: string[] = [
     "Bamboo Watch", 
     "Black Watch", 
@@ -49,7 +52,15 @@ host=environment.host;
     .then(data => { return data; });
 }
 
+
+ //list module by category
+ findAllModuleByCateg(data:any){
+  return this.http.post(this.host+"categorie/modules", data);
+}
+
+
 findAllLearner(){
   return this.http.get(this.host+"learn/all/learner");
 }
+
 }

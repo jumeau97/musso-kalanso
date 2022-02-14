@@ -39,6 +39,7 @@ export class ListLearnerComponent implements OnInit {
   console.log("bonkour");
   
   }
+  
 
   findAllLearn(){
     this.productService.findAllLearner().subscribe((data:any)=>{
