@@ -17,7 +17,9 @@ export class ListLearnerComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private dialogService:DialogService,
-    ) { }
+    ) { 
+      
+    }
 
   ngOnInit(): void {
     this.productService.getProductsSmall().then(data => this.products = data);

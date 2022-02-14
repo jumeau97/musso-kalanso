@@ -1,11 +1,13 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Host, Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { Product } from './Product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
+  host=environment.host;
 
   productNames: string[] = [
     "Bamboo Watch", 
@@ -47,4 +49,10 @@ export class ProductService {
     .then(res => <Product[]>res.data)
     .then(data => { return data; });
 }
+
+ //list module by category
+ findAllModuleByCateg(data:any){
+  return this.http.post(this.host+"categorie/modules", data);
+}
+
 }

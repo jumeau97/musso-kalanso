@@ -15,7 +15,7 @@ import { NewChapterComponent } from './admin/pages/new-chapter/new-chapter.compo
 import { ListChapterComponent } from './admin/pages/list-chapter/list-chapter.component';
 import { ManageLearnerComponent } from './admin/pages/manage-learner/manage-learner.component';
 import { ListLearnerComponent } from './admin/pages/list-learner/list-learner.component';
- import { DynamicDialogModule } from 'primeng/dynamicdialog';
+ import { DynamicDialogConfig, DynamicDialogModule } from 'primeng/dynamicdialog';
  import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
@@ -24,6 +24,7 @@ import { TableModule } from 'primeng/table';
 import { HttpClientModule} from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ListModuleByCategComponent } from './list-module-by-categ/list-module-by-categ.component';
 
 
 @NgModule({
@@ -40,7 +41,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewChapterComponent,
     ListChapterComponent,
     ManageLearnerComponent,
-    ListLearnerComponent
+    ListLearnerComponent,
+    ListModuleByCategComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     InputTextModule,
     ReactiveFormsModule,
-    ToastModule
+    ToastModule,
+    // DynamicDialogConfig
   ],
   providers: [],
   bootstrap: [AppComponent],
