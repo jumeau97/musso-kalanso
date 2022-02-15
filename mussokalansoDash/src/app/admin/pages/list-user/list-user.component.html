@@ -27,18 +27,24 @@
       <div class="content-wrapper pb-0">
         <div class="page-header flex-wrap">
             <h3 class="mb-0"> La liste des utilisateurs</h3>
-          </div> 
-          <span class="p-input-icon-left">
-            <i class="pi pi-search"></i>
-            <input pInputText type="text" placeholder="Recherche" />
-        </span>      
-          <p-table [value]="listUser">
+          </div>     
+          <p-table #dt [value]="listUser" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+          currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[10,25,50]" 
+          [globalFilterFields]="['nom_prenom','adresse','tel']">
+          <ng-template pTemplate="caption">
+            <div class="flex">
+                <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="filterGlobal($event, 'contains')" placeholder="Recherche" />
+                </span>
+            </div>
+        </ng-template>
             <ng-template pTemplate="header">
                 <tr>
                     <!-- <th>N°</th> -->
-                    <th>Nom Prenom</th>
-                    <th>Adresse</th>
-                    <th>Téléphone</th>
+                    <th pSortableColumn="nomPrenom">Nom Prenom <p-sortIcon field="nomPrenom"></p-sortIcon></th>
+                    <th pSortableColumn="adresse">Adresse <p-sortIcon field="adresse"></p-sortIcon></th>
+                    <th pSortableColumn="tel">Téléphone <p-sortIcon field="tel"></p-sortIcon></th>
                     <th>Action</th>
                 </tr>
             </ng-template>
@@ -49,8 +55,8 @@
                     <td>{{user.adresse}}</td>
                     <td>{{user.tel}}</td>
                     <td>
-                      <button pButton pRipple  icon="pi pi-info" class="p-button-rounded p-button-success"></button>
-                      <button pButton pRipple  icon="pi pi-pencil" class="p-button-rounded p-button-info"></button>
+                      <button pButton pRipple  icon="pi pi-info" (click)="show()" class="p-button-rounded p-button-success"></button>
+                      <button pButton pRipple  icon="pi pi-pencil" routerLink="/update/utilisateur" class="p-button-rounded p-button-info"></button>
                       <button pButton pRipple  icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
                     </td>
                 </tr>

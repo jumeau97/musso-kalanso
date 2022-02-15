@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Table } from 'primeng/table';
 import { ModuleService } from 'src/app/services/module/module.service';
 import { NewChapterComponent } from '../new-chapter/new-chapter.component';
 import { NewModuleComponent } from '../new-module/new-module.component';
@@ -14,6 +15,8 @@ export class ListModuleComponent implements OnInit {
 
   ref!:DynamicDialogRef
   listModule: any;
+  @ViewChild('dt') dt: Table | undefined;
+
   constructor(private dialogService:DialogService, private moduleService:ModuleService) 
   { 
     this.findAllModule();
@@ -37,6 +40,10 @@ export class ListModuleComponent implements OnInit {
       contentStyle: {"max-height": "500px", "overflow": "auto"},
       baseZIndex: 10000
   });
+  }
+
+  filterGlobal($event:any, stringVal:any) {
+    this.dt!.filterGlobal(($event.target as HTMLInputElement).value, 'contains');
   }
 
 

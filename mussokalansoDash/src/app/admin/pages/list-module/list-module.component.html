@@ -20,18 +20,22 @@
 
               </div>
             </div>
-
-            <span class="p-input-icon-left">
-              <i class="pi pi-search"></i>
-              <input pInputText type="text" placeholder="Recherche" />
-          </span> 
-
-            <p-table [value]="listModule">
+            <p-table #dt [value]="listModule" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+            currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[10,25,50]" 
+            [globalFilterFields]="['libelle','categorie']">
+            <ng-template pTemplate="caption">
+              <div class="flex">
+                  <span class="p-input-icon-left ml-auto">
+                      <i class="pi pi-search"></i>
+                      <input pInputText type="text" (input)="filterGlobal($event, 'contains')" placeholder="Recherche" />
+                  </span>
+              </div>
+          </ng-template>
               <ng-template pTemplate="header">
                   <tr>
-                      <th>libelle</th>
+                      <th pSortableColumn="libelle">libelle</th>
                       <th>description</th>
-                      <th>Catégorie</th>
+                      <th pSortableColumn="categorie">Catégorie</th>
                       <th>Action</th>
                        </tr>
               </ng-template>
@@ -44,7 +48,7 @@
                         <button pButton pRipple type="button" icon="pi pi-plus-circle"
                          class="p-button-rounded p-button-primary" (click)="addChapter(module)"
                          ></button>
-                         <button pButton pRipple  icon="pi pi-pencil" class="p-button-rounded p-button-info"></button>
+                         <button pButton pRipple  icon="pi pi-pencil" class="p-button-rounded p-button-info" routerLink="/update/module"></button>
                         <button pButton pRipple type="button" icon="pi pi-info" class="p-button-rounded p-button-info" routerLink="/detail/module"></button>
                       </td>
                   </tr>

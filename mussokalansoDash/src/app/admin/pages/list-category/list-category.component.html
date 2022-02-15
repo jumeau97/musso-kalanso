@@ -17,16 +17,22 @@
                  <!-- <button type="button"  pButton icon="pi pi-info-circle" label="Show"></button> -->
 
                 </div>
-              </div>
-              <span class="p-input-icon-left">
-                <i class="pi pi-search"></i>
-                <input pInputText type="text" placeholder="Recherche" />
-            </span> 
+              </div> 
           
-              <p-table [value]="listCategorie">
+              <p-table #dt [value]="listCategorie" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+              currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[10,25,50]" 
+              [globalFilterFields]="['libelle']">*
+              <ng-template pTemplate="caption">
+                <div class="flex">
+                    <span class="p-input-icon-left ml-auto">
+                        <i class="pi pi-search"></i>
+                        <input pInputText type="text" (input)="filterGlobal($event, 'contains')" placeholder="Recherche" />
+                    </span>
+                </div>
+            </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th>Libelle</th>
+                        <th pSortableColumn="libelle">Libelle</th>
                         <th>Etat</th>
                         <th>Action</th>
                        

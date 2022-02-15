@@ -12,6 +12,10 @@ import { NewCategorieComponent } from './admin/pages/new-categorie/new-categorie
 import { NewChapterComponent } from './admin/pages/new-chapter/new-chapter.component';
 import { NewModuleComponent } from './admin/pages/new-module/new-module.component';
 import { NewUserComponent } from './admin/pages/new-user/new-user.component';
+import { UpdateCategorieComponent } from './admin/update-categorie/update-categorie.component';
+import { UpdateChapitreComponent } from './admin/update-chapitre/update-chapitre.component';
+import { UpdateModuleComponent } from './admin/update-module/update-module.component';
+import { UpdateUtilisateurComponent } from './admin/update-utilisateur/update-utilisateur.component';
 import { ListModuleByCategComponent } from './list-module-by-categ/list-module-by-categ.component';
 
 const routes: Routes = [
@@ -66,7 +70,24 @@ const routes: Routes = [
   {
     path:"detail/module",
     component:DetailModuleComponent
+  },
+  {
+    path:"update/module",
+    component:UpdateModuleComponent
+  },
+  {
+    path:"update/chapitre",
+    component:UpdateChapitreComponent
+  },
+  {
+    path:"update/categorie",
+    component:UpdateCategorieComponent
+  },
+  {
+    path:"update/utilisateur",
+    component:UpdateUtilisateurComponent
   }
+
 ];
 
 @NgModule({
