@@ -12,10 +12,7 @@
               <h3 class="mb-0"> La liste des Apprenants</h3>
             </div>  
             
-            <!-- <span class="p-input-icon-left">
-              <i class="pi pi-search"></i>
-              <input pInputText type="text" placeholder="Recherche" />
-          </span>  -->
+ 
             <p-table #dt [value]="listLearn" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
             currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[10,25,50]" 
             [globalFilterFields]="['nom_prenom','adresse','tel']">
@@ -23,7 +20,7 @@
               <div class="flex">
                   <span class="p-input-icon-left ml-auto">
                       <i class="pi pi-search"></i>
-                      <!-- <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" /> -->
+                      <input pInputText type="text" (input)="filterGlobal($event, 'contains')" placeholder="Recherche" />
                   </span>
               </div>
           </ng-template>
@@ -51,7 +48,7 @@
               </ng-template>
               <ng-template pTemplate="emptymessage">
                 <tr>
-                    <td colspan="8">No customers found.</td>
+                    <td colspan="8">Aucun élement trouvé.</td>
                 </tr>
             </ng-template>
               <ng-template pTemplate="paginatorleft">

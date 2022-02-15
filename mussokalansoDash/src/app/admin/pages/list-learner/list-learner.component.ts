@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Table } from 'primeng/table';
 import { Product } from 'src/app/services/test/Product';
 import { ProductService } from 'src/app/services/test/product.service';
 import { NewCategorieComponent } from '../new-categorie/new-categorie.component';
@@ -15,6 +16,7 @@ export class ListLearnerComponent implements OnInit {
   ref!:DynamicDialogRef;
   products!:Product[];
   listLearn: any;
+  @ViewChild('dt') dt: Table | undefined;
   constructor(
     private productService: ProductService,
     private dialogService:DialogService,
@@ -47,6 +49,10 @@ export class ListLearnerComponent implements OnInit {
       this.listLearn=data.body;
       
     })
+  }
+
+  filterGlobal($event:any, stringVal:any) {
+    this.dt!.filterGlobal(($event.target as HTMLInputElement).value, 'contains');
   }
 
   
