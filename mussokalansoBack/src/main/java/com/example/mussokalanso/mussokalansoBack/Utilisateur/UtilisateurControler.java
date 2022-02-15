@@ -21,10 +21,16 @@ public class UtilisateurControler {
         return new ResponseEntity<>(utilisateurService.login(auth), HttpStatus.OK);
     }
     
-    
+    //find all user
     @GetMapping(value="/utilisateurs")
     public @ResponseBody ResponseEntity<?> findAllUser(){
         return new ResponseEntity<>(utilisateurService.findAllUser(),HttpStatus.OK);
+    }
+
+    //save new user
+    @PostMapping("/save/utilisateur")
+    public @ResponseBody ResponseEntity<?> saveUser(Utilisateur utilisateur){
+        return new ResponseEntity<>(utilisateurService.saveUser(utilisateur), HttpStatus.OK);
     }
 
 }
