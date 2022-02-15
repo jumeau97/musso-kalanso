@@ -1,14 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { Utilisateur } from 'src/app/model/Utilisateur';
+import { UtilisateurService } from 'src/app/services/utilisateur/utilisateur.service';
 
 @Component({
   selector: 'app-new-user',
   templateUrl: './new-user.component.html',
-  styleUrls: ['./new-user.component.scss']
+  styleUrls: ['./new-user.component.scss'],
+  providers: [MessageService]
 })
 export class NewUserComponent implements OnInit {
-
-  constructor(private fb:FormBuilder) { }
+User: Utilisateur = new Utilisateur();
+  constructor(private fb:FormBuilder, private userService : UtilisateurService, private messageService : MessageService) { }
   formUser=this.fb.group({
   "nomPrenom" : new FormControl('', [Validators.required]),
   "genre" : new FormControl('', Validators.required),
@@ -25,8 +29,20 @@ export class NewUserComponent implements OnInit {
   }
 
   saveUser(){
-    console.log("save user", this.formUser.value);
+    this.User=this.formUser.value;
+    console.log("save user", this.User);
+    this.userService.saveUser(this.User).subscribe((data:any)=>{
+      console.log("save user", data);
+      this.messageService.add({severity:'success', summary: 'Utilisateur', detail: 'Enregistrer avec succès'});
+      
+    });
+
     
+  }
+
+    //reject method
+    onReject() {
+      this.messageService.clear('c');
   }
 
 }

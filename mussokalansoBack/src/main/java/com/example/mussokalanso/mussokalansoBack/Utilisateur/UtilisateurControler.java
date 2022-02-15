@@ -29,7 +29,7 @@ public class UtilisateurControler {
 
     //save new user
     @PostMapping("/save/utilisateur")
-    public @ResponseBody ResponseEntity<?> saveUser(Utilisateur utilisateur){
+    public @ResponseBody ResponseEntity<?> saveUser(@RequestBody Utilisateur utilisateur){
         return new ResponseEntity<>(utilisateurService.saveUser(utilisateur), HttpStatus.OK);
     }
 

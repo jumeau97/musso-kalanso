@@ -10,6 +10,6 @@ host = environment.host;
   constructor(private http : HttpClient) { }
 
   saveUser(data:any){
-    this.http.post(this.host+"save/utilisateur", data)
+  return  this.http.post(this.host+"save/utilisateur", data)
   }
 }
