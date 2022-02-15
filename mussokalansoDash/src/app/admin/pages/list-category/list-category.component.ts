@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Table } from 'primeng/table';
 import { ListModuleByCategComponent } from 'src/app/list-module-by-categ/list-module-by-categ.component';
 import { Categorie } from 'src/app/model/Categorie';
 import { CategoryService } from 'src/app/services/category/category.service';
@@ -22,6 +23,7 @@ export class ListCategoryComponent implements OnInit {
   config!:DynamicDialogConfig
   http: any;
   listCategorie: any;
+  @ViewChild('dt') dt: Table | undefined;
 
   constructor(
     public dialogService: DialogService,
@@ -76,6 +78,8 @@ export class ListCategoryComponent implements OnInit {
 
   }
 
-  
+  filterGlobal($event:any, stringVal:any) {
+    this.dt!.filterGlobal(($event.target as HTMLInputElement).value, 'contains');
+  }
 
 }
