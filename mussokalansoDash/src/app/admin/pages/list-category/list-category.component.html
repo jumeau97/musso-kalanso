@@ -11,7 +11,7 @@
             <div class="page-header flex-wrap">
                 <h3 class="mb-0">La liste des catégories</h3>
                 <div class="d-flex">
-                  <button type="button" (click)="show()" class="btn btn-sm ml-3 btn-success"> Nouvelle catégorie </button>
+                  <button type="button" (click)="show()" class="btn btn-sm ml-3 btn-info"> Nouvelle catégorie </button>
 
                   <!-- <p-toast></p-toast> -->
                  <!-- <button type="button"  pButton icon="pi pi-info-circle" label="Show"></button> -->
@@ -40,6 +40,7 @@
                         <td>
                           <button *ngIf="categorie.etat==1" pButton pRipple type="button" icon="pi pi-check-circle" class="p-button-rounded p-button-success"></button>
                           <button *ngIf="categorie.etat==0" pButton pRipple type="button" icon="pi pi-circle" class="p-button-rounded p-button-danger"></button>
+                          <button pButton pRipple  icon="pi pi-pencil" (click)="show2()" class="p-button-rounded p-button-info"></button>
                           <button pButton pRipple type="button" (click)="show1(categorie)" icon="pi pi-info-circle" class="p-button-rounded p-button-primary"></button>
                         </td>
                      

@@ -28,6 +28,10 @@ import { ListModuleByCategComponent } from './list-module-by-categ/list-module-b
 import { NewUserComponent } from './admin/pages/new-user/new-user.component';
 import { ListUserComponent } from './admin/pages/list-user/list-user.component';
 import { DetailUserComponent } from './detail-user/detail-user.component';
+import { UpdateModuleComponent } from './admin/update-module/update-module.component';
+import { UpdateCategorieComponent } from './admin/update-categorie/update-categorie.component';
+import { UpdateChapitreComponent } from './admin/update-chapitre/update-chapitre.component';
+import { UpdateUtilisateurComponent } from './admin/update-utilisateur/update-utilisateur.component';
 // import {NgxPaginationModule} from 'ngx-pagination';
 
 
@@ -50,6 +54,10 @@ import { DetailUserComponent } from './detail-user/detail-user.component';
     NewUserComponent,
     ListUserComponent,
     DetailUserComponent,
+    UpdateModuleComponent,
+    UpdateCategorieComponent,
+    UpdateChapitreComponent,
+    UpdateUtilisateurComponent,
     
   ],
   imports: [
