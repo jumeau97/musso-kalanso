@@ -30,7 +30,7 @@ export class ListLearnerComponent implements OnInit {
 
   detailsModule(){
     this.ref = this.dialogService.open(NewCategorieComponent, {
-      header: 'Choose a Product',
+      header: 'Nouveau apprenant',
       width: '70%',
       contentStyle: {"max-height": "500px", "overflow": "auto"},
       baseZIndex: 10000

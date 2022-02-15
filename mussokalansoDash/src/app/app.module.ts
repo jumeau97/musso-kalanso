@@ -28,6 +28,7 @@ import { ListModuleByCategComponent } from './list-module-by-categ/list-module-b
 import { NewUserComponent } from './admin/pages/new-user/new-user.component';
 import { ListUserComponent } from './admin/pages/list-user/list-user.component';
 import { DetailUserComponent } from './detail-user/detail-user.component';
+import { DetailModuleComponent } from './admin/pages/detail-module/detail-module.component';
 // import {NgxPaginationModule} from 'ngx-pagination';
 
 
@@ -50,6 +51,7 @@ import { DetailUserComponent } from './detail-user/detail-user.component';
     NewUserComponent,
     ListUserComponent,
     DetailUserComponent,
+    DetailModuleComponent
     
   ],
   imports: [

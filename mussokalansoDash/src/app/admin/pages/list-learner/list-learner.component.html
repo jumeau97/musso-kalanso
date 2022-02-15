@@ -12,17 +12,28 @@
               <h3 class="mb-0"> La liste des Apprenants</h3>
             </div>  
             
-            <span class="p-input-icon-left">
+            <!-- <span class="p-input-icon-left">
               <i class="pi pi-search"></i>
               <input pInputText type="text" placeholder="Recherche" />
-          </span> 
-            <p-table [value]="listLearn">
+          </span>  -->
+            <p-table #dt [value]="listLearn" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
+            currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[10,25,50]" 
+            [globalFilterFields]="['nom_prenom','adresse','tel']">
+            <ng-template pTemplate="caption">
+              <div class="flex">
+                  <span class="p-input-icon-left ml-auto">
+                      <i class="pi pi-search"></i>
+                      <!-- <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search keyword" /> -->
+                  </span>
+              </div>
+          </ng-template>
               <ng-template pTemplate="header">
                   <tr>
                       <!-- <th>N°</th> -->
-                      <th>Nom Prenom</th>
-                      <th>Adresse</th>
-                      <th>Téléphone</th>
+                      <th pSortableColumn="nom_prenom">Nom Prenom <p-sortIcon field="nomPrenom"></p-sortIcon></th>
+                      <th pSortableColumn="adresse">Adresse <p-sortIcon field="adresse"></p-sortIcon></th>
+                      <th pSortableColumn="tel">Téléphone <p-sortIcon field="tel"></p-sortIcon></th>
+                      <!-- <th>Nom Prenom</th> -->
                       <th>Action</th>
                   </tr>
               </ng-template>
@@ -38,6 +49,17 @@
                       </td>
                   </tr>
               </ng-template>
+              <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="8">No customers found.</td>
+                </tr>
+            </ng-template>
+              <ng-template pTemplate="paginatorleft">
+                <p-button type="button" styleClass="p-button-text"></p-button>
+            </ng-template>
+            <ng-template pTemplate="paginatorright">
+                <p-button type="button"  styleClass="p-button-text"></p-button>
+            </ng-template>
           </p-table>
         </div>
         <!-- ----------footer-------------- -->
