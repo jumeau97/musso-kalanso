@@ -15,8 +15,8 @@ import { NewChapterComponent } from './admin/pages/new-chapter/new-chapter.compo
 import { ListChapterComponent } from './admin/pages/list-chapter/list-chapter.component';
 import { ManageLearnerComponent } from './admin/pages/manage-learner/manage-learner.component';
 import { ListLearnerComponent } from './admin/pages/list-learner/list-learner.component';
- import { DynamicDialogConfig, DynamicDialogModule } from 'primeng/dynamicdialog';
- import { DialogModule } from 'primeng/dialog';
+import { DynamicDialogConfig, DynamicDialogModule } from 'primeng/dynamicdialog';
+import { DialogModule } from 'primeng/dialog';
 import { ToastModule } from 'primeng/toast';
 import { ButtonModule } from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -27,6 +27,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ListModuleByCategComponent } from './list-module-by-categ/list-module-by-categ.component';
 import { NewUserComponent } from './admin/pages/new-user/new-user.component';
 import { ListUserComponent } from './admin/pages/list-user/list-user.component';
+import { DetailUserComponent } from './detail-user/detail-user.component';
+// import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -47,6 +49,7 @@ import { ListUserComponent } from './admin/pages/list-user/list-user.component';
     ListModuleByCategComponent,
     NewUserComponent,
     ListUserComponent,
+    DetailUserComponent,
     
   ],
   imports: [
@@ -62,6 +65,7 @@ import { ListUserComponent } from './admin/pages/list-user/list-user.component';
     InputTextModule,
     ReactiveFormsModule,
     ToastModule,
+    // NgxPaginationModule,
     // DynamicDialogConfig
 
   ],

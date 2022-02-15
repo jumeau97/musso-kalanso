@@ -58,9 +58,14 @@ export class ProductService {
   return this.http.post(this.host+"categorie/modules", data);
 }
 
-
+// find all learner
 findAllLearner(){
   return this.http.get(this.host+"learn/all/learner");
+}
+
+// find all users
+findAllUser(){
+  return this.http.get(this.host+"utilisateurs");
 }
 
 }
