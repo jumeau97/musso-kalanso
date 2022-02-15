@@ -27,8 +27,20 @@ public class ChapitreService {
 
     //insert new chapitre
     public Response saveChapitre(Chapitre chapitre){
+        Chapitre lastChap = chapitreRepository.getTopByOrderByNumChapitreDesc();
+
         try{
+            if(lastChap == null){
+                chapitre.setNumChapitre(1);
+
+
+            }else{
+                
+                chapitre.setNumChapitre(lastChap.getNumChapitre()+1);
+            }
+
             chapitreRepository.save(chapitre);
+
         }catch(Exception e){
             e.printStackTrace(System.out);
             return Response.error("une erreur est survenue");
@@ -66,6 +78,21 @@ public class ChapitreService {
             return Response.error("une erreur est survenue");
         }
 
+    }
+
+    //get all chapter by module
+    public Response getChaptersByModule(Module module){
+        List<Chapitre> listChapter = new ArrayList<>();
+
+
+        try{
+            listChapter = chapitreRepository.findChapitreByModule(module);
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.with("liste retournée", listChapter);
     }
 
 }

@@ -21,10 +21,18 @@ public class Chapitre {
     private String description;
     private String doc1;
     private String doc2;
+    private Integer numChapitre;
 
     @ManyToOne
     private Module module;
 
+    public Integer getNumChapitre() {
+        return numChapitre;
+    }
+
+    public void setNumChapitre(Integer numChapitre) {
+        this.numChapitre = numChapitre;
+    }
 
     public Module getModule() {
         return module;
