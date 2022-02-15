@@ -11,14 +11,13 @@
       </div>
   </ng-template>
 </p-toast>
-<span><button type="button" class="btn btn-sm ml-3 btn-success" href="/listModule"> Modules </button></span>
+<span><button type="button" class="btn btn-sm ml-3 btn-success" (click)="redirectDetail()"> Modules </button></span>
 <p-table [value]="listModule">
     <ng-template pTemplate="header">
         <tr>
             <th>Libelle</th>
             <th>Etat</th>
             <th>Action</th>
-           
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-module>

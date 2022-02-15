@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './admin/pages/accueil/accueil.component';
+import { DetailModuleComponent } from './admin/pages/detail-module/detail-module.component';
 import { ListCategoryComponent } from './admin/pages/list-category/list-category.component';
 import { ListChapterComponent } from './admin/pages/list-chapter/list-chapter.component';
 import { ListLearnerComponent } from './admin/pages/list-learner/list-learner.component';
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path:"list/module/by/categ",
     component:ListModuleByCategComponent
+  },
+  {
+    path:"detail/module",
+    component:DetailModuleComponent
   }
 ];
 

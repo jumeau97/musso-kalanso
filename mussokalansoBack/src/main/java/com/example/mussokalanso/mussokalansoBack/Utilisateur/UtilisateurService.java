@@ -46,4 +46,17 @@ public class UtilisateurService {
         return Response.with("liste retournée", a);
     }
 
+    //save new user
+    public Response saveUser(Utilisateur utilisateur){
+
+        try{
+            utilisateurRepository.save(utilisateur);
+        }catch(Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("Une erreur est survenue");
+        }
+
+        return Response.success("Enregistrer avec succès");
+    }
+
 }
