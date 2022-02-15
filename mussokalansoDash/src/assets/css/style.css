@@ -11189,7 +11189,8 @@ code {
   border-radius: 4px; }
 
 .content-wrapper .card-calender {
-  background-image: url("../../assets/images/dashboard/Group 4.jpg");
+  /* background-image: url("../../assets/images/dashboard/Group 4.jpg"); */
+  background-color: #31b0e5;
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 4px; }

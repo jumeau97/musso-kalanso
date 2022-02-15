@@ -57,6 +57,16 @@ export class ListCategoryComponent implements OnInit {
     });
 
   }
+
+  show2() {
+    this.ref = this.dialogService.open(NewCategorieComponent, {
+        header: 'Modifier une catégorie',
+        width: '70%',
+        contentStyle: {"max-height": "500px", "overflow": "auto"},
+        baseZIndex: 10000
+    });
+
+  }
   
 
   findAllCateg(){

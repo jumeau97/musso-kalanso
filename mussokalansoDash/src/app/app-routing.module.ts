@@ -12,6 +12,7 @@ import { NewCategorieComponent } from './admin/pages/new-categorie/new-categorie
 import { NewChapterComponent } from './admin/pages/new-chapter/new-chapter.component';
 import { NewModuleComponent } from './admin/pages/new-module/new-module.component';
 import { NewUserComponent } from './admin/pages/new-user/new-user.component';
+import { ListModuleByCategComponent } from './list-module-by-categ/list-module-by-categ.component';
 
 const routes: Routes = [
   {
@@ -57,6 +58,10 @@ const routes: Routes = [
   {
     path:"list/user",
     component:ListUserComponent
+  },
+  {
+    path:"list/module/by/categ",
+    component:ListModuleByCategComponent
   },
   {
     path:"detail/module",
