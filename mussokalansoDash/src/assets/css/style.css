@@ -12356,7 +12356,7 @@ code {
 .tt-hint {
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
-  border: 1px solid #ebedf2;
+  border: 1px solid #000; /*la couleur du formulaire*/
   font-family: "Rubik", sans-serif;
   font-weight: 400;
   font-size: 0.8125rem;

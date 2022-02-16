@@ -12,4 +12,9 @@ host = environment.host;
   saveUser(data:any){
   return  this.http.post(this.host+"save/utilisateur", data)
   }
+
+  //find all former
+  findAllFormer(){
+    return this.http.get(this.host+"list/former");
+  }
 }

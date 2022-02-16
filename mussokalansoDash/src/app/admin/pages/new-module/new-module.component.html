@@ -41,7 +41,7 @@
           </div>
           <div class="col-md-6">
             <div class="form-group row">
-              <label class="col-sm-3 col-form-label">Libelle</label>
+              <label class="col-sm-3 col-form-label">Catégorie</label>
               <div class="col-sm-9">
                 <select class="form-control" name="categorie" formControlName="categorie" >
                   <!-- <option value="a">choisir un module</option> -->
@@ -52,6 +52,17 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-md-6">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Formateur</label>
+              <div class="col-sm-9">
+                <select class="form-control" name="utilisateur" formControlName="utilisateur" >
+                  <!-- <option value="a">choisir un module</option> -->
+                  <option *ngFor="let f of allFormer" [ngValue]="f">{{f.nomPrenom}}</option>
+                </select>
+              </div>
+            </div>
+          </div>
           <div class="col-md-6">
             <div class="form-group row">
               <label class="col-sm-3 col-form-label">Description</label>

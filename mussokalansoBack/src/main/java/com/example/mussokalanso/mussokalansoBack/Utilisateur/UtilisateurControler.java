@@ -33,4 +33,10 @@ public class UtilisateurControler {
         return new ResponseEntity<>(utilisateurService.saveUser(utilisateur), HttpStatus.OK);
     }
 
+    //find all former
+    @GetMapping("/list/former")
+    public @ResponseBody ResponseEntity<?> findAllFormer(){
+        return new ResponseEntity<>(utilisateurService.findAllFormer(), HttpStatus.OK);
+    }
+
 }

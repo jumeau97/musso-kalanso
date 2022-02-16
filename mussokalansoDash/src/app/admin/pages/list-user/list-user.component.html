@@ -30,7 +30,7 @@
           </div>     
           <p-table #dt [value]="listUser" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
           currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[10,25,50]" 
-          [globalFilterFields]="['nom_prenom','adresse','tel']">
+          [globalFilterFields]="['nomPrenom','adresse','tel']">
           <ng-template pTemplate="caption">
             <div class="flex">
                 <span class="p-input-icon-left ml-auto">
@@ -55,9 +55,9 @@
                     <td>{{user.adresse}}</td>
                     <td>{{user.tel}}</td>
                     <td>
-                      <button pButton pRipple  icon="pi pi-info" (click)="show()" class="p-button-rounded p-button-success"></button>
-                      <button pButton pRipple  icon="pi pi-pencil" routerLink="/update/utilisateur" class="p-button-rounded p-button-info"></button>
-                      <button pButton pRipple  icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+                      <button pButton pRipple title="Details"  icon="pi pi-info" (click)="show()" class="p-button-rounded p-button-success"></button>
+                      <button pButton pRipple title="Modifier" icon="pi pi-pencil" routerLink="/update/utilisateur" class="p-button-rounded p-button-info"></button>
+                      <button pButton pRipple title="Supprimer" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
                     </td>
                 </tr>
             </ng-template>

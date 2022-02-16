@@ -71,5 +71,40 @@ public class CategorieService {
 
     }
 
+    //publish category
+    public Response publish(Long id){
+        Categorie c =categorieRepository.getById(id);
+
+        try{
+            if(c != null){
+                c.setEtat(true);
+                categorieRepository.save(c);
+            }
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.success("mis à l'etat publier");
+    }
+
+
+    //unpublish category
+    public Response unpublish(Long id){
+        Categorie c =categorieRepository.getById(id);
+
+        try{
+            if(c != null){
+                c.setEtat(false);
+                categorieRepository.save(c);
+            }
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.success("mis à l'etat dépublier");
+    }
+
 
 }

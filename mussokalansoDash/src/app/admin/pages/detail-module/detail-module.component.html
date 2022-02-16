@@ -14,52 +14,33 @@
                   <div class="card-body">
                     <div class="row pt-2">
                       <div class="col-sm-6">
-                        <h1 class="text-white">Programation</h1>
-                        <h5 class="text-white">Alassane Sanogo</h5>
-                        <h5 class="text-white pt-2 m-0">Directeur de Musso kalanso</h5>
+                        <h1 class="text-white">{{module?.libelle}}</h1>
+                        <h5 class="text-white">Formateur: {{module?.utilisateur.nomPrenom}}</h5>
+                        <h5 class="text-white">Profession: {{module?.utilisateur.profession}}</h5>
                       </div>
                       <div class="col-sm-6 text-sm-right pt-3 pt-sm-0">
-                        <h3 class="text-white">Informatique</h3>
-                        <p class="text-white m-0">50 apprenants</p>
+                        <h3 class="text-white">{{module?.categorie.libelle}}</h3>
+                        <!-- <p class="text-white m-0">{{module.}} apprenants</p> -->
                       </div>
                     </div>
                     <div class="row">
-                      <div class="col-md-4 grid-margin stretch-card">
+                      <div class="col-md-4 grid-margin stretch-card" *ngFor="let l of listChapter">
                         <div class="card">
                           <div class="card-body">
-                            <h4 class="card-title">Chapitre I</h4>
+                            <h4 class="card-title">Chapitre: {{l.numChapitre}}</h4>
                             <ul class="list-ticked">
-                              <li>Titre:</li>
-                              <li>Video:</li>
-                              <li>Document1:</li>
-                              <li>DocUment2:</li>
+                              <li>Titre: {{l.libelle}}</li>
+                              <li>Video: {{l.video}}</li>
+                              <li>Document 1: {{l.doc1}}</li>
+                              <li>Document 2: {{l.doc2}}</li>
                             </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Chapitre II</h4>
-                            <ul class="list-ticked">
-                              <li>Titre:</li>
-                              <li>Video:</li>
-                              <li>Document1:</li>
-                              <li>DocUment2:</li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 grid-margin stretch-card">
-                        <div class="card">
-                          <div class="card-body">
-                            <h4 class="card-title">Chapitre III</h4>
-                            <ul class="list-ticked">
-                              <li>Titre:</li>
-                              <li>Video:</li>
-                              <li>Document1:</li>
-                              <li>DocUment2:</li>
-                            </ul>
+                            <div class="row">
+                              <div class="col-md-6 d-flex align-items-center">
+                                <div class="d-flex flex-row align-items-center">
+                                  <button pButton pRipple  icon="pi pi-pencil" class="p-button-rounded p-button-info but" routerLink="/update/module"></button>
+                                  <button pButton pRipple type="button" icon="pi pi-info" class="p-button-rounded p-button-info" [routerLink]="['/detail/module', module.id]"></button>
+                                </div>
+                              </div>
                           </div>
                         </div>
                       </div>
