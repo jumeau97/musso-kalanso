@@ -19,4 +19,13 @@ host=environment.host;
   findAllCateg(){
     return this.http.get(this.host+"allCategory");
   }
+
+  //publish category
+  toPublish(id:any){
+    return this.http.get(this.host+"category/publish/"+id);
+  }
+  //unpublish category
+  ToUnpublish(id:any){
+    return this.http.get(this.host+"category/unpublish/"+id);
+  }
 }

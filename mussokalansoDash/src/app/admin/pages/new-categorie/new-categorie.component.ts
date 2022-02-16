@@ -33,6 +33,7 @@ export class NewCategorieComponent implements OnInit {
         console.log("msg");
         
         this.messageService.add({severity:'success', summary: 'Categorie', detail: 'Enregistrer avec succès'});
+        // this.ro
       }
       
     });
