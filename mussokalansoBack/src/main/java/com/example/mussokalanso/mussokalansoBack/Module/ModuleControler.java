@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Module;
 
+import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -46,5 +47,12 @@ public class ModuleControler {
     @GetMapping("/all/module")
     public @ResponseBody ResponseEntity<?> findAllModule(){
         return new ResponseEntity<>(moduleService.findAllModule(), HttpStatus.OK);
+    }
+
+    //update module
+    @PutMapping("/update/module/{id}")
+    public @ResponseBody ResponseEntity<?> updateModule(@RequestBody Module module,
+                                                           @PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(moduleService.updateModule(module, id), HttpStatus.OK);
     }
 }

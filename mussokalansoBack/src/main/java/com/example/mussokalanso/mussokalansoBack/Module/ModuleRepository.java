@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Module;
 
+import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import org.springframework.data.domain.Example;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,5 +26,8 @@ public interface ModuleRepository extends JpaRepository<Module, Long> {
 
     //module by id category
     Optional<Module> findByCategorie(Categorie categorie);
+
+    //module by id apprenant
+    Optional<Module> findByApprenant(Apprenant apprenant);
 
 }

@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Apprenant;
 
+import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import com.example.mussokalanso.mussokalansoBack.payload.Auth;
 import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +27,21 @@ public class ApprenantControler {
     }
 
     //find all learner
-    @GetMapping("all/learner")
+    @GetMapping("/all/learner")
     public @ResponseBody ResponseEntity<?> findAllLearner(){
         return new ResponseEntity<>(apprenantService.findAllLearner(), HttpStatus.OK);
     }
 
-    
+    //update leaner
+    @PutMapping("/update/learner/{id}")
+    public @ResponseBody ResponseEntity<?> updateApprenant(@RequestBody Apprenant apprenant,
+                                                          @PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(apprenantService.updateApprenant(apprenant, id), HttpStatus.OK);
+    }
+    //delete learner
+    @DeleteMapping("/delete/learner/{id}")
+    public @ResponseBody ResponseEntity<?> deleteApprenant(@RequestBody Apprenant apprenant){
+        return new ResponseEntity<>(apprenantService.deleteApprenant(apprenant), HttpStatus.OK);
+    }
+
 }

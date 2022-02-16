@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Module;
 
+import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,7 +87,22 @@ public class ModuleService {
         return Response.with("la liste des modules", listModule);
     }
 
+    //update module
+    public  Response updateModule(Module module, Long id){
 
+        try{
+            Module m = moduleRepository.getById(id);
+            if(m!=null) {
+                m.setLibelle(module.getLibelle());
+                m.setDescription(module.getDescription());
+            }
+        }catch(Exception e) {
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.success("modification reussie");
+    }
 
 
 }

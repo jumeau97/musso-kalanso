@@ -1,5 +1,7 @@
 package com.example.mussokalanso.mussokalansoBack.Utilisateur;
 
+import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
+import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import com.example.mussokalanso.mussokalansoBack.payload.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +33,13 @@ public class UtilisateurControler {
     @PostMapping("/save/utilisateur")
     public @ResponseBody ResponseEntity<?> saveUser(@RequestBody Utilisateur utilisateur){
         return new ResponseEntity<>(utilisateurService.saveUser(utilisateur), HttpStatus.OK);
+    }
+
+    //update user
+    @PutMapping("/update/utilisteur/{id}")
+    public @ResponseBody ResponseEntity<?> updateUtilisateur(@RequestBody Utilisateur utilisateur,
+                                                           @PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(utilisateurService.updateUtilisateur(utilisateur, id), HttpStatus.OK);
     }
 
 }
