@@ -33,10 +33,10 @@ public class ChapitreControler {
 
     //supprimer chapitre
 
-    //get all chapter by module
-    @PostMapping("/module/chapters")
-    public @ResponseBody ResponseEntity<?> getChapterByModule(@RequestBody Module module){
-        return new ResponseEntity<>(chapitreService.getChaptersByModule(module), HttpStatus.OK);
+    //get chapters by module
+    @GetMapping("/module/chapters/{id}")
+    public @ResponseBody ResponseEntity<?> getChapterByModule(@PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(chapitreService.getChaptersByModule(id), HttpStatus.OK);
     }
     
 

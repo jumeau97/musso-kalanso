@@ -90,8 +90,8 @@
                           <div class="col-sm-9">
                             <select name="genre" id="" class="form-control" formControlName="genre">
                               <option disabled>Choisir le genre</option>
-                              <option value="1">Homme</option>
-                              <option value="0">Femme</option>
+                              <option value="true">Homme</option>
+                              <option value="false">Femme</option>
                             </select>
                           </div>
                         </div>
@@ -102,8 +102,8 @@
                           <div class="col-sm-9">
                             <select name="statut" id="" class="form-control" formControlName="statut">
                               <option disabled>Choisir le statut</option>
-                              <option value="1">Admin</option>
-                              <option value="0">Formateur</option>
+                              <option value="true">Admin</option>
+                              <option value="false">Formateur</option>
                             </select>
                           </div>
                         </div>
@@ -112,7 +112,7 @@
                         <div class="form-group row">
                           <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
                           <div class="col-sm-9">
-                            <textarea class="form-control" name="description" id="" rows="5" placeholder="Bref description" formControlName="description"></textarea>
+                            <textarea class="form-control" maxlength="200" name="description" id="" rows="5" placeholder="Bref description" formControlName="description"></textarea>
                           </div>
                         </div>
                       </div>                                           

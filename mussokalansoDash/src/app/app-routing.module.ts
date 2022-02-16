@@ -68,7 +68,7 @@ const routes: Routes = [
     component:ListModuleByCategComponent
   },
   {
-    path:"detail/module",
+    path:"detail/module/:id",
     component:DetailModuleComponent
   },
   {

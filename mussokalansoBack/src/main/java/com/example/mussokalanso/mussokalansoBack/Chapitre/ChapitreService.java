@@ -35,7 +35,7 @@ public class ChapitreService {
 
 
             }else{
-                
+
                 chapitre.setNumChapitre(lastChap.getNumChapitre()+1);
             }
 
@@ -81,12 +81,12 @@ public class ChapitreService {
     }
 
     //get all chapter by module
-    public Response getChaptersByModule(Module module){
+    public Response getChaptersByModule(Long id){
         List<Chapitre> listChapter = new ArrayList<>();
 
 
         try{
-            listChapter = chapitreRepository.findChapitreByModule(module);
+            listChapter = chapitreRepository.findChapitreByIdModule(id);
         }catch (Exception e){
             e.printStackTrace(System.out);
             return Response.error("une erreur est survenue");

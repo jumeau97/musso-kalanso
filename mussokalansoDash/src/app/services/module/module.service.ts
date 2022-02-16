@@ -18,4 +18,11 @@ host=environment.host;
   findAllModule(){
     return this.http.get(this.host+"all/module");
   }
+
+  //get module by id
+  getModuleById(id:any){
+    return this.http.get(this.host+"module/"+id);
+  }
+
+  
 }

@@ -60,6 +60,7 @@ public class UtilisateurService {
         return Response.success("Enregistrer avec succès");
     }
 
+
     //update user
     public  Response updateUtilisateur(Utilisateur utilisateur, Long id){
 
@@ -83,5 +84,19 @@ public class UtilisateurService {
 
         return Response.success("modification reussie");
     }
+
+
+    //find all former
+    public  Response findAllFormer(){
+        List<Utilisateur> listForm ;
+        try{
+          listForm = utilisateurRepository.findUtilisateurByStatut(false);
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+        return Response.with("la liste des formateurs", listForm);
+    }
+
 
 }

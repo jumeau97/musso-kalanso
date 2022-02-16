@@ -14,4 +14,9 @@ export class ChapitreService {
   saveChapter(data:any){
   return  this.http.post(this.host+"save/chapitre", data)
   }
+
+  //find chapters by modules
+  findChaptersByModule(id:any){
+    return this.http.get(this.host+"module/chapters/"+id);
+  }
 }
