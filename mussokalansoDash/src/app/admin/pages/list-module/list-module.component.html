@@ -12,7 +12,7 @@
               <h3 class="mb-0"> Liste des modules 
               </h3>
               <div class="d-flex">
-                <button type="button" [routerLink]="['../../new/module']" class="btn btn-sm ml-3 btn-info"> Nouveau module </button>
+                <button type="button" [routerLink]="['../../new/module']" class="btn btn-sm ml-3 btn-rose"> Nouveau module </button>
                 
                 
                 <!-- <p-toast></p-toast> -->
@@ -45,11 +45,13 @@
                       <td>{{module.description}}</td>
                       <td>{{module.categorie.libelle}}</td>
                       <td>
-                        <button pButton pRipple type="button" icon="pi pi-plus-circle"
-                         class="p-button-rounded p-button-primary" (click)="addChapter(module)"
+                        <button pButton pRipple type="button" title="Ajouter chapitre" icon="pi pi-plus-circle"
+                         class="p-button-rounded btn-rose" (click)="addChapter(module)"
                          ></button>
-                         <button pButton pRipple  icon="pi pi-pencil" class="p-button-rounded p-button-info" routerLink="/update/module"></button>
-                        <button pButton pRipple type="button" icon="pi pi-info" class="p-button-rounded p-button-info" [routerLink]="['/detail/module', module.id]"></button>
+
+                         <button pButton pRipple  icon="pi pi-pencil" title="Modifier" class="p-button-rounded p-button-info" routerLink="/update/module"></button>
+                        <button pButton pRipple type="button" icon="pi pi-info" title="Détails" class="p-button-rounded p-button-success" [routerLink]="['/detail/module', module.id]"></button>
+
                       </td>
                   </tr>
               </ng-template>

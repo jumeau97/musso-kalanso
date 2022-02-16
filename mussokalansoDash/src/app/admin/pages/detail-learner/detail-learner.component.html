@@ -1,0 +1,48 @@
+<p-toast></p-toast>
+<!-- <p-toast position="top-left" key="tl"></p-toast>
+<p-toast position="top-center" key="tc"></p-toast>
+<p-toast position="bottom-center" key="bc"></p-toast> -->
+<p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+      <div class="p-flex p-flex-column" style="flex: 1">
+          <div class="p-text-center">
+              <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+              <h4>{{message.summary}}</h4>
+              <p>{{message.detail}}</p>
+          </div>
+      </div>
+  </ng-template>
+</p-toast>
+<div class="col-md-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+                    <h4 class="card-title">Address</h4>
+                    <p class="card-description"> Use <code>&lt;address&gt;</code> tag </p>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <address>
+                          <p class="font-weight-bold">Breeze imc</p>
+                          <p>695 lsom Ave,</p>
+                          <p>Suite 00</p>
+                          <p>San Francisco, CA 94107</p>
+                        </address>
+                      </div>
+                      <div class="col-md-6">
+                        <address class="text-primary">
+                          <p class="font-weight-bold">E-mail</p>
+                          <p class="mb-2">johndoe@examplemeail.com</p>
+                          <p class="font-weight-bold">Web Address</p>
+                          <p>www.Breeze.com</p>
+                        </address>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <h4 class="card-title">Lead</h4>
+                    <p class="card-description">Use class <code>.lead</code></p>
+                    <p class="lead"> Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. </p>
+                  </div>
+    </div>
+</div>
+
+

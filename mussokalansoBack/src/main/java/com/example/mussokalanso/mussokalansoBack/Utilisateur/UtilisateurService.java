@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Utilisateur;
 
+import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.payload.Auth;
 import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +59,32 @@ public class UtilisateurService {
 
         return Response.success("Enregistrer avec succès");
     }
+
+
+    //update user
+    public  Response updateUtilisateur(Utilisateur utilisateur, Long id){
+
+        try{
+            Utilisateur m = utilisateurRepository.getById(id);
+            if(m!=null) {
+                m.setNomPrenom(utilisateur.getNomPrenom());
+                m.setProfession(utilisateur.getProfession());
+                m.setAdresse(utilisateur.getAdresse());
+                m.setDomaine(utilisateur.getDomaine());
+                m.setTel(utilisateur.getTel());
+                m.setEmail(utilisateur.getEmail());
+                m.setMotDePasse(utilisateur.getMotDePasse());
+                m.setDescription(utilisateur.getDescription());
+                utilisateurRepository.save(m);
+            }
+        }catch(Exception e) {
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.success("modification reussie");
+    }
+
 
     //find all former
     public  Response findAllFormer(){

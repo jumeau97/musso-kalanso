@@ -55,9 +55,11 @@
                     <td>{{user.adresse}}</td>
                     <td>{{user.tel}}</td>
                     <td>
-                      <button pButton pRipple title="Details"  icon="pi pi-info" (click)="show()" class="p-button-rounded p-button-success"></button>
-                      <button pButton pRipple title="Modifier" icon="pi pi-pencil" routerLink="/update/utilisateur" class="p-button-rounded p-button-info"></button>
-                      <button pButton pRipple title="Supprimer" icon="pi pi-trash" class="p-button-rounded p-button-danger"></button>
+
+                      <button pButton pRipple title="Details"  icon="pi pi-info" title="Détails" (click)="show()" class="p-button-rounded p-button-success"></button>
+                      <button pButton pRipple title="Modifier" icon="pi pi-pencil" title="Modifier" routerLink="/update/utilisateur" class="p-button-rounded p-button-info"></button>
+                      <button pButton pRipple title="Supprimer" icon="pi pi-trash" title="Supprimer" class="p-button-rounded p-button-danger"></button>
+
                     </td>
                 </tr>
             </ng-template>

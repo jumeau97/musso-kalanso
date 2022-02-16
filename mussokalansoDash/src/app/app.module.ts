@@ -33,6 +33,7 @@ import { UpdateCategorieComponent } from './admin/update-categorie/update-catego
 import { UpdateChapitreComponent } from './admin/update-chapitre/update-chapitre.component';
 import { UpdateUtilisateurComponent } from './admin/update-utilisateur/update-utilisateur.component';
 import { DetailModuleComponent } from './admin/pages/detail-module/detail-module.component';
+import { DetailLearnerComponent } from './admin/pages/detail-learner/detail-learner.component';
 // import {NgxPaginationModule} from 'ngx-pagination';
 
 
@@ -59,7 +60,9 @@ import { DetailModuleComponent } from './admin/pages/detail-module/detail-module
     UpdateCategorieComponent,
     UpdateChapitreComponent,
     UpdateUtilisateurComponent,
-    DetailModuleComponent
+    DetailModuleComponent,
+    DetailLearnerComponent,
+    
     
   ],
   imports: [

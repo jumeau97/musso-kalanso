@@ -49,8 +49,10 @@
             <div class="page-header flex-wrap">
                 <h3 class="mb-0">La liste des catégories</h3>
                 <div class="d-flex">
+
                   <!-- <button type="button" (click)="show()" class="btn btn-sm ml-3 btn-info"> Nouvelle catégorie </button> -->
-                  <button type="button" (click)="showDialog()" class="btn btn-sm ml-3 btn-info" icon="pi pi-info-circle" label="Show">Nouvelle catégorie</button>
+                  <button type="button" (click)="showDialog()" class="btn btn-sm ml-3 btn-rose" icon="pi pi-info-circle" label="Show">Nouvelle catégorie</button>
+
 
                   <!-- <p-toast></p-toast> -->
                  <!-- <button type="button"  pButton icon="pi pi-info-circle" label="Show"></button> -->
@@ -60,7 +62,7 @@
           
               <p-table #dt [value]="listCategorie" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
               currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[10,25,50]" 
-              [globalFilterFields]="['libelle']">*
+              [globalFilterFields]="['libelle']">
               <ng-template pTemplate="caption">
                 <div class="flex">
                     <span class="p-input-icon-left ml-auto">
@@ -83,10 +85,13 @@
                         <td *ngIf="categorie.etat==1">publié</td>
                         <td *ngIf="categorie.etat==0">Non publié</td>
                         <td>
-                          <button *ngIf="categorie.etat==1" (click)="toUnpublish(categorie)" pButton pRipple type="button" icon="pi pi-check-circle" class="p-button-rounded p-button-success"></button>
-                          <button *ngIf="categorie.etat==0" (click)="toPublish(categorie)" pButton pRipple type="button" icon="pi pi-circle" class="p-button-rounded p-button-danger"></button>
-                          <button pButton pRipple  icon="pi pi-pencil" (click)="show2()" class="p-button-rounded p-button-info"></button>
-                          <button pButton pRipple type="button" (click)="show1(categorie)" icon="pi pi-info-circle" class="p-button-rounded p-button-primary"></button>
+
+                          <button *ngIf="categorie.etat==1" (click)="toUnpublish(categorie)"  title="Publié" pButton pRipple type="button" icon="pi pi-check-circle" class="p-button-rounded p-button-success"></button>
+                          <button *ngIf="categorie.etat==0" (click)="toPublish(categorie)" title="Non publié" pButton pRipple type="button" icon="pi pi-circle" class="p-button-rounded p-button-danger"></button>                
+                          <button pButton pRipple type="button" (click)="show1(categorie)" title="Détails" icon="pi pi-info-circle" class="p-button-rounded p-button-success"></button>
+                          <button pButton pRipple  icon="pi pi-pencil" (click)="show2()" title="Modifier" class="p-button-rounded p-button-info"></button>
+                          <button pButton pRipple  icon="pi pi-trash" title="Supprimer" class="p-button-rounded p-button-danger"></button>
+
                         </td>
                      
                     </tr>

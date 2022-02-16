@@ -4,6 +4,7 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Table } from 'primeng/table';
 import { Product } from 'src/app/services/test/Product';
 import { ProductService } from 'src/app/services/test/product.service';
+import { DetailLearnerComponent } from '../detail-learner/detail-learner.component';
 import { NewCategorieComponent } from '../new-categorie/new-categorie.component';
 
 @Component({
@@ -30,9 +31,9 @@ export class ListLearnerComponent implements OnInit {
   }
 
 
-  detailsModule(){
-    this.ref = this.dialogService.open(NewCategorieComponent, {
-      header: 'Nouveau apprenant',
+  detailLearner(){
+    this.ref = this.dialogService.open(DetailLearnerComponent, {
+      header: 'Détails apprenant',
       width: '70%',
       contentStyle: {"max-height": "500px", "overflow": "auto"},
       baseZIndex: 10000

@@ -11,7 +11,7 @@
       </div>
   </ng-template>
 </p-toast>
-<span><button type="button" class="btn btn-sm ml-3 btn-success" (click)="redirectDetail()"> Modules </button></span>
+<span><button type="button" class="btn btn-sm ml-3 btn-rose" (click)="redirectDetail()"> Autres modules </button></span>
 <p-table [value]="listModule">
     <ng-template pTemplate="header">
         <tr>
@@ -26,9 +26,9 @@
             <td *ngIf="module.etat==1">publié</td>
             <td *ngIf="module.etat==0">Non publié</td>
             <td>
-                <button *ngIf="module.etat==1" pButton pRipple type="button" icon="pi pi-check-circle" class="p-button-rounded p-button-success"></button>
-                <button pButton pRipple  icon="pi pi-pencil" class="p-button-rounded p-button-info"></button>
-                <button *ngIf="module.etat==0" pButton pRipple type="button" icon="pi pi-circle" class="p-button-rounded p-button-danger"></button>
+                <button *ngIf="module.etat==1" pButton pRipple type="button" title="Publié" icon="pi pi-check-circle" class="p-button-rounded p-button-success"></button>
+                <button pButton pRipple  icon="pi pi-pencil" title="Modifier" class="p-button-rounded p-button-info"></button>
+                <button *ngIf="module.etat==0" pButton pRipple type="button" title="Non publié" icon="pi pi-circle" class="p-button-rounded p-button-danger"></button>
             </td>
 
          
