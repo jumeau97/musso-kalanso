@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { CategoryService } from 'src/app/services/category/category.service';
 
 @Component({
@@ -16,28 +16,31 @@ export class NewCategorieComponent implements OnInit {
   fg = this.fb.group({
     libelle : ['', Validators.required]
   });
+  getCategory: any;
 
 
-  constructor(private fb:FormBuilder, private categService:CategoryService, private messageService:MessageService) { }
+  constructor(
+    private fb:FormBuilder,
+    private categService:CategoryService, 
+    private messageService:MessageService,
+    private dynamicDialogConfig : DynamicDialogConfig,
+    private DynamicDialogRef:DynamicDialogRef
+    ) 
+    {
+      // get category 
+      this.getCategory = this.dynamicDialogConfig.data;
+     }
 
   ngOnInit(): void {
   }
 
-  // method to  insert new category
-  saveCtegory(){
-    // this.ref.close();
-    console.log("category", this.fg.value);
-    this.categService.saveCategory(this.fg.value).subscribe((data:any)=>{
-      console.log("insert...", data);
-      if(data['status']=="OK"){
-        console.log("msg");
-        
-        this.messageService.add({severity:'success', summary: 'Categorie', detail: 'Enregistrer avec succès'});
-        // this.ro
-      }
-      
+  // method to  update new category
+  updateCategory(){
+    this.categService.updateCategory(this.getCategory, this.getCategory.id).subscribe((data:any)=>{
+      console.log("updating...", data);   
+      this.messageService.add({severity:"success", summary:"Catégorie", detail:"Mise à jour reussie"}); 
+      // this.DynamicDialogRef.close();
     });
-    
   }
   //reject method
   onReject() {

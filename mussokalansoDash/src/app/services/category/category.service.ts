@@ -28,4 +28,9 @@ host=environment.host;
   ToUnpublish(id:any){
     return this.http.get(this.host+"category/unpublish/"+id);
   }
+
+  //update category
+  updateCategory(data:any, id:any){
+   return this.http.put(this.host+"update/category/"+id, data);
+  }
 }
