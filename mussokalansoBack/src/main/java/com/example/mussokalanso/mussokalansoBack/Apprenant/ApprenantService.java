@@ -1,6 +1,5 @@
 package com.example.mussokalanso.mussokalansoBack.Apprenant;
 
-import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import com.example.mussokalanso.mussokalansoBack.Module.Module;
 import com.example.mussokalanso.mussokalansoBack.Module.ModuleRepository;
 import com.example.mussokalanso.mussokalansoBack.payload.Auth;

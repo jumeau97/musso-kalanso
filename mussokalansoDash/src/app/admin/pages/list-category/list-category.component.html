@@ -68,9 +68,9 @@
                 </div>
               </div> 
           
-              <p-table #dt [value]="listCategorie" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
-              currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[10,25,50]" 
-              [globalFilterFields]="['libelle']">
+              <p-table #dt [value]="listCategorie" dataKey="id" [paginator]="true" [rows]="5 " [showCurrentPageReport]="true" responsiveLayout="scroll"
+              currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[5,10,25,50]" 
+              [globalFilterFields]="['libelle','publié','non publié']">
               <ng-template pTemplate="caption">
                 <div class="flex">
                     <span class="p-input-icon-left ml-auto">
@@ -81,8 +81,8 @@
             </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th pSortableColumn="libelle">Libelle</th>
-                        <th>Etat</th>
+                        <th pSortableColumn="libelle">Libelle<p-sortIcon field="libelle"></p-sortIcon></th>
+                        <th pSortableColumn="etat">Etat<p-sortIcon field="etat"></p-sortIcon></th>
                         <th>Action</th>
                        
                     </tr>

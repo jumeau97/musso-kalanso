@@ -46,9 +46,13 @@ public class UtilisateurControler {
         return new ResponseEntity<>(utilisateurService.updateUtilisateur(utilisateur, id), HttpStatus.OK);
     }
 
+
+
+
     //find all former
     @GetMapping("/list/former")
-    public @ResponseBody ResponseEntity<?> findAllFormer(){
+    public @ResponseBody
+    ResponseEntity<?> findAllFormer() {
         return new ResponseEntity<>(utilisateurService.findAllFormer(), HttpStatus.OK);
 
     }
