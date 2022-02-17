@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng/api';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-detail-user',
@@ -11,8 +11,13 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 export class DetailUserComponent implements OnInit {
 
   ref!: DynamicDialogRef;
+  getUser: any;
 
-  constructor( private messageService:MessageService) { }
+  constructor( private messageService:MessageService, private DynamicDialogConfig:DynamicDialogConfig)
+   {
+     console.log("get user", this.DynamicDialogConfig.data);
+     this.getUser = this.DynamicDialogConfig.data[0];     
+    }
 
   ngOnInit(): void {
   }
