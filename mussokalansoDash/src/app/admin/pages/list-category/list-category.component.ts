@@ -70,9 +70,10 @@ export class ListCategoryComponent implements OnInit {
 
   }
 
-  show2() {
+  show2(event:any) {
     this.ref = this.dialogService.open(NewCategorieComponent, {
         header: 'Modifier une catégorie',
+        data: event,
         width: '70%',
         contentStyle: {"max-height": "500px", "overflow": "auto"},
         baseZIndex: 10000

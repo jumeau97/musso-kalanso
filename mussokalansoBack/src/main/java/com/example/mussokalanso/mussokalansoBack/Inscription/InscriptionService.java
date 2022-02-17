@@ -1,11 +1,14 @@
 package com.example.mussokalanso.mussokalansoBack.Inscription;
 
+import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import com.example.mussokalanso.mussokalansoBack.payload.SubscribeLearner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class
@@ -40,5 +43,18 @@ InscriptionService {
         }
 
         return Response.success("vous êtes dejà inscrit sur ce module");
+    }
+
+    //find differents modules that learner is subscribe
+    public Response LearnerModSubscribe(Apprenant apprenant){
+        List<Inscription> list = new ArrayList<>();
+       try{
+           list = inscriptionRepository.findInscriptionByApprenant(apprenant);
+       }catch (Exception e){
+           e.printStackTrace(System.out);
+           return Response.error("une erreur est survenue");
+       }
+
+       return Response.with("liste retournée", list);
     }
 }

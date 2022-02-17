@@ -95,7 +95,9 @@ public class ModuleService {
             if(m!=null) {
                 m.setLibelle(module.getLibelle());
                 m.setDescription(module.getDescription());
+                m.setCategorie(module.getCategorie());
             }
+            moduleRepository.save(m);
         }catch(Exception e) {
             e.printStackTrace(System.out);
             return Response.error("une erreur est survenue");
