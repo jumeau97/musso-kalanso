@@ -28,6 +28,6 @@ public interface ModuleRepository extends JpaRepository<Module, Long> {
     Optional<Module> findByCategorie(Categorie categorie);
 
     //module by id apprenant
-    Optional<Module> findByApprenant(Apprenant apprenant);
+    //Optional<Module> findByApprenant(Apprenant apprenant);
 
 }

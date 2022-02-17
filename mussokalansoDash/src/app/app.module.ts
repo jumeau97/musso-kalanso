@@ -34,6 +34,7 @@ import { UpdateChapitreComponent } from './admin/update-chapitre/update-chapitre
 import { UpdateUtilisateurComponent } from './admin/update-utilisateur/update-utilisateur.component';
 import { DetailModuleComponent } from './admin/pages/detail-module/detail-module.component';
 import { DetailLearnerComponent } from './admin/pages/detail-learner/detail-learner.component';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 // import {NgxPaginationModule} from 'ngx-pagination';
 
 
@@ -78,6 +79,7 @@ import { DetailLearnerComponent } from './admin/pages/detail-learner/detail-lear
     InputTextModule,
     ReactiveFormsModule,
     ToastModule,
+    ConfirmDialogModule,
     // NgxPaginationModule,
     // DynamicDialogConfig
 
