@@ -11,5 +11,6 @@ export class AllModulePage implements OnInit {
 
   ngOnInit() {
   }
+  
 
 }
