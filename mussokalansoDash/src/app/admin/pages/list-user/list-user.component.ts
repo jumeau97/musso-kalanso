@@ -26,6 +26,7 @@ export class ListUserComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // find all user
   findAllUser(){
     this.productService.findAllUser().subscribe((data:any)=>{
       console.log("la liste des utilisteurs", data);
@@ -34,13 +35,16 @@ export class ListUserComponent implements OnInit {
     })
   }
 
+  // to filter elemnt of table
   filterGlobal($event:any, stringVal:any) {
     this.dt!.filterGlobal(($event.target as HTMLInputElement).value, 'contains');
   }
 
-  show() {
+  // show detail component popup
+  show(event:any) {
     this.ref = this.dialogService.open(DetailUserComponent, {
         header: 'Detail Utilisateur',
+        data:[event],
         width: '70%',
         contentStyle: {"max-height": "500px", "overflow": "auto"},
         baseZIndex: 10000
