@@ -35,6 +35,14 @@ const routes: Routes = [
   {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then( m => m.AdminPageModule)
+  },
+  {
+    path: 'all-module',
+    loadChildren: () => import('./all-module/all-module.module').then( m => m.AllModulePageModule)
+  },
+  {
+    path: 'all-categorie',
+    loadChildren: () => import('./all-categorie/all-categorie.module').then( m => m.AllCategoriePageModule)
   }
   // {
   //   path: '',

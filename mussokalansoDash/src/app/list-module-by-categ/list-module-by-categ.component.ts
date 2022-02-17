@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { Table } from 'primeng/table';
 import { Categorie } from '../model/Categorie';
 import { ProductService } from '../services/test/product.service';
 
@@ -14,6 +15,7 @@ export class ListModuleByCategComponent implements OnDestroy {
   listModule: any;
   // ref!:DynamicDialogRef;
   categorie!:Categorie;
+  @ViewChild('dt') dt: Table | undefined;
   constructor(
     private productService: ProductService,
     private config:DynamicDialogConfig,
@@ -52,6 +54,10 @@ ngOnDestroy(){
   if(this.ref){
     this.ref.close();
   }
+}
+
+filterGlobal($event:any, stringVal:any) {
+  this.dt!.filterGlobal(($event.target as HTMLInputElement).value, 'contains');
 }
 
 }
