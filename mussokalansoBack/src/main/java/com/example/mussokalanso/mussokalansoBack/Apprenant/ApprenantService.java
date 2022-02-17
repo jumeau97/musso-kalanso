@@ -73,7 +73,7 @@ public class ApprenantService {
     }
 
     //Delete learner
-    public Response deleteApprenant(Apprenant apprenant){
+   /* public Response deleteApprenant(Apprenant apprenant){
         Optional<Module> c= moduleRepository.findByApprenant(apprenant);
 
         if(c.isEmpty()){
@@ -81,6 +81,6 @@ public class ApprenantService {
         }
         return Response.success("suppression reussie avec succès");
 
-    }
+    }*/
 
 }
