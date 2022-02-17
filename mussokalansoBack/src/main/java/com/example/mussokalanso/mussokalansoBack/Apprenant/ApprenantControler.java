@@ -39,9 +39,9 @@ public class ApprenantControler {
         return new ResponseEntity<>(apprenantService.updateApprenant(apprenant, id), HttpStatus.OK);
     }
     //delete learner
-    @DeleteMapping("/delete/learner/{id}")
+   /* @DeleteMapping("/delete/learner/{id}")
     public @ResponseBody ResponseEntity<?> deleteApprenant(@RequestBody Apprenant apprenant){
         return new ResponseEntity<>(apprenantService.deleteApprenant(apprenant), HttpStatus.OK);
-    }
+    }*/
 
 }

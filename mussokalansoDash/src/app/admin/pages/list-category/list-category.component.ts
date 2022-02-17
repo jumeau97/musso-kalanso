@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, ConfirmEventType, MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 import { Table } from 'primeng/table';
 import { ListModuleByCategComponent } from 'src/app/list-module-by-categ/list-module-by-categ.component';
@@ -15,7 +15,7 @@ import { NewCategorieComponent } from '../new-categorie/new-categorie.component'
   selector: 'app-list-category',
   templateUrl: './list-category.component.html',
   styleUrls: ['./list-category.component.scss'],
-  providers: [DialogService, MessageService]
+  providers: [DialogService, MessageService, ConfirmationService]
 })
 export class ListCategoryComponent implements OnInit {
 
@@ -35,7 +35,7 @@ export class ListCategoryComponent implements OnInit {
   constructor(
     public dialogService: DialogService,
     private categorieService: CategoryService,
-    // private config : DynamicDialogConfig,
+    private confirmationService:ConfirmationService,
     private categService:CategoryService,
     private fb:FormBuilder,
     private messageService:MessageService
@@ -123,21 +123,57 @@ export class ListCategoryComponent implements OnInit {
 
   //publish category
   toPublish(event:any){
+
+    this.confirmationService.confirm({
+      message:'Voulez-vous publier cette categorie ?',
+      header:'Demande de confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept:()=>{
+    // method to publish category
     this.categService.toPublish(event.id).subscribe((data:any)=>{
       console.log("etat publié", data);
       this.findAllCateg();
       this.messageService.add({severity:"success", summary:"Categorie", detail:"publier"});
       
-    })
+    });
+      },
+      reject : (type : any) =>{
+       switch(type){
+          case ConfirmEventType.REJECT:
+            // this.messageService.add({severity:'error', summary:"Categorie", detail:"Rejet"});
+            break;
+          case ConfirmEventType.CANCEL:
+            // this.messageService.add({severity:'success', summary:"categorie", detail:"Retour"});
+       }
+      }
+    });
   }
 
     //unpublish category
     toUnpublish(event:any){
-    this.categService.ToUnpublish(event.id).subscribe((data:any)=>{
-      console.log("etat non publié", data);
-      this.findAllCateg();
-      this.messageService.add({severity:"error", summary:"Categorie", detail:"dépublier"});
-    })
+
+    this.confirmationService.confirm({
+      message:'Voulez-vous dépublier cette categorie ?',
+      header:'Demande de confirmation',
+      icon: 'pi pi-exclamation-triangle',
+      accept:()=>{
+      //method to unpublish category
+      this.categService.ToUnpublish(event.id).subscribe((data:any)=>{
+        console.log("etat non publié", data);
+        this.findAllCateg();
+        this.messageService.add({severity:"error", summary:"Categorie", detail:"dépublier"});
+      });
+      },
+      reject : (type : any) =>{
+       switch(type){
+          case ConfirmEventType.REJECT:
+            // this.messageService.add({severity:'error', summary:"Categorie", detail:"Rejet"});
+            break;
+          case ConfirmEventType.CANCEL:
+            // this.messageService.add({severity:'success', summary:"categorie", detail:"Retour"});
+       }
+      }
+    });
     }
 
 }

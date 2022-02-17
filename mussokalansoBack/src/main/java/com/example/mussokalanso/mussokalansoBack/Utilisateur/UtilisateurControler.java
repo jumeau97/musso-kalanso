@@ -44,6 +44,7 @@ public class UtilisateurControler {
     ResponseEntity<?> updateUtilisateur(@RequestBody Utilisateur utilisateur,
                                         @PathVariable(value = "id") Long id) {
         return new ResponseEntity<>(utilisateurService.updateUtilisateur(utilisateur, id), HttpStatus.OK);
+    }
 
 
     }
