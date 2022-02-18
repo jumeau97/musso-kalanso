@@ -1,1 +1,116 @@
-<p>update-utilisateur works!</p>
+<div class="container-scroller">
+    <!-- side-menu -->
+    <app-side-menu></app-side-menu>
+    <!-- ===================== -->
+      <div class="container-fluid page-body-wrapper">
+    <!-- ----------------top-bar--------------- -->
+    <app-top-bar></app-top-bar>
+    <!-- -------------------------------------- -->
+        <div class="main-panel">
+          <div class="content-wrapper pb-0">
+            <div class="col-12 grid-margin">
+              <div class="card">
+                <div class="card-body">
+                  <h4 class="card-title">Modification</h4>
+                  <form class="form-sample">
+                    <p class="card-description">Informations personnel</p>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <!-- <label class="col-sm-3 col-form-label">Nom & Prénom</label> -->
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Nom & Prénom" name="nomPrenom" formControlName="nomPrenom" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Adresse" name="adresse" formControlName="adresse" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <!-- <label class="col-sm-3 col-form-label">Tél</label> -->
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="E-mail"  name="email" formControlName="email"/>
+                          </div>
+                        </div>
+                      </div>                      
+                    </div>
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <!-- <label class="col-sm-3 col-form-label">Nom & Prénom</label> -->
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Télephone" name="tel" formControlName="tel" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Domaine" name="domaine" formControlName="domaine" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <!-- <label class="col-sm-3 col-form-label">Tél</label> -->
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Profession" name="profession" formControlName="profession" />
+                          </div>
+                        </div>
+                      </div>                      
+                    </div>                    
+                    <div class="row">
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <!-- <label class="col-sm-3 col-form-label">Nom & Prénom</label> -->
+                          <div class="col-sm-9">
+                            <select name="genre" id="" class="form-control" formControlName="genre">
+                              <option disabled>Choisir le genre</option>
+                              <option value="true">Homme</option>
+                              <option value="false">Femme</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+                          <div class="col-sm-9">
+                            <select name="statut" id="" class="form-control" formControlName="statut">
+                              <option disabled>Choisir le statut</option>
+                              <option value="true">Admin</option>
+                              <option value="false">Formateur</option>
+                            </select>
+                          </div>
+                        </div>
+                      </div>    
+                      <div class="col-md-4">
+                        <div class="form-group row">
+                          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+                          <div class="col-sm-9">
+                            <textarea class="form-control" maxlength="200" name="description" id="" rows="5" placeholder="Bref description" formControlName="description"></textarea>
+                          </div>
+                        </div>
+                      </div>                                           
+                    </div>                    
+                    <button type="submit" class="btn btn-primary mr-2"> Enregistrer </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ----------footer-------------- -->
+    <app-footer></app-footer>
+          <!-- ---------footer--------------- -->
+        </div>
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
