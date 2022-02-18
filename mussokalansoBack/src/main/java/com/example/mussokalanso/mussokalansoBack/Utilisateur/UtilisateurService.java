@@ -98,5 +98,18 @@ public class UtilisateurService {
         return Response.with("la liste des formateurs", listForm);
     }
 
+    //delete user
+
+    public Response deleteUser(Long id){
+        Utilisateur u = utilisateurRepository.getById(id);
+        try{
+            utilisateurRepository.delete(u);
+        }catch(Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+        return Response.success("Spprimer avec succès");
+    }
+
 
 }
