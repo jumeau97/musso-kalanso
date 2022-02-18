@@ -32,6 +32,10 @@ public class ChapitreControler {
     }
 
     //supprimer chapitre
+    @DeleteMapping("/delete/chapter/{id}")
+    public @ResponseBody ResponseEntity<?> deleteChapter(@PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(chapitreService.supprimerChapitre(id), HttpStatus.OK);
+    }
 
     //get chapters by module
     @GetMapping("/module/chapters/{id}")

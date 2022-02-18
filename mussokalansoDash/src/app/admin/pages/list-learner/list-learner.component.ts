@@ -31,9 +31,10 @@ export class ListLearnerComponent implements OnInit {
   }
 
 
-  detailLearner(){
+  detailLearner(event:any){
     this.ref = this.dialogService.open(DetailLearnerComponent, {
       header: 'Détails apprenant',
+      data:[event],
       width: '70%',
       contentStyle: {"max-height": "500px", "overflow": "auto"},
       baseZIndex: 10000

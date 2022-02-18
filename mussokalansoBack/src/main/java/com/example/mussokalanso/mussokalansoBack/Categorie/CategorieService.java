@@ -15,6 +15,7 @@ public class CategorieService {
 
     @Autowired
     CategorieRepository categorieRepository;
+    @Autowired
     ModuleRepository moduleRepository;
 
     //all category
@@ -61,13 +62,20 @@ public class CategorieService {
 
      //delete category
 
-    public Response deleteCategory(Categorie categorie){
-        Optional<Module> c= moduleRepository.findByCategorie(categorie);
+    public Response deleteCategory(Long id){
+        Categorie cat = categorieRepository.findById(id).get();
+        Optional<Module> m = moduleRepository.findByCategorie(cat);
 
-        if(c.isEmpty()){
-            categorieRepository.delete(categorie);
-        }
-        return Response.success("suppression reussie avec succès");
+
+
+            if(m.isEmpty()){
+                categorieRepository.delete(cat);
+                return Response.success("suppression reussie avec succès");
+            }else {
+                return Response.error("suppression reussie avec succès");
+
+            }
+
 
     }
 

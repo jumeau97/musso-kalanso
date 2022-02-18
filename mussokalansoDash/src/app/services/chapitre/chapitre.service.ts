@@ -19,4 +19,14 @@ export class ChapitreService {
   findChaptersByModule(id:any){
     return this.http.get(this.host+"module/chapters/"+id);
   }
+
+  //delete chapter
+  deletechapter(id:any){
+   return this.http.delete(this.host+"delete/chapter/"+id);
+  }
+
+  //update chapter
+  updateChapter(data:any, id:any){
+    return this.http.put(this.host+"update/chapitre/"+id, data)
+  }
 }

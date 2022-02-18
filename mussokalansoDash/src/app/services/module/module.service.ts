@@ -24,5 +24,15 @@ host=environment.host;
     return this.http.get(this.host+"module/"+id);
   }
 
+  // find different module that learner is subscribe
+  getLearnerMods(data:any){
+    return this.http.post(this.host+"learner/inscriptions", data)
+  }
+
+  //Update module
+  updateModule(id:any, data:any){
+   return this.http.put(this.host+"update/module/"+id, data);
+  }
+
   
 }

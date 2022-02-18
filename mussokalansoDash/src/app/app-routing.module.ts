@@ -72,7 +72,7 @@ const routes: Routes = [
     component:DetailModuleComponent
   },
   {
-    path:"update/module",
+    path:"update/module/:id",
     component:UpdateModuleComponent
   },
   {
