@@ -24,7 +24,7 @@ User: Utilisateur = new Utilisateur();
   "profession" : new FormControl('', Validators.required),
   "statut" : new FormControl('', Validators.required),
   "tel" : new FormControl('', Validators.required),
-})
+});
   ngOnInit(): void {
   }
 

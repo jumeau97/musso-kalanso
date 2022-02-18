@@ -10,6 +10,6 @@ export class Utilisateur{
     genre!: boolean;
     tel!: string;
     description!: string;
-    status!: boolean;
+    statut!: boolean;
     
 }

@@ -47,14 +47,18 @@ public class UtilisateurControler {
     }
 
 
-
-
     //find all former
     @GetMapping("/list/former")
     public @ResponseBody
     ResponseEntity<?> findAllFormer() {
         return new ResponseEntity<>(utilisateurService.findAllFormer(), HttpStatus.OK);
 
+    }
+
+    //delete user
+    @DeleteMapping("/delete/user/{id}")
+    public @ResponseBody ResponseEntity<?> deleteUser(@PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(utilisateurService.deleteUser(id), HttpStatus.OK);
     }
 
 }
