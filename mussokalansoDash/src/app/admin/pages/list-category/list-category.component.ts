@@ -36,7 +36,6 @@ export class ListCategoryComponent implements OnInit {
     public dialogService: DialogService,
     private categorieService: CategoryService,
     private confirmationService:ConfirmationService,
-    private categService:CategoryService,
     private fb:FormBuilder,
     private messageService:MessageService
     ) {
@@ -102,7 +101,7 @@ export class ListCategoryComponent implements OnInit {
     saveCtegory(){
       // this.ref.close();
       console.log("category", this.fg.value);
-      this.categService.saveCategory(this.fg.value).subscribe((data:any)=>{
+      this.categorieService.saveCategory(this.fg.value).subscribe((data:any)=>{
         console.log("insert...", data);
         if(data['status']=="OK"){
           console.log("msg");
@@ -131,7 +130,7 @@ export class ListCategoryComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept:()=>{
     // method to publish category
-    this.categService.toPublish(event.id).subscribe((data:any)=>{
+    this.categorieService.toPublish(event.id).subscribe((data:any)=>{
       console.log("etat publié", data);
       this.findAllCateg();
       this.messageService.add({severity:"success", summary:"Categorie", detail:"publier"});
@@ -159,7 +158,7 @@ export class ListCategoryComponent implements OnInit {
       icon: 'pi pi-exclamation-triangle',
       accept:()=>{
       //method to unpublish category
-      this.categService.ToUnpublish(event.id).subscribe((data:any)=>{
+      this.categorieService.ToUnpublish(event.id).subscribe((data:any)=>{
         console.log("etat non publié", data);
         this.findAllCateg();
         this.messageService.add({severity:"error", summary:"Categorie", detail:"dépublier"});
@@ -175,6 +174,38 @@ export class ListCategoryComponent implements OnInit {
        }
       }
     });
+    }
+
+    //delete category
+    delete(event : any){
+      this.confirmationService.confirm({
+        message:'Voulez-vous supprimer cette categorie ?',
+        header:'Demande de confirmation',
+        icon: 'pi pi-exclamation-triangle',
+        accept:()=>{
+        //method to delete category
+        console.log("deleting", event);
+        this.categorieService.deleteCategory(event.id).subscribe((data:any)=>{
+          if(data['status']=="OK"){
+            console.log("del", data);            
+            this.messageService.add({severity:"success", summary:"Categorie", detail:"Suppression reussie"});
+          }else{
+            this.messageService.add({severity:"error", summary:"Categorie", detail:"Suppression annulée"});
+          }
+          this.findAllCateg();
+        });
+        },
+        reject : (type : any) =>{
+         switch(type){
+            case ConfirmEventType.REJECT:
+              // this.messageService.add({severity:'error', summary:"Categorie", detail:"Rejet"});
+              break;
+            case ConfirmEventType.CANCEL:
+              // this.messageService.add({severity:'success', summary:"categorie", detail:"Retour"});
+         }
+        }
+      });
+
     }
 
 }

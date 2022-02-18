@@ -33,4 +33,9 @@ host=environment.host;
   updateCategory(data:any, id:any){
    return this.http.put(this.host+"update/category/"+id, data);
   }
+
+  //delete category
+  deleteCategory(id:any){
+  return this.http.delete(this.host+"delete/category/"+id)
+  }
 }
