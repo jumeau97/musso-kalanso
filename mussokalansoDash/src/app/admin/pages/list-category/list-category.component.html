@@ -98,7 +98,7 @@
                           <button *ngIf="categorie.etat==0" (click)="toPublish(categorie)" title="Non publié" pButton pRipple type="button" icon="pi pi-circle" class="p-button-rounded p-button-danger"></button>                
                           <button pButton pRipple type="button" (click)="show1(categorie)" title="Détails" icon="pi pi-info-circle" class="p-button-rounded p-button-success"></button>
                           <button pButton pRipple  icon="pi pi-pencil" (click)="show2(categorie)" title="Modifier" class="p-button-rounded p-button-info"></button>
-                          <button pButton pRipple  icon="pi pi-trash" title="Supprimer" class="p-button-rounded p-button-danger"></button>
+                          <button pButton pRipple  icon="pi pi-trash" title="Supprimer" (click)="delete(categorie)" class="p-button-rounded p-button-danger"></button>
 
                         </td>
                      
