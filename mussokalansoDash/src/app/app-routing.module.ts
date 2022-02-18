@@ -17,6 +17,7 @@ import { UpdateChapitreComponent } from './admin/update-chapitre/update-chapitre
 import { UpdateModuleComponent } from './admin/update-module/update-module.component';
 import { UpdateUtilisateurComponent } from './admin/update-utilisateur/update-utilisateur.component';
 import { ListModuleByCategComponent } from './list-module-by-categ/list-module-by-categ.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   {
@@ -86,6 +87,10 @@ const routes: Routes = [
   {
     path:"update/utilisateur",
     component:UpdateUtilisateurComponent
+  },
+  {
+    path:"login",
+    component:LoginComponent
   }
 
 ];

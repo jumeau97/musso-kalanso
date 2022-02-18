@@ -36,6 +36,7 @@ import { DetailModuleComponent } from './admin/pages/detail-module/detail-module
 import { DetailLearnerComponent } from './admin/pages/detail-learner/detail-learner.component';
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmPopupModule } from "primeng/confirmpopup";
+import { LoginComponent } from './login/login.component';
 // import {NgxPaginationModule} from 'ngx-pagination';
 
 
@@ -64,6 +65,7 @@ import { ConfirmPopupModule } from "primeng/confirmpopup";
     UpdateUtilisateurComponent,
     DetailModuleComponent,
     DetailLearnerComponent,
+    LoginComponent,
     
     
   ],

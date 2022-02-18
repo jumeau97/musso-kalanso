@@ -29,6 +29,8 @@ export class ListModuleComponent implements OnInit {
   findAllModule(){
     this.moduleService.findAllModule().subscribe((data:any)=>{
       this.listModule = data.body;
+      console.log("list module", this.listModule);
+      
     })
   }
 

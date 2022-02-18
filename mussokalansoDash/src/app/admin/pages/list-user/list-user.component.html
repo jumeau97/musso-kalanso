@@ -1,8 +1,8 @@
 <!-- =======confirm dialog====== -->
 <p-confirmDialog #cd [style]="{width: '50vw'}">
   <ng-template pTemplate="footer">
-      <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
-      <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+      <button type="button" pButton icon="pi pi-times" label="Non" (click)="cd.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="Oui" (click)="cd.accept()"></button>
   </ng-template>
 </p-confirmDialog>
 <!-- =========================== -->
@@ -22,7 +22,7 @@
   </ng-template>
 </p-toast>
 <!-- =============Dialog============ -->
-<p-dialog header="Header" [(visible)]="displayBasic" [style]="{width: '70vw'}">
+<p-dialog header="Utilisateur" [(visible)]="displayBasic" [style]="{width: '70vw'}">
   <form class="form-sample" [formGroup]="formUser" (ngSubmit)="saveUser()">
     <p class="card-description">Informations personnel</p>
     <div class="row">
