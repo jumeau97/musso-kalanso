@@ -1,8 +1,16 @@
-<!-- <p-toast></p-toast> -->
+<!-- =======confirm dialog====== -->
+<p-confirmDialog #cd [style]="{width: '50vw'}">
+  <ng-template pTemplate="footer">
+      <button type="button" pButton icon="pi pi-times" label="No" (click)="cd.reject()"></button>
+      <button type="button" pButton icon="pi pi-check" label="Yes" (click)="cd.accept()"></button>
+  </ng-template>
+</p-confirmDialog>
+<!-- =========================== -->
+<p-toast></p-toast>
 <!-- <p-toast position="top-left" key="tl"></p-toast>
 <p-toast position="top-center" key="tc"></p-toast>
 <p-toast position="bottom-center" key="bc"></p-toast> -->
-<!-- <p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+<p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
   <ng-template let-message pTemplate="message">
       <div class="p-flex p-flex-column" style="flex: 1">
           <div class="p-text-center">
@@ -12,9 +20,101 @@
           </div>
       </div>
   </ng-template>
-</p-toast> -->
-
-
+</p-toast>
+<!-- =============Dialog============ -->
+<p-dialog header="Header" [(visible)]="displayBasic" [style]="{width: '70vw'}">
+  <form class="form-sample" [formGroup]="formUser" (ngSubmit)="saveUser()">
+    <p class="card-description">Informations personnel</p>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group row">
+          <!-- <label class="col-sm-3 col-form-label">Nom & Prénom</label> -->
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Nom & Prénom" name="nomPrenom" [(ngModel)]="getUser.nomPrenom" formControlName="nomPrenom" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group row">
+          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Adresse" name="adresse" [(ngModel)]="getUser.adresse" formControlName="adresse" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group row">
+          <!-- <label class="col-sm-3 col-form-label">Tél</label> -->
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="E-mail"  name="email" [(ngModel)]="getUser.email" formControlName="email"/>
+          </div>
+        </div>
+      </div>                      
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group row">
+          <!-- <label class="col-sm-3 col-form-label">Nom & Prénom</label> -->
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Télephone" name="tel" [(ngModel)]="getUser.tel" formControlName="tel" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group row">
+          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Domaine" name="domaine" [(ngModel)]="getUser.domaine" formControlName="domaine" />
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group row">
+          <!-- <label class="col-sm-3 col-form-label">Tél</label> -->
+          <div class="col-sm-9">
+            <input type="text" class="form-control" placeholder="Profession" name="profession" [(ngModel)]="getUser.profession" formControlName="profession" />
+          </div>
+        </div>
+      </div>                      
+    </div>                    
+    <div class="row">
+      <div class="col-md-4">
+        <div class="form-group row">
+          <!-- <label class="col-sm-3 col-form-label">Nom & Prénom</label> -->
+          <div class="col-sm-9">
+            <select name="genre" id="" class="form-control" [(ngModel)]="getUser.genre" formControlName="genre">
+              <option disabled>Choisir le genre</option>
+              <option value="true">Homme</option>
+              <option value="false">Femme</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group row">
+          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+          <div class="col-sm-9">
+            <select name="statut" id="" class="form-control" [(ngModel)]="getUser.statut" formControlName="statut">
+              <option disabled>Choisir le statut</option>
+              <option value="true">Admin</option>
+              <option value="false">Formateur</option>
+            </select>
+          </div>
+        </div>
+      </div>    
+      <div class="col-md-4">
+        <div class="form-group row">
+          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+          <div class="col-sm-9">
+            <textarea class="form-control" maxlength="200" name="description" [(ngModel)]="getUser.description" id="" rows="5" placeholder="Bref description" formControlName="description"></textarea>
+          </div>
+        </div>
+      </div>                                           
+    </div>                    
+    <button type="submit" class="btn btn-primary mr-2"> Enregistrer </button>
+  </form>
+</p-dialog>
+<!-- ================================== -->
 <div class="container-scroller">
     <!-- side-menu -->
     <app-side-menu></app-side-menu>
@@ -57,8 +157,8 @@
                     <td>
 
                       <button pButton pRipple title="Details"  icon="pi pi-info" title="Détails" (click)="show(user)" class="p-button-rounded p-button-success"></button>
-                      <button pButton pRipple title="Modifier" icon="pi pi-pencil" title="Modifier" routerLink="/update/utilisateur" class="p-button-rounded p-button-info"></button>
-                      <button pButton pRipple title="Supprimer" icon="pi pi-trash" title="Supprimer" class="p-button-rounded p-button-danger"></button>
+                      <button pButton pRipple title="Modifier" icon="pi pi-pencil" title="Modifier" (click)="updateUser(user)" class="p-button-rounded p-button-info"></button>
+                      <button pButton pRipple title="Supprimer" icon="pi pi-trash" title="Supprimer" (click)="deleteUser(user)" class="p-button-rounded p-button-danger"></button>
 
                     </td>
                 </tr>
