@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Inscription;
 
+import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import com.example.mussokalanso.mussokalansoBack.payload.SubscribeLearner;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,6 +32,13 @@ public class InscriptionControler {
     ){
         return new ResponseEntity<>(inscriptionService.getApprenantByModuleSubs(id, idm), HttpStatus.OK);
     }
+
+    //find differents modules that learner is subscribe
+    @PostMapping("/learner/inscriptions")
+    public @ResponseBody ResponseEntity<?> getModulesLearner(@RequestBody Apprenant apprenant){
+        return new ResponseEntity<>(inscriptionService.LearnerModSubscribe(apprenant), HttpStatus.OK);
+    }
+
 
 
 }

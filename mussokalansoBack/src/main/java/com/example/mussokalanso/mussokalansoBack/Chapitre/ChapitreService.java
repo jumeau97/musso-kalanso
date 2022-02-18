@@ -55,6 +55,8 @@ public class ChapitreService {
             Chapitre m = chapitreRepository.getById(id);
             if(m!=null) {
                 m.setLibelle(chapitre.getLibelle());
+                m.setDescription(chapitre.getDescription());
+                m.setVideo(chapitre.getVideo());
                 chapitreRepository.save(m);
             }
         }catch(Exception e) {
@@ -66,7 +68,7 @@ public class ChapitreService {
     }
 
     //supprimer chapitre
-    public  Response supprimerChapitre(Chapitre chapitre, Long id){
+    public  Response supprimerChapitre(Long id){
 
         try{
             chapitreRepository.deleteById(id);

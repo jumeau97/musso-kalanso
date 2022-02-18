@@ -33,9 +33,9 @@ public class CategorieControler {
     }
 
     //delete category
-    @DeleteMapping()
-   public @ResponseBody ResponseEntity<?> deleteCategory(@RequestBody Categorie categorie){
-        return new ResponseEntity<>(categorieService.deleteCategory(categorie), HttpStatus.OK);
+    @DeleteMapping("/delete/category/{id}")
+   public @ResponseBody ResponseEntity<?> deleteCategory(@PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(categorieService.deleteCategory(id), HttpStatus.OK);
     }
 
     //publish category

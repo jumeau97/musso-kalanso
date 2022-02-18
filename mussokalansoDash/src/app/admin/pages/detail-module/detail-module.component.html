@@ -1,3 +1,90 @@
+<!-- ===================== -->
+<p-toast></p-toast>
+<!-- <p-toast position="top-left" key="tl"></p-toast>
+<p-toast position="top-center" key="tc"></p-toast>
+<p-toast position="bottom-center" key="bc"></p-toast> -->
+<p-toast position="top-center" key="c" (onClose)="onReject()" [baseZIndex]="5000">
+  <ng-template let-message pTemplate="message">
+      <div class="p-flex p-flex-column" style="flex: 1">
+          <div class="p-text-center">
+              <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+              <h4>{{message.summary}}</h4>
+              <p>{{message.detail}}</p>
+          </div>
+      </div>
+  </ng-template>
+</p-toast>
+<!-- ================= -->
+<!-- =====confirm delete======= -->
+<p-confirmDialog #cd [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text">
+  <ng-template pTemplate="footer">
+    <button type="button" pButton icon="pi pi-times" label="Non" (click)="cd.reject()" ></button>
+    <button type="button" pButton icon="pi pi-check" label="Oui" (click)="cd.accept()"></button>
+</ng-template>
+</p-confirmDialog>
+<!-- ========================== -->
+<!-- ====update dialog==== -->
+<p-dialog header="Header" [(visible)]="displayResponsive" [breakpoints]="{'960px': '75vw'}" [style]="{width: '70vw'}"
+    [draggable]="false" [resizable]="false">
+    <form class="form-sample" [formGroup]="formChap" (ngSubmit)="sendChapter()">
+      <!-- <p class="card-description">Personal info</p> -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Libelle</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="libelle" [(ngModel)]="getChapter.libelle"  formControlName="libelle" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">lien video</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" name="video" [(ngModel)]="getChapter.video" formControlName="video" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Fichier 1</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Fichier 2</label>
+            <div class="col-sm-9">
+              <input type="text" class="form-control" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="form-group row">
+            <label class="col-sm-3 col-form-label">Description</label>
+            <div class="col-sm-9">
+              <textarea class="form-control" name="" id="" rows="5" name="description" 
+              [(ngModel)]="getChapter.description" formControlName="description">
+            </textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-rose mr-2"> Mettre à jour </button>
+    </form>
+        <ng-template pTemplate="footer">
+        <!-- <p-button (click)="displayResponsive=false" label="No" styleClass="p-button-text"></p-button> -->
+        <!-- <p-button (click)="displayResponsive=false" label="Yes" styleClass="p-button-text"></p-button> -->
+        </ng-template>
+</p-dialog>
+<!-- ===================== -->
+
 <div class="container-scroller">
     <!-- side-menu -->
     <app-side-menu></app-side-menu>
@@ -37,8 +124,8 @@
                             <div class="row">
                               <div class="col-md-6 d-flex align-items-center">
                                 <div class="d-flex flex-row align-items-center">
-                                  <button pButton pRipple  icon="pi pi-pencil" class="p-button-rounded p-button-info but" routerLink="/update/module"></button>
-                                  <button pButton pRipple type="button" icon="pi pi-info" class="p-button-rounded p-button-info" [routerLink]="['/detail/module', module.id]"></button>
+                                  <button pButton pRipple  icon="pi pi-pencil" class="p-button-rounded p-button-info but" (click)="updateChapter(l)"></button>
+                                  <button pButton pRipple type="button" icon="pi pi-trash" class="p-button-rounded p-button-danger" (click)="deleteChapter(l)"></button>
                                 </div>
                               </div>
                           </div>
