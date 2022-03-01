@@ -89,7 +89,7 @@ const routes: Routes = [
     component:UpdateUtilisateurComponent
   },
   {
-    path:"login",
+    path:"",
     component:LoginComponent
   }
 
