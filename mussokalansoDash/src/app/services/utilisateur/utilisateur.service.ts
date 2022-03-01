@@ -1,5 +1,4 @@
 import { HttpClient } from '@angular/common/http';
-import { identifierModuleUrl } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
@@ -27,5 +26,10 @@ host = environment.host;
   //delete user
   deleteUser(id:any){
     return this.http.delete(this.host+"delete/user/"+id);
+  }
+
+  //login
+  login(data:any){
+    return this.http.post(this.host+"login", data)
   }
 }
