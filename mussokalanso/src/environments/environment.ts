@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  host:"http://localhost:8080/api/mussokalanso",
+  // host:"http://localhost:8080/api/mussokalanso",
+  host:"http://10.175.48.72:8080/api/mussokalanso",
 };
 
 /*

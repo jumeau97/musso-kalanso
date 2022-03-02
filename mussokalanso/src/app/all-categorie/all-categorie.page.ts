@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService } from '../pages/tabs/home/service/home.service';
 
 @Component({
   selector: 'app-all-categorie',
@@ -6,10 +7,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./all-categorie.page.scss'],
 })
 export class AllCategoriePage implements OnInit {
+  listCategory: any;
 
-  constructor() { }
+  constructor(private homeService : HomeService)
+   { 
+     this.categoryPub();
+   }
 
   ngOnInit() {
+  }
+
+  // all category published
+  categoryPub(){
+    this.homeService.getAllCategory().subscribe((data:any)=>{
+      this.listCategory = data.body;
+    })
   }
 
 }

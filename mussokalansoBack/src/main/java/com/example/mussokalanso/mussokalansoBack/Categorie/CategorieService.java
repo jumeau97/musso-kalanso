@@ -114,5 +114,16 @@ public class CategorieService {
         return Response.success("mis à l'etat dépublier");
     }
 
+    //list of category published
+    public Response categoryPublished(){
+        List<Categorie> listCat = new ArrayList<>();
+        try{
+            listCat = categorieRepository.findAllByEtatTrue();
+        }catch(Exception e){
+            e.printStackTrace(System.out);
+        }
+        return Response.with("la liste retournée", listCat);
+    }
+
 
 }

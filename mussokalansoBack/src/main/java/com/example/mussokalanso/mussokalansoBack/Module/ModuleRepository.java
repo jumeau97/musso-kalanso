@@ -30,4 +30,6 @@ public interface ModuleRepository extends JpaRepository<Module, Long> {
     //module by id apprenant
     //Optional<Module> findByApprenant(Apprenant apprenant);
 
+    List<Module> findAllByEtatTrue();
+
 }

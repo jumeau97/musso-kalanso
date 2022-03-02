@@ -49,6 +49,12 @@ public class ModuleControler {
         return new ResponseEntity<>(moduleService.findAllModule(), HttpStatus.OK);
     }
 
+    //all module published
+    @GetMapping("all/module/published")
+    public @ResponseBody ResponseEntity<?> allModulePublished(){
+        return new ResponseEntity<>(moduleService.allModulePublished(), HttpStatus.OK);
+    }
+
     //update module
     @PutMapping("/update/module/{id}")
     public @ResponseBody ResponseEntity<?> updateModule(@RequestBody Module module,

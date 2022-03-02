@@ -14,9 +14,9 @@ host=environment.host;
     return this.http.get(this.host+"/fourModule");
   }
 
-  //find all category
+  //find all category published
   getAllCategory(){
-    return this.http.get(this.host+"/allCategory");
+    return this.http.get(this.host+"/allCategory/published");
   }
 
   // get details module by his id
@@ -32,5 +32,20 @@ host=environment.host;
   // get apprenant by module subscribe
   getApprenantByModuleSubs(id, idm){
     return this.http.get(this.host+"/get/subscribe/"+id+"/"+idm);
+  }
+
+  //modules by category
+  getModuleByCategory(data:any){
+    return this.http.post(this.host+"/categorie/modules", data);
+  }
+
+  // get module by id 
+  getDetailsCategory(id:any){
+    return this.http.get(this.host+"/module/"+id);
+  }
+
+  //all module published
+  allModulePublished(){
+    return this.http.get(this.host+"/all/module/published");
   }
 }

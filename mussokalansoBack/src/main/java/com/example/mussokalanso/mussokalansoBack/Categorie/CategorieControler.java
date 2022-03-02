@@ -19,6 +19,13 @@ public class CategorieControler {
         return new ResponseEntity<>(categorieService.allCategory(), HttpStatus.OK);
     }
 
+    //list of category published
+    @GetMapping("/allCategory/published")
+    public @ResponseBody ResponseEntity<?> findAllCategoryPub(){
+        return new ResponseEntity<>(categorieService.categoryPublished(), HttpStatus.OK);
+    }
+
+
     //update category
     @PutMapping("/update/category/{id}")
     public @ResponseBody ResponseEntity<?> updateCategory(@RequestBody Categorie categorie,
@@ -48,4 +55,5 @@ public class CategorieControler {
     public @ResponseBody ResponseEntity<?> unpublish(@PathVariable(value = "id") Long id){
         return new ResponseEntity<>(categorieService.unpublish(id), HttpStatus.OK);
     }
+
 }

@@ -51,7 +51,7 @@
     <ion-row>
       <ion-slides [options]="slideOpts1">
         <ion-slide *ngFor="let cat of listCategory">
-          <ion-card class="featured" [routerLink]="['/' , 'admin', 'tabs', 'items', cat.id]">
+          <ion-card class="featured" [routerLink]="['/' , 'admin', 'details-category', cat.id]">
             <ion-card-header>
               <!-- <img [src]="cat?.img" />               -->
             </ion-card-header>

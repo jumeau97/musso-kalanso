@@ -37,6 +37,7 @@ import { DetailLearnerComponent } from './admin/pages/detail-learner/detail-lear
 import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmPopupModule } from "primeng/confirmpopup";
 import { LoginComponent } from './login/login.component';
+import {MessageModule} from 'primeng/message';
 // import {NgxPaginationModule} from 'ngx-pagination';
 
 
@@ -83,7 +84,8 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     ToastModule,
     ConfirmDialogModule,
-    ConfirmPopupModule
+    ConfirmPopupModule,
+    MessageModule,
     // NgxPaginationModule,
     // DynamicDialogConfig
 

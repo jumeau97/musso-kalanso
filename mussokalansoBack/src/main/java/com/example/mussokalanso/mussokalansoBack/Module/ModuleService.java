@@ -87,6 +87,18 @@ public class ModuleService {
         return Response.with("la liste des modules", listModule);
     }
 
+    //all module published
+    public Response allModulePublished(){
+        List<Module> listMod = new ArrayList<>();
+
+        try{
+            listMod = moduleRepository.findAllByEtatTrue();
+        }catch(Exception e){
+            e.printStackTrace(System.out);
+        }
+        return Response.with("Liste retournée", listMod);
+    }
+
     //update module
     public  Response updateModule(Module module, Long id){
 
