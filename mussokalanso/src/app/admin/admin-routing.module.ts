@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminGuard } from '../guards/admin/admin.guard';
+import { DetailCategorieComponent } from '../pages/tabs/detail-categorie/detail-categorie.component';
 
 import { AdminPage } from './admin.page';
 
@@ -40,6 +41,10 @@ const routes: Routes = [
         path: 'read-module',
         loadChildren: () => import('./read-module/read-module.module').then( m => m.ReadModulePageModule)
       },
+      {
+        path:'details-category/:id',
+        component:DetailCategorieComponent
+      }
   ]
   },
   {
