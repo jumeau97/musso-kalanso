@@ -16,7 +16,7 @@
             <p-table #dt [value]="listLearn" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" responsiveLayout="scroll"
             currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[10,25,50]" 
             [globalFilterFields]="['nom_prenom','adresse','tel']">
-            <ng-template pTemplate="caption">
+            <ng-template pTemplate="caption"> 
               <div class="flex">
                   <span class="p-input-icon-left ml-auto">
                       <i class="pi pi-search"></i>
