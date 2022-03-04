@@ -19,7 +19,8 @@ loginForm = new FormGroup({
   }
 
   onSubmit(){
-    // console.warn(this.loginForm.value);
+    console.log("login", this.loginForm.value);
+    
     this.authService.login(this.loginForm.value).subscribe((data:any)=>{
       console.log("authentication...", data);
       if(data['status']=="OK"){
