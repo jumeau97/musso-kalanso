@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 import { HomeService } from '../pages/tabs/home/service/home.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { HomeService } from '../pages/tabs/home/service/home.service';
 export class AllModulePage implements OnInit {
   listModule: any;
 
-  constructor(private homeService : HomeService) { }
+  constructor(
+    private homeService : HomeService,
+    public navCtrl: NavController,
+    ) { }
 
   ngOnInit() {
     this.allModulePub();
