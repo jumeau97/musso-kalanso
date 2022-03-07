@@ -7,8 +7,14 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-bar.component.scss']
 })
 export class TopBarComponent implements OnInit {
+  currentUser: any;
 
-  constructor(private router : Router) { }
+  constructor(private router : Router) 
+  { 
+    this.currentUser = JSON.parse(localStorage.getItem("current_dash_user") || "");
+    console.log("current user", this.currentUser);
+    
+  }
 
   ngOnInit(): void {
   }
