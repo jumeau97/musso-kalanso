@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
       console.log("authentication...", data);
       if(data['status']=="OK"){
         this.msgError=false;
-      localStorage.setItem("current_dash_user", JSON.stringify(data['status']));   
+      localStorage.setItem("current_dash_user", JSON.stringify(data['body']));   
       this.router.navigate(["/accueil"]);
       }else{
         this.msgError = true;
