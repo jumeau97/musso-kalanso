@@ -8,6 +8,7 @@ import { AdminPageRoutingModule } from './admin-routing.module';
 
 import { AdminPage } from './admin.page';
 import { DetailCategorieComponent } from '../pages/tabs/detail-categorie/detail-categorie.component';
+import { FormationsComponent } from '../formations/formations.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,6 @@ import { DetailCategorieComponent } from '../pages/tabs/detail-categorie/detail-
     IonicModule,
     AdminPageRoutingModule
   ],
-  declarations: [AdminPage, DetailCategorieComponent]
+  declarations: [AdminPage, DetailCategorieComponent, FormationsComponent]
 })
 export class AdminPageModule {}

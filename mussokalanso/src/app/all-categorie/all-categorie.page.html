@@ -27,7 +27,7 @@
   </ion-item>
   <ion-row>
     <ion-col *ngFor="let c of listCategory" size="6">
-      <ion-card [routerLink]="['/', 'admin', 'details-category', c.id]">
+      <ion-card class="bgCard" [routerLink]="['/', 'admin', 'details-category', c.id]">
         <ion-card-header>
           <ion-card-subtitle>{{c.libelle}}</ion-card-subtitle>
           <!-- <ion-card-title>{{c.libelle}}</ion-card-title> -->

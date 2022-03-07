@@ -9,6 +9,7 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
   <ion-list lines="none" class="ion-margin">
     <ion-list-header>Bienvenue !</ion-list-header>
+    <ion-label class="mylabel" *ngIf="!logInfos">e-mail ou mot de passe incorrect!</ion-label>
     <ion-item class="ion-margin">
       <ion-input placeholder="E-mail" type="email" clearInput="true" id="email" formControlName="email"></ion-input>
     </ion-item>
@@ -18,7 +19,7 @@
     <ion-text color="medium"><p class="ion-margin-horizontal">Mot de passe oublié?</p></ion-text>
     <ion-text color="medium"><p class="ion-margin-horizontal">vous n'avez pas de compte?. <a routerLink="/signup">creez-en</a></p></ion-text>
     <div align="right">
-      <ion-button shape="round" strong="true" class="ion-margin-end" color="success"  type="submit" [disabled]="!loginForm.valid">
+      <ion-button shape="round" strong="true" class="ion-margin-end"  type="submit" [disabled]="!loginForm.valid">
         S'identifier
         <ion-icon name="log-in" slot="end"></ion-icon>
       </ion-button>
