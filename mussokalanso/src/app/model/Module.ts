@@ -1,6 +1,6 @@
 export class Module{
     id:number;
-    libellle:String;
+    libelle:String;
     description:String;
     etat:boolean;
 }
