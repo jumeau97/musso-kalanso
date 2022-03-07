@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FormationsComponent } from '../formations/formations.component';
 import { AdminGuard } from '../guards/admin/admin.guard';
 import { DetailCategorieComponent } from '../pages/tabs/detail-categorie/detail-categorie.component';
 
@@ -44,6 +45,10 @@ const routes: Routes = [
       {
         path:'details-category/:id',
         component:DetailCategorieComponent
+      },
+      {
+        path: 'formations',
+        component:FormationsComponent
       }
   ]
   },

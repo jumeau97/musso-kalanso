@@ -26,3 +26,28 @@ ion-header {
     }
 }
 
+
+ion-card {
+    height: 30vh;
+    width: 100%;
+    border-radius: 10px;
+    ion-card-header{
+        ion-card-subtitle {
+            font-weight: bold;
+            font-size: 0.75rem;
+            color: var(--ion-color-dark);
+    }
+    }
+    ion-card-content {
+        img {
+            height: 20vh;
+        }
+    }
+}
+.bgCard {
+    // background-image: url('../../../../assets/imgs/bg.png');
+    background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+

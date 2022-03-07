@@ -18,28 +18,3 @@
     <ion-searchbar></ion-searchbar>
   </div>
 </ion-header>
-
-<ion-content>
-
-<ion-grid>
-  <ion-item>
-    <h5>Tous les modules</h5>
-  </ion-item>
-  <ion-row>
-    <ion-col *ngFor="let m of listModule" size="6">
-      <ion-card [routerLink]="['/', 'admin', 'tabs', 'items', m.id]">
-        <ion-card-header>
-          <ion-card-subtitle>{{m.libelle}}</ion-card-subtitle>
-          <!-- <ion-card-title>{{m.libelle}}</ion-card-title> -->
-        </ion-card-header>
-      
-        <ion-card-content>
-          <img src="assets/imgs/entrepre.jpg" />
-          <!-- <img [src]="m?.img" /> -->
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
-
-</ion-content>

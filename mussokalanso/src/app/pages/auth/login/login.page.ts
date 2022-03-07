@@ -13,12 +13,14 @@ loginForm = new FormGroup({
   email: new FormControl('', [Validators.required, Validators.email]),
   motDePasse: new FormControl('', [Validators.required])
 });
+  logInfos: boolean = true;
   constructor(private authService:AuthService, private router : Router) { }
 
   ngOnInit() {
   }
 
   onSubmit(){
+    this.logInfos = true;
     console.log("login", this.loginForm.value);
     
     this.authService.login(this.loginForm.value).subscribe((data:any)=>{
@@ -28,6 +30,7 @@ loginForm = new FormGroup({
         localStorage.setItem("session_auth",JSON.stringify(data.body));
         this.router.navigateByUrl("");
       }else{
+        this.logInfos = false;
         console.log("not ok");
         
       }

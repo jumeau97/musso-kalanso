@@ -12,7 +12,7 @@ export class DetailCategorieComponent implements OnInit {
   category: any;
   listModule: any;
 
-  constructor(private homeService : HomeService, private activatedRoute : ActivatedRoute) { }
+  constructor(private homeService : HomeService, private activatedRoute : ActivatedRoute, public navCtrl: NavController,) { }
 
   ngOnInit() {
     console.log(this.activatedRoute.snapshot.params.id);

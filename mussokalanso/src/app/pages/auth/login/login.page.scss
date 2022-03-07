@@ -15,9 +15,15 @@ ion-fab {
 
 ion-list {
     margin-top: 6vh;
-    ion-list-header {
+    ion-list-header{
         font-weight: 1000;
         font-size: 1.5rem;
+    }
+
+    .mylabel{
+        color: red;
+        font-size: 1em;
+        margin-left: 20px;
     }
     ion-item {
         border: 1px solid var(--ion-color-light);
@@ -30,4 +36,9 @@ ion-list {
         font-size: 0.8rem;
         padding-left: 5vw;
     }
+    ion-button{
+        --background: #e3a5c5;
+    }
+
+
 }

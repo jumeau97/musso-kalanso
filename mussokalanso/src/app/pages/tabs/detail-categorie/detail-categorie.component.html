@@ -2,7 +2,10 @@
   <ion-list lines="none">
     <ion-item >
       <!-- <ion-icon  name="reorder-two" ></ion-icon> -->
-      <ion-icon slot="start" name="menu-outline" (click)="openMenu()"></ion-icon>
+      <!-- <ion-icon slot="start" name="menu-outline" (click)="openMenu()"></ion-icon> -->
+      <ion-button fill="clear" (click)="navCtrl.back()">
+        <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+      </ion-button>
     </ion-item>
     <ion-item >
       <ion-label>Musso kalanso</ion-label>
