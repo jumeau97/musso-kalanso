@@ -38,7 +38,7 @@ export class ListModuleByCategComponent implements OnDestroy {
   findAllModuleByCateg(){
     this.productService.findAllModuleByCategC(this.categorie).subscribe((data:any)=>{
       this.listModule=data.body;
-      console.log("module", data.body);
+      console.log("module true or false", data.body);
       
     })
 
