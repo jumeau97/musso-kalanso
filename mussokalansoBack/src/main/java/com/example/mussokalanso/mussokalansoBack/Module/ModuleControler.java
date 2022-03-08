@@ -22,11 +22,17 @@ public class ModuleControler {
         return new ResponseEntity<>(moduleService.findLastFM(), HttpStatus.OK);
     }
 
-    //la liste des modules par categorie
+    //la liste des modules par categorie avec etat =true
     @PostMapping("categorie/modules")
     public @ResponseBody
     ResponseEntity<?> findByCateg(@RequestBody Categorie categorie){
         return new ResponseEntity<>(moduleService.findModuleByCateg(categorie), HttpStatus.OK);
+    }
+
+    //la liste des modules par categorie avec etat confondue
+    @PostMapping("categorie/all/module")
+    public @ResponseBody ResponseEntity<?> findAllModuleByCategorie(Categorie categorie){
+        return new ResponseEntity<>(moduleService.findAllModuleByCateg(categorie), HttpStatus.OK);
     }
 
     //recuperer un module à travers l'identifiant du module

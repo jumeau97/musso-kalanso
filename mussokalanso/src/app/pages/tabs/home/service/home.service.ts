@@ -48,4 +48,9 @@ host=environment.host;
   allModulePublished(){
     return this.http.get(this.host+"/all/module/published");
   }
+
+  //find modules that learner is subscribe
+  getLearnerModules(data:any){
+    return this.http.post(this.host+"/learner/inscriptions", data);
+  }
 }

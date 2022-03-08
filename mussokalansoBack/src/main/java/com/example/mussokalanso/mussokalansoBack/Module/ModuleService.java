@@ -15,14 +15,15 @@ public class ModuleService {
 
     @Autowired
     ModuleRepository moduleRepository;
+
     //find the bottom four module insert
-    public Response findLastFM(){
-        List<Module> m= new ArrayList<>();
+    public Response findLastFM() {
+        List<Module> m = new ArrayList<>();
 
-        try{
-            m= moduleRepository.findLastFM();
+        try {
+            m = moduleRepository.findLastFM();
 
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             return Response.error("une erreur est survenue");
         }
@@ -32,12 +33,12 @@ public class ModuleService {
 
 
     //afficher les modules par categorie
-    public Response findModuleByCateg(Categorie categorie){
-        List<Module> m= new ArrayList<>();
+    public Response findModuleByCateg(Categorie categorie) {
+        List<Module> m = new ArrayList<>();
 
-        try{
-            m=moduleRepository.findByCategorieAndEtat(categorie);
-        }catch(Exception e){
+        try {
+            m = moduleRepository.findByCategorieAndEtat(categorie);
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             return Response.error("une erreur est survenue");
         }
@@ -45,14 +46,14 @@ public class ModuleService {
     }
 
     //recuperer un module à travers son identifiant
-    public Response togetByIdModule(Long id){
+    public Response togetByIdModule(Long id) {
         Optional<Module> m = moduleRepository.findById(id);
 
-        try{
-           if(m==null){
-               return Response.success("contenu vide");
-           }
-        }catch (Exception e){
+        try {
+            if (m == null) {
+                return Response.success("contenu vide");
+            }
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             return Response.error("une erreur est survenue");
         }
@@ -61,12 +62,12 @@ public class ModuleService {
     }
 
     //save a new module
-    public Response saveModule(Module module){
+    public Response saveModule(Module module) {
         module.setEtat(false);
 
-        try{
+        try {
             moduleRepository.save(module);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             return Response.error("une ereeur est survenue");
         }
@@ -75,12 +76,12 @@ public class ModuleService {
     }
 
     //find all module
-    public Response findAllModule(){
+    public Response findAllModule() {
         List<Module> listModule = new ArrayList<>();
 
         try {
             listModule = moduleRepository.findAll();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             return Response.error("Une erreur est survenue");
         }
@@ -88,29 +89,29 @@ public class ModuleService {
     }
 
     //all module published
-    public Response allModulePublished(){
+    public Response allModulePublished() {
         List<Module> listMod = new ArrayList<>();
 
-        try{
+        try {
             listMod = moduleRepository.findAllByEtatTrue();
-        }catch(Exception e){
+        } catch (Exception e) {
             e.printStackTrace(System.out);
         }
         return Response.with("Liste retournée", listMod);
     }
 
     //update module
-    public  Response updateModule(Module module, Long id){
+    public Response updateModule(Module module, Long id) {
 
-        try{
+        try {
             Module m = moduleRepository.getById(id);
-            if(m!=null) {
+            if (m != null) {
                 m.setLibelle(module.getLibelle());
                 m.setDescription(module.getDescription());
                 m.setCategorie(module.getCategorie());
             }
             moduleRepository.save(m);
-        }catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             return Response.error("une erreur est survenue");
         }
@@ -118,12 +119,46 @@ public class ModuleService {
         return Response.success("modification reussie");
     }
 
-    //publish module
-    public Response publish(Long id){
-        Module c =moduleRepository.getById(id);
+    //find all module by categorie
+    public Response findAllModuleByCateg(Categorie categorie) {
+        List<Module> modules = new ArrayList<>();
 
-        try{
-            if(c != null){
+        try {
+            modules = moduleRepository.findAllByCategorie(categorie);
+
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+
+
+        return Response.with("liste retournée", modules);
+    }
+
+    //unpublish module
+    public Response unpublish(Long id) {
+        Module c = moduleRepository.getById(id);
+
+        try {
+            if (c != null) {
+                c.setEtat(false);
+                moduleRepository.save(c);
+            }
+        } catch (Exception e) {
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+        return Response.success("mis à l'etat dépublier");
+    }
+
+
+    //publish module
+    public Response publish(Long id) {
+        Module c = moduleRepository.getById(id);
+
+        try {
+            if (c != null) {
                 c.setEtat(true);
                 moduleRepository.save(c);
             }
@@ -131,25 +166,6 @@ public class ModuleService {
             e.printStackTrace(System.out);
             return Response.error("une erreur est survenue");
         }
-
         return Response.success("mis à l'etat publier");
     }
-
-    //unpublish module
-    public Response unpublish(Long id){
-        Module c =moduleRepository.getById(id);
-
-        try{
-            if(c != null){ c.setEtat(false);
-            moduleRepository.save(c);
-            }
-        }catch (Exception e){
-            e.printStackTrace(System.out);
-            return  Response.error("une erreur est survenue");
-        }
-        return Response.success("mis à l'etat dépublier");
-    }
-
-
-
 }
