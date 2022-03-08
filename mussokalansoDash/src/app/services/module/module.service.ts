@@ -34,5 +34,15 @@ host=environment.host;
    return this.http.put(this.host+"update/module/"+id, data);
   }
 
+  //publish module
+  toPublish(id:any){
+    return this.http.get(this.host+"module/publish/"+id);
+  }
+
+  //unpblish module
+  toUnpublish(id:any){
+    return this.http.get(this.host+"module/unpublish/"+id);
+  }
+
   
 }

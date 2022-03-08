@@ -118,5 +118,38 @@ public class ModuleService {
         return Response.success("modification reussie");
     }
 
+    //publish module
+    public Response publish(Long id){
+        Module c =moduleRepository.getById(id);
+
+        try{
+            if(c != null){
+                c.setEtat(true);
+                moduleRepository.save(c);
+            }
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.success("mis à l'etat publier");
+    }
+
+    //unpublish module
+    public Response unpublish(Long id){
+        Module c =moduleRepository.getById(id);
+
+        try{
+            if(c != null){ c.setEtat(false);
+            moduleRepository.save(c);
+            }
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return  Response.error("une erreur est survenue");
+        }
+        return Response.success("mis à l'etat dépublier");
+    }
+
+
 
 }
