@@ -8,6 +8,7 @@ import { HomeService } from '../home/service/home.service';
 import { Module } from 'src/app/model/Module';
 import { Subscribe } from 'src/app/model/payload/Subscribe';
 import { Inscription } from 'src/app/model/Inscription';
+import { Utilisateur } from 'src/app/model/Utilisateur';
 
 @Component({
   selector: 'app-item',
@@ -74,6 +75,16 @@ export class ItemPage implements OnInit {
 
   await alert.present();
 
+  }
+
+  //popup formateur
+  async infosFormateur(event :any){
+    const alert = await this.alertController.create({
+      cssClass:'',
+      header:'Formateur',
+      message:event.utilisateur.nomPrenom+"<br> Profession:"+event.utilisateur.profession+"<br> E-mail:"+event.utilisateur.email,
+    });
+    await alert.present();
   }
 
 //get subscribe through learner and module

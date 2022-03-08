@@ -118,5 +118,18 @@ public class ModuleService {
         return Response.success("modification reussie");
     }
 
+    //find all module by categorie
+    public Response findAllModuleByCateg(Categorie categorie){
+        List<Module> modules = new ArrayList<>();
+
+        try{
+            modules = moduleRepository.findAllByCategorie(categorie);
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.with("liste retournée", modules);
+    }
 
 }

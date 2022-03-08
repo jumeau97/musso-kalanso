@@ -32,4 +32,6 @@ public interface ModuleRepository extends JpaRepository<Module, Long> {
 
     List<Module> findAllByEtatTrue();
 
+
+    List<Module> findAllByCategorie(Categorie categorie);
 }
