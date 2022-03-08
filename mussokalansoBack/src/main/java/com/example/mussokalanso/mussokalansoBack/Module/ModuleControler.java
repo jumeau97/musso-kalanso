@@ -31,7 +31,7 @@ public class ModuleControler {
 
     //la liste des modules par categorie avec etat confondue
     @PostMapping("categorie/all/module")
-    public @ResponseBody ResponseEntity<?> findAllModuleByCategorie(Categorie categorie){
+    public @ResponseBody ResponseEntity<?> findAllModuleByCategorie(@RequestBody Categorie categorie){
         return new ResponseEntity<>(moduleService.findAllModuleByCateg(categorie), HttpStatus.OK);
     }
 

@@ -60,7 +60,7 @@ export class ProductService {
 
 //list module by categorie with etat true or false
 findAllModuleByCategC(data:any){
-  return this.http.post(this.host+"categorie/modules", data);
+  return this.http.post(this.host+"categorie/all/module", data);
 }
 
 // find all learner
