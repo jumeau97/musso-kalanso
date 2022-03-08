@@ -25,16 +25,27 @@ public class Module {
     @ManyToOne
     private Utilisateur utilisateur;
 
+    private String photo;
+
     public Module() {
     }
 
-    public Module(long id, String libelle, String description, boolean etat, Categorie categorie, Utilisateur utilisateur) {
+    public Module(long id, String libelle, String description, boolean etat, Categorie categorie, Utilisateur utilisateur, String photo) {
         this.id = id;
         this.libelle = libelle;
         this.description = description;
         this.etat = etat;
         this.categorie = categorie;
         this.utilisateur = utilisateur;
+        this.photo = photo;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public Utilisateur getUtilisateur() {
