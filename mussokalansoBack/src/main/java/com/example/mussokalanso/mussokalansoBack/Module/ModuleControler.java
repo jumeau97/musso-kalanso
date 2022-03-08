@@ -67,4 +67,16 @@ public class ModuleControler {
                                                            @PathVariable(value = "id") Long id){
         return new ResponseEntity<>(moduleService.updateModule(module, id), HttpStatus.OK);
     }
+
+    //publish module
+    @GetMapping("/module/publish/{id}")
+    public @ResponseBody ResponseEntity<?> publish(@PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(moduleService.publish(id), HttpStatus.OK);
+    }
+
+    //unpublish module
+    @GetMapping("/module/unpublish/{id}")
+    public @ResponseBody ResponseEntity<?> unpublish(@PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(moduleService.unpublish(id), HttpStatus.OK);
+    }
 }

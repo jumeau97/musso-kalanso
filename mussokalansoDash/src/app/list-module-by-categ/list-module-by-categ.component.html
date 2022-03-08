@@ -38,9 +38,9 @@ currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées
             <td *ngIf="module.etat==1">publié</td>
             <td *ngIf="module.etat==0">Non publié</td>
             <td>
-                <button *ngIf="module.etat==1" pButton pRipple type="button" title="Publié" icon="pi pi-check-circle" class="p-button-rounded p-button-success"></button>
-                <button pButton pRipple  icon="pi pi-pencil" title="Modifier" class="p-button-rounded p-button-info"></button>
-                <button *ngIf="module.etat==0" pButton pRipple type="button" title="Non publié" icon="pi pi-circle" class="p-button-rounded p-button-danger"></button>
+                <button *ngIf="module.etat==1" (click)="toUnpublish(module)" pButton pRipple type="button" title="Publié" icon="pi pi-check-circle" class="p-button-rounded p-button-success"></button>
+                <button *ngIf="module.etat==0" (click)="toPublish(module)" pButton pRipple type="button" title="Non publié" icon="pi pi-circle" class="p-button-rounded p-button-danger"></button>
+                <button pButton pRipple  icon="pi pi-pencil" title="Modifier" class="p-button-rounded p-button-info" [routerLink]="['/update/module/', module.id]"></button>
             </td>
 
          
