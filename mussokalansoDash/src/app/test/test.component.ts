@@ -20,25 +20,33 @@ export class TestComponent implements OnInit {
 
   public onImageUpload(event:any) {    
     this.uploadedImage = event.target.files[0];
+    console.log("upload",this.uploadedImage);
+    
   }
 
 
   imageUploadAction() {    
     const imageFormData = new FormData();
-    imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
+    imageFormData.append('file', this.uploadedImage, this.uploadedImage.name);
+    // console.log("pther upload", imageFormData);
+    
   
 
-    this.httpClient.post('http://localhost:8080/upload/image/', imageFormData, { observe: 'response' })
+    this.httpClient.post('http://localhost:8080/upload', imageFormData, {responseType: 'text'})
       .subscribe((response) => {
-        if (response.status === 200) { 
-          this.postResponse = response;                
-          this.successResponse = this.postResponse.body.message;
-        } else {
-          this.successResponse = 'Image not uploaded due to some error!';
-        }
+        console.log("bonjour", response);
+        
+        // if (response.status === 200) { 
+        //   this.postResponse = response;                
+        //   this.successResponse = this.postResponse.body.message;
+        // } else {
+        //   this.successResponse = 'Image not uploaded due to some error!';
+        // }
       }
       );
     }
+
+
 
   viewImage() {
     this.httpClient.get('http://localhost:8080/get/image/info/' + this.image)
