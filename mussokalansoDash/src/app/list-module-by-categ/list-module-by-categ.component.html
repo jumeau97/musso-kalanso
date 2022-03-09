@@ -14,7 +14,6 @@
         <i class="pi pi-search"></i>
         <input pInputText type="text" (input)="filterGlobal($event, 'contains')" placeholder="Recherche" />
     </span>
-<span><button type="button" class="btn btn-sm ml-3 btn-rose" (click)="redirectDetail()"> Autres modules </button></span>
 <p-table #dt [value]="listModule" dataKey="id" [paginator]="true" [rows]="5" [showCurrentPageReport]="true" responsiveLayout="scroll"
 currentPageReportTemplate="montant {first} à {last} des {totalRecords} entrées" [rowsPerPageOptions]="[5,10,15,20]" 
 [globalFilterFields]="['libelle']">

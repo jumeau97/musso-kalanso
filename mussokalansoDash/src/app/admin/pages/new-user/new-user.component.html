@@ -30,63 +30,64 @@
                 <div class="card-body">
                   <h4 class="card-title">Nouveau utilisateur</h4>
                   <form class="form-sample" [formGroup]="formUser" (ngSubmit)="saveUser()">
-                    <p class="card-description">Informations personnel</p>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group row">
-                          <!-- <label class="col-sm-3 col-form-label">Nom & Prénom</label> -->
+                          <label class="col-sm-3 col-form-label">Nom & Prénom</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Nom & Prénom" name="nomPrenom" formControlName="nomPrenom" />
+                            <input type="text" class="form-control" placeholder="Nom & Prénom" name="nomPrenom" formControlName="nomPrenom" maxlength="100" />
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group row">
-                          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+                          <label class="col-sm-3 col-form-label">Adresse</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Adresse" name="adresse" formControlName="adresse" />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4">
-                        <div class="form-group row">
-                          <!-- <label class="col-sm-3 col-form-label">Tél</label> -->
-                          <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="E-mail"  name="email" formControlName="email"/>
+                            <input type="text" class="form-control" placeholder="Adresse" name="adresse" formControlName="adresse" maxlength="100"/>
                           </div>
                         </div>
                       </div>                      
                     </div>
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group row">
-                          <!-- <label class="col-sm-3 col-form-label">Nom & Prénom</label> -->
+                          <label class="col-sm-3 col-form-label">E-mail</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Télephone" name="tel" formControlName="tel" />
+                            <input type="email" class="form-control" placeholder="E-mail"  name="email" formControlName="email" maxlength="100"/>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group row">
-                          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+                          <label class="col-sm-3 col-form-label">Télephone</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Domaine" name="domaine" formControlName="domaine" />
+                            <input type="number" class="form-control" placeholder="Télephone" name="tel" formControlName="tel" maxlength="100"/>
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                    </div> 
+                      <div class="row">
+                      <div class="col-md-6">
                         <div class="form-group row">
-                          <!-- <label class="col-sm-3 col-form-label">Tél</label> -->
+                          <label class="col-sm-3 col-form-label">Domaine</label>
                           <div class="col-sm-9">
-                            <input type="text" class="form-control" placeholder="Profession" name="profession" formControlName="profession" />
+                            <input type="text" class="form-control" placeholder="Domaine" name="domaine" formControlName="domaine" maxlength="100"/>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group row">
+                          <label class="col-sm-3 col-form-label">Profession</label>
+                          <div class="col-sm-9">
+                            <input type="text" class="form-control" placeholder="Profession" name="profession" formControlName="profession" maxlength="100"/>
                           </div>
                         </div>
                       </div>                      
-                    </div>                    
+                    </div>                 
                     <div class="row">
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group row">
-                          <!-- <label class="col-sm-3 col-form-label">Nom & Prénom</label> -->
+                          <label class="col-sm-3 col-form-label">Genre</label>
                           <div class="col-sm-9">
                             <select name="genre" id="" class="form-control" formControlName="genre">
                               <option disabled>Choisir le genre</option>
@@ -96,9 +97,9 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-4">
+                      <div class="col-md-6">
                         <div class="form-group row">
-                          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+                          <label class="col-sm-3 col-form-label">Status</label>
                           <div class="col-sm-9">
                             <select name="statut" id="" class="form-control" formControlName="statut">
                               <option disabled>Choisir le statut</option>
@@ -107,16 +108,16 @@
                             </select>
                           </div>
                         </div>
-                      </div>    
-                      <div class="col-md-4">
+                      </div>
+                    </div>    
+                      <div class="col-md-6">
                         <div class="form-group row">
-                          <!-- <label class="col-sm-3 col-form-label">Adresse</label> -->
+                          <label class="col-sm-3 col-form-label">Description</label>
                           <div class="col-sm-9">
                             <textarea class="form-control" maxlength="200" name="description" id="" rows="5" placeholder="Bref description" formControlName="description"></textarea>
                           </div>
                         </div>
-                      </div>                                           
-                    </div>                    
+                      </div>               
                     <button type="submit" class="btn btn-primary mr-2"> Enregistrer </button>
                   </form>
                 </div>
