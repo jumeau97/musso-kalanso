@@ -190,7 +190,7 @@ export class ListCategoryComponent implements OnInit {
             console.log("del", data);            
             this.messageService.add({severity:"success", summary:"Categorie", detail:"Suppression reussie"});
           }else{
-            this.messageService.add({severity:"error", summary:"Categorie", detail:"Suppression annulée"});
+            this.messageService.add({severity:"error", summary:"Categorie", detail:"Suppression annulée, merci de créer votre propre application"});
           }
           this.findAllCateg();
         });

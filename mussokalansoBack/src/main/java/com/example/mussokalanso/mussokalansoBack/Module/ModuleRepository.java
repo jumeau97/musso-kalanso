@@ -15,7 +15,7 @@ import java.util.function.Function;
 
 public interface ModuleRepository extends JpaRepository<Module, Long> {
     @Query(
-            value = "SELECT * FROM Module u ORDER BY u.id ASC LIMIT 4 ",
+            value = "SELECT * FROM Module u WHERE u.etat =true ORDER BY u.id ASC LIMIT 4 ",
             nativeQuery = true)
     List<Module> findLastFM();
 
@@ -25,7 +25,7 @@ public interface ModuleRepository extends JpaRepository<Module, Long> {
 
 
     //module by id category
-    Optional<Module> findByCategorie(Categorie categorie);
+    List<Module> findByCategorie(Categorie categorie);
 
     //module by id apprenant
     //Optional<Module> findByApprenant(Apprenant apprenant);
