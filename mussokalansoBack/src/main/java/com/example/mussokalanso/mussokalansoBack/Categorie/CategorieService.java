@@ -64,7 +64,7 @@ public class CategorieService {
 
     public Response deleteCategory(Long id){
         Categorie cat = categorieRepository.findById(id).get();
-        Optional<Module> m = moduleRepository.findByCategorie(cat);
+        List<Module> m = moduleRepository.findByCategorie(cat);
 
 
 
