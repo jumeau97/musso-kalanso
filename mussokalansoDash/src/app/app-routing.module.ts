@@ -18,6 +18,7 @@ import { UpdateModuleComponent } from './admin/update-module/update-module.compo
 import { UpdateUtilisateurComponent } from './admin/update-utilisateur/update-utilisateur.component';
 import { ListModuleByCategComponent } from './list-module-by-categ/list-module-by-categ.component';
 import { LoginComponent } from './login/login.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -91,6 +92,10 @@ const routes: Routes = [
   {
     path:"",
     component:LoginComponent
+  },
+  {
+    path:"test",
+    component:TestComponent
   }
 
 ];

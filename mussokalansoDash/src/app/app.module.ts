@@ -23,7 +23,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TableModule } from 'primeng/table';
 import { HttpClientModule} from '@angular/common/http';
 import { InputTextModule } from 'primeng/inputtext';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ListModuleByCategComponent } from './list-module-by-categ/list-module-by-categ.component';
 import { NewUserComponent } from './admin/pages/new-user/new-user.component';
 import { ListUserComponent } from './admin/pages/list-user/list-user.component';
@@ -38,6 +38,7 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { ConfirmPopupModule } from "primeng/confirmpopup";
 import { LoginComponent } from './login/login.component';
 import {MessageModule} from 'primeng/message';
+import { TestComponent } from './test/test.component';
 // import {NgxPaginationModule} from 'ngx-pagination';
 
 
@@ -67,6 +68,7 @@ import {MessageModule} from 'primeng/message';
     DetailModuleComponent,
     DetailLearnerComponent,
     LoginComponent,
+    TestComponent,
     
     
   ],
@@ -86,6 +88,7 @@ import {MessageModule} from 'primeng/message';
     ConfirmDialogModule,
     ConfirmPopupModule,
     MessageModule,
+    FormsModule
     // NgxPaginationModule,
     // DynamicDialogConfig
 
