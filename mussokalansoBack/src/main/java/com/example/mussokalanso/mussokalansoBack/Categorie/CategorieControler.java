@@ -56,4 +56,10 @@ public class CategorieControler {
         return new ResponseEntity<>(categorieService.unpublish(id), HttpStatus.OK);
     }
 
+    //find details category by category
+    @GetMapping("/category/{id}")
+    public @ResponseBody ResponseEntity<?> findCategory(@PathVariable("id") Long id){
+        return new ResponseEntity<>(categorieService.findCategoryById(id), HttpStatus.OK);
+    }
+
 }

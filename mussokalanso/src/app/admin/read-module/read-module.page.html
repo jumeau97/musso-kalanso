@@ -1,19 +1,22 @@
 <ion-header class="ion-no-border">
   <ion-list lines="none">
-    <ion-item color="primary">
+    <ion-item >
       <!-- <ion-icon  name="reorder-two" ></ion-icon> -->
-      <ion-icon slot="start" name="menu-outline" (click)="openMenu()"></ion-icon>
+      <!-- <ion-icon slot="start" name="menu-outline" (click)="openMenu()"></ion-icon> -->
+      <ion-button fill="clear" (click)="navCtrl.back()">
+        <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+      </ion-button>
     </ion-item>
-    <ion-item color="primary">
+    <ion-item >
       <ion-label>Musso kalanso</ion-label>
       <ion-avatar slot="end">
         <img src="assets/imgs/nature love.png" />
       </ion-avatar>
     </ion-item>
   </ion-list>
-  <div class="popover">
+  <!-- <div class="popover">
     <ion-searchbar></ion-searchbar>
-  </div>
+  </div> -->
 </ion-header>
 
 <ion-content>

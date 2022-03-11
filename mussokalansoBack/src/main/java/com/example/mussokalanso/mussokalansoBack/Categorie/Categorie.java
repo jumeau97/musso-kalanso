@@ -13,14 +13,24 @@ public class Categorie {
     private long id;
     private String libelle;
     private boolean etat;
+    private String photo;
 
     public Categorie() {
     }
 
-    public Categorie(long id, String libelle, boolean etat) {
+    public Categorie(long id, String libelle, boolean etat, String photo) {
         this.id = id;
         this.libelle = libelle;
         this.etat = etat;
+        this.photo = photo;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public long getId() {
