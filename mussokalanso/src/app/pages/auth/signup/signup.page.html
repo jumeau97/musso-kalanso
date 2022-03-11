@@ -2,29 +2,44 @@
   <ion-list-header><ion-label color="light"><img src="assets/imgs/logo-app.jpg" /></ion-label></ion-list-header>
   <ion-list lines="none" class="ion-margin">
     <ion-list-header>Bienvenue !</ion-list-header>
-    <ion-item class="ion-margin">
-      <ion-input placeholder="Nom & prénom" type="text" clearInput="true"></ion-input>
-    </ion-item>
-    <ion-item class="ion-margin">
-      <ion-input placeholder="Tel" type="text" clearInput="true"></ion-input>
-    </ion-item>
-    <ion-item class="ion-margin">
-      <ion-input placeholder="Adresse" type="text" clearInput="true"></ion-input>
-    </ion-item>
-    <ion-item class="ion-margin">
-      <ion-input placeholder="E-mail" type="email" clearInput="true"></ion-input>
-    </ion-item>
-    <ion-item class="ion-margin">
-      <ion-input placeholder="Mot de passe" type="password" clearInput="true"></ion-input>
-    </ion-item>
-    <!-- <ion-text color="medium"><p class="ion-margin-horizontal">Mot de passe oublié?</p></ion-text> -->
-    <ion-text color="medium"><p class="ion-margin-horizontal">vous avez dejà un compte?. <a routerLink="/login">Connexion</a></p></ion-text>
-    <div align="right">
-      <ion-button shape="round" strong="true" class="ion-margin-end">
-        S'inscrire
-        <ion-icon name="log-in" slot="end"></ion-icon>
-      </ion-button>
-    </div>
+<form [formGroup]="myform" (ngSubmit)="saveLearner()">
+  <ion-item class="ion-margin">
+    <ion-input placeholder="Nom & prénom" id="nom_prenom" name="nom_prenom" formControlName="nom_prenom" type="text" clearInput="true" autocomplete="off" required></ion-input>
+    <!-- <div *ngIf="nom_prenom.invalid && (nom_prenom.dirty || nom_prenom.touched)"
+    class="alert alert-danger">
+
+  <div *ngIf="nom_prenom.errors?.['required']">
+    nom_prenom is required.
+  </div>
+  <div *ngIf="nom_prenom.errors?.['minlength']">
+    nom_prenom must be at least 4 characters long.
+  </div>
+  <div *ngIf="nom_prenom.errors?.['forbiddenName']">
+    Name cannot be Bob.
+  </div>
+</div> -->
+  </ion-item>
+  <ion-item class="ion-margin">
+    <ion-input placeholder="Tel" type="text" name="tel" formControlName="tel" clearInput="true"></ion-input>
+  </ion-item>
+  <ion-item class="ion-margin">
+    <ion-input placeholder="Adresse" name="adresse" formControlName="adresse" type="text" clearInput="true"></ion-input>
+  </ion-item>
+  <ion-item class="ion-margin">
+    <ion-input placeholder="E-mail" type="email" name="email" formControlName="email" clearInput="true"></ion-input>
+  </ion-item>
+  <ion-item class="ion-margin">
+    <ion-input placeholder="Mot de passe" type="password" name="motDePasse" formControlName="motDePasse" clearInput="true"></ion-input>
+  </ion-item>
+  <!-- <ion-text color="medium"><p class="ion-margin-horizontal">Mot de passe oublié?</p></ion-text> -->
+  <ion-text color="medium"><p class="ion-margin-horizontal">vous avez dejà un compte?. <a routerLink="/login">Connexion</a></p></ion-text>
+  <div align="right">
+    <ion-button shape="round" strong="true" class="ion-margin-end" type="submit">
+      S'inscrire
+      <ion-icon name="log-in" slot="end"></ion-icon>
+    </ion-button>
+  </div>
+</form>
 
   </ion-list>
 </ion-content>

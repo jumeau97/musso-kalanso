@@ -82,4 +82,15 @@ public class ApprenantService {
 
     }*/
 
+   //save new learner
+    public Response saveLearner(Apprenant apprenant){
+        try {
+            apprenantRepository.save(apprenant);
+        }catch (Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+        return Response.success("enregistrer avec succès");
+    }
+
 }

@@ -53,4 +53,14 @@ host=environment.host;
   getLearnerModules(data:any){
     return this.http.post(this.host+"/learner/inscriptions", data);
   }
+
+  //get category
+  getCategoryById(id:any){
+    return this.http.get(this.host+"/category/"+id);
+  }
+
+  //chapitre by module
+  getChapitreByModule(id:any){
+    return this.http.get(this.host+"/module/chapters/"+id);
+  }
 }

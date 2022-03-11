@@ -12,5 +12,10 @@ host=environment.host;
 login(user:any){
   return this.http.post(this.host+"/learn/login", user);
 }
+
+// add new learner
+saveLearner(data:any){
+  return this.http.post(this.host+"/learn/save/learner", data);
+}
   
 }

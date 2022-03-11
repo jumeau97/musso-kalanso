@@ -8,9 +8,12 @@ import { NavController } from '@ionic/angular';
 })
 export class ReadModulePage implements OnInit {
   item: any;
-  constructor(public navCtrl: NavController,) { }
+  
+
+  constructor(private navCtrl : NavController,) { }
 
   ngOnInit() {
   }
+
 
 }

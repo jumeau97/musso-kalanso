@@ -21,16 +21,18 @@ export class DetailCategorieComponent implements OnInit {
   }
 
   detailsCategory(){
-    this.homeService.getDetailsModuleById(this.activatedRoute.snapshot.params.id).subscribe((data:any)=>{
+    this.homeService.getCategoryById(this.activatedRoute.snapshot.params.id).subscribe((data:any)=>{
       console.log("get category", data);
       this.category= data.body;
+      console.log("category", this.category);
+      
       if(data['status']=="OK"){
         this.homeService.getModuleByCategory(this.category).subscribe((data:any)=>{
           console.log("the module of current category", data);
           this.listModule = data.body;
           console.log("list module", this.listModule);
           
-        })
+        });
       }
     })
   }

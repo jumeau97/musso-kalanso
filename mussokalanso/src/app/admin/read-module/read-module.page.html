@@ -1,50 +1,45 @@
-<ion-header class="ion-no-border">
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-button fill="clear" (click)="navCtrl.back()">
+      <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
+    </ion-button>
+    <ion-title>
+      chapitres
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<!-- <ion-header class="ion-no-border">
   <ion-list lines="none">
-    <ion-item color="primary">
+    <ion-item > -->
       <!-- <ion-icon  name="reorder-two" ></ion-icon> -->
       <!-- <ion-icon slot="start" name="menu-outline" (click)="openMenu()"></ion-icon> -->
-      <ion-button fill="clear" (click)="navCtrl.back()">
+      <!-- <ion-button fill="clear" (click)="navCtrl.back()">
         <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
       </ion-button>
     </ion-item>
-    <ion-item color="primary">
+    <ion-item >
       <ion-label>Musso kalanso</ion-label>
       <ion-avatar slot="end">
         <img src="assets/imgs/nature love.png" />
       </ion-avatar>
     </ion-item>
   </ion-list>
-  <div class="popover">
-    <ion-searchbar></ion-searchbar>
-  </div>
-</ion-header>
+</ion-header> -->
 
 <ion-content>
 
 <ion-grid>
-  <ion-card>
-    <iframe width="370" height="409" src="https://www.youtube.com/embed/QQDNWkeG1sg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <ion-text>bonk</ion-text>
-  </ion-card>
-</ion-grid>
-<ion-grid>
+  
   <ion-row>
-    <ion-col size="4">
-      <ion-card>
-        <iframe width="727" height="150" src="https://www.youtube.com/embed/QQDNWkeG1sg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </ion-card>
-    </ion-col>
-    <ion-col size="4">
-      <ion-card>
-        <iframe width="727" height="150" src="https://www.youtube.com/embed/QQDNWkeG1sg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </ion-card>
-    </ion-col>
-    <ion-col size="4">
-      <ion-card>
-        <iframe width="727" height="150" src="https://www.youtube.com/embed/QQDNWkeG1sg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <ion-col size="6">
+      <ion-card class="success">
+        <ion-text>
+          <h2>Test</h2>
+        </ion-text>
       </ion-card>
     </ion-col>
   </ion-row>
 </ion-grid>
-
+ <!-- <iframe width="727" height="150" src="https://www.youtube.com/embed/QQDNWkeG1sg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
 </ion-content>
