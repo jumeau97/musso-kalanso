@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-read-module',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReadModulePage implements OnInit {
   item: any;
-  constructor() { }
+  constructor(public navCtrl: NavController,) { }
 
   ngOnInit() {
   }
