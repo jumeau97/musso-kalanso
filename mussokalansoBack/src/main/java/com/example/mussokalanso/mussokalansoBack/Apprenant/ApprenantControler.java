@@ -44,4 +44,9 @@ public class ApprenantControler {
         return new ResponseEntity<>(apprenantService.deleteApprenant(apprenant), HttpStatus.OK);
     }*/
 
+   @PostMapping("/save/learner")
+    public @ResponseBody ResponseEntity<?> saveLeraner(@RequestBody Apprenant apprenant){
+       return new ResponseEntity<>(apprenantService.saveLearner(apprenant),HttpStatus.OK);
+   }
+
 }

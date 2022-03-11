@@ -1,5 +1,6 @@
 package com.example.mussokalanso.mussokalansoBack.Image;
 
+import com.example.mussokalanso.mussokalansoBack.Chapitre.Chapitre;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -63,7 +64,7 @@ public class ImageController {
      * @return
      */
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file, @RequestBody Image image) {
         try {
             createDirIfNotExist();
 
@@ -71,6 +72,8 @@ public class ImageController {
             bytes = file.getBytes();
             System.out.println("le nom"+file.getOriginalFilename());
             Files.write(Paths.get(FileUtil.folderPath + file.getOriginalFilename()), bytes);
+            image.setName(file.getOriginalFilename());
+            imageRepository.save(image);
             return ResponseEntity.status(HttpStatus.OK)
                     .body("Files uploaded successfully: " + file.getOriginalFilename());
         } catch (Exception e) {

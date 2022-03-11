@@ -125,5 +125,21 @@ public class CategorieService {
         return Response.with("la liste retournée", listCat);
     }
 
+    //details category by id
+
+    public Response findCategoryById(Long id){
+        Optional<Categorie> categorie = categorieRepository.findById(id);
+
+        try {
+
+
+        }catch(Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.with("details category", categorie);
+    }
+
 
 }
