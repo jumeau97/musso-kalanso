@@ -58,4 +58,9 @@ host=environment.host;
   getCategoryById(id:any){
     return this.http.get(this.host+"/category/"+id);
   }
+
+  //chapitre by module
+  getChapitreByModule(id:any){
+    return this.http.get(this.host+"/module/chapters/"+id);
+  }
 }
