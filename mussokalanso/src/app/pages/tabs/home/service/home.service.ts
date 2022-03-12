@@ -63,4 +63,15 @@ host=environment.host;
   getChapitreByModule(id:any){
     return this.http.get(this.host+"/module/chapters/"+id);
   }
+
+  //get all cahpitre
+  getAllChapitre(){
+    return this.http.get(this.host+"/allChapitre")
+  }
+
+   // get details chapitre by his id
+   getDetailsChapitreById(id:any){
+    return this.http.get(this.host+"/chapitre/"+id);
+   }
+
 }

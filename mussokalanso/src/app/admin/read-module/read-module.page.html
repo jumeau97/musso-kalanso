@@ -1,20 +1,9 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-button fill="clear" (click)="navCtrl.back()">
-      <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
-    </ion-button>
-    <ion-title>
-      chapitres
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<!-- <ion-header class="ion-no-border">
+<ion-header class="ion-no-border">
   <ion-list lines="none">
-    <ion-item > -->
+    <ion-item >
       <!-- <ion-icon  name="reorder-two" ></ion-icon> -->
       <!-- <ion-icon slot="start" name="menu-outline" (click)="openMenu()"></ion-icon> -->
-      <!-- <ion-button fill="clear" (click)="navCtrl.back()">
+      <ion-button fill="clear" (click)="navCtrl.back()">
         <ion-icon slot="icon-only" name="arrow-back" color="dark"></ion-icon>
       </ion-button>
     </ion-item>
@@ -25,21 +14,39 @@
       </ion-avatar>
     </ion-item>
   </ion-list>
-</ion-header> -->
+</ion-header>
 
 <ion-content>
 
 <ion-grid>
-  
+  <ion-item>
+    <h5>Les chapitres</h5>
+  </ion-item>
   <ion-row>
-    <ion-col size="6">
-      <ion-card class="success">
-        <ion-text>
-          <h2>Test</h2>
-        </ion-text>
+    <ion-col *ngFor="let l of listChapitre" size="6">
+      <ion-card [routerLink]="['/', 'detail-chapitre', l.id]">
+        <ion-card-content>
+          <h2>{{l.libelle}}</h2>
+        </ion-card-content>
       </ion-card>
     </ion-col>
   </ion-row>
+
+  <!-- <ion-row>
+    <ion-col size="6">
+      <ion-card class="bgCard">
+        <ion-card-header>
+          <ion-card-subtitle></ion-card-subtitle>
+        </ion-card-header>
+      
+        <ion-card-content>
+          <h2>Chapitres 1</h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row> -->
 </ion-grid>
- <!-- <iframe width="727" height="150" src="https://www.youtube.com/embed/QQDNWkeG1sg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
+
+
+
 </ion-content>

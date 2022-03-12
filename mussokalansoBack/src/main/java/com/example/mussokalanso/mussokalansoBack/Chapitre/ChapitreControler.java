@@ -42,6 +42,12 @@ public class ChapitreControler {
     public @ResponseBody ResponseEntity<?> getChapterByModule(@PathVariable(value = "id") Long id){
         return new ResponseEntity<>(chapitreService.getChaptersByModule(id), HttpStatus.OK);
     }
+
+    //find details chapitre by chapitre
+    @GetMapping("/chapitre/{id}")
+    public @ResponseBody ResponseEntity<?> findChapitre(@PathVariable(value = "id") Long id){
+        return new ResponseEntity<>(chapitreService.findChapitreById(id), HttpStatus.OK);
+    }
     
 
 }
