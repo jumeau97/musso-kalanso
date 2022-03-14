@@ -1,10 +1,13 @@
 package com.example.mussokalanso.mussokalansoBack.Chapitre;
+import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
+import com.example.mussokalanso.mussokalansoBack.Module.Module;
 import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ChapitreService {
@@ -96,6 +99,23 @@ public class ChapitreService {
 
         return Response.with("liste retournée", listChapter);
     }
+
+    //details chapitre by id
+
+    public Response findChapitreById(Long id){
+        Optional<Chapitre> chapitre;
+
+        try {
+            chapitre = chapitreRepository.findById(id);
+
+        }catch(Exception e){
+            e.printStackTrace(System.out);
+            return Response.error("une erreur est survenue");
+        }
+
+        return Response.with("details chapitre", chapitre);
+    }
+
 
 }
 
