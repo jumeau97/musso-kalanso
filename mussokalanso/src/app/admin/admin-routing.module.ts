@@ -39,7 +39,7 @@ const routes: Routes = [
         loadChildren: () => import('./test/test.module').then( m => m.TestPageModule)
       },
       {
-        path: 'read-module',
+        path: 'read-module/:id',
         loadChildren: () => import('./read-module/read-module.module').then( m => m.ReadModulePageModule)
       },
       {

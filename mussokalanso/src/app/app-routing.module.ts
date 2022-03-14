@@ -45,7 +45,7 @@ const routes: Routes = [
     loadChildren: () => import('./all-categorie/all-categorie.module').then( m => m.AllCategoriePageModule)
   },
   {
-    path: 'detail-chapitre',
+    path: 'detail-chapitre/:id',
     loadChildren: () => import('./detail-chapitre/detail-chapitre.module').then( m => m.DetailChapitrePageModule)
   }
   // {
