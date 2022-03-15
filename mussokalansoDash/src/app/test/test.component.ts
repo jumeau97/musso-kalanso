@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class TestComponent implements OnInit {
 
   uploadedImage!: File;  
+  myFiles:File [] = [];
   dbImage: any; 
   postResponse: any;
   successResponse!: string;
@@ -19,20 +20,31 @@ export class TestComponent implements OnInit {
   }
 
   public onImageUpload(event:any) {    
-    this.uploadedImage = event.target.files[0];
-    console.log("upload",this.uploadedImage);
+    // this.uploadedImage = event.target.files[0];
+    this.myFiles = [];
+    for (var i = 0; i < event.target.files.length; i++) { 
+      
+      this.myFiles.push(event.target.files[i]);
+    }
+    console.log("upload",this.myFiles);
     
   }
 
 
   imageUploadAction() {    
     const imageFormData = new FormData();
-    imageFormData.append('file', this.uploadedImage, this.uploadedImage.name);
+    // imageFormData.append('files', this.uploadedImage, this.uploadedImage.name);
+
+    for (var i = 0; i < this.myFiles.length; i++) { 
+      imageFormData.append("files", this.myFiles[i]);
+      console.log("name", this.myFiles[i].name);
+      
+    }
     // console.log("pther upload", imageFormData);
     
   
 
-    this.httpClient.post('http://localhost:8080/upload', imageFormData, {responseType: 'text'})
+    this.httpClient.post('http://localhost:8080/multiple/uploads', imageFormData)
       .subscribe((response) => {
         console.log("bonjour", response);
         

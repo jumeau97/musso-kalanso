@@ -64,7 +64,7 @@ public class ImageController {
      * @return
      */
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file, @RequestBody Image image) {
+    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
         try {
             createDirIfNotExist();
 
@@ -72,8 +72,6 @@ public class ImageController {
             bytes = file.getBytes();
             System.out.println("le nom"+file.getOriginalFilename());
             Files.write(Paths.get(FileUtil.folderPath + file.getOriginalFilename()), bytes);
-            image.setName(file.getOriginalFilename());
-            imageRepository.save(image);
             return ResponseEntity.status(HttpStatus.OK)
                     .body("Files uploaded successfully: " + file.getOriginalFilename());
         } catch (Exception e) {
