@@ -41,7 +41,6 @@ export class DetailChapitrePage implements OnInit {
 
     });
   }
-
-
+  
 }
 

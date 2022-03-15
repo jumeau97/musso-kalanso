@@ -9,6 +9,7 @@ import { HomeService } from '../pages/tabs/home/service/home.service';
 })
 export class AllCategoriePage implements OnInit {
   listCategory: any;
+  public filterTerm: any;
 
   constructor(
     private homeService : HomeService,
