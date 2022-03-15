@@ -15,7 +15,7 @@
     </ion-item>
   </ion-list>
   <div class="popover">
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar placeholder="Recherche" [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
   </div>
 </ion-header>
 
@@ -26,7 +26,7 @@
     <h5>Tous les modules</h5>
   </ion-item>
   <ion-row>
-    <ion-col *ngFor="let m of listModule" size="6">
+    <ion-col *ngFor="let m of listModule | filter:filterTerm" size="6">
       <ion-card [routerLink]="['/', 'admin', 'tabs', 'items', m.id]">
         <ion-card-header>
           <ion-card-subtitle>{{m.libelle}}</ion-card-subtitle>

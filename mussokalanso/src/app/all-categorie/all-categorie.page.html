@@ -15,7 +15,7 @@
     </ion-item>
   </ion-list>
   <div class="popover">
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar placeholder="Recherche" [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
   </div>
 </ion-header>
 
@@ -26,7 +26,7 @@
     <h5>Toutes les catégories</h5>
   </ion-item>
   <ion-row>
-    <ion-col *ngFor="let c of listCategory" size="6">
+    <ion-col *ngFor="let c of listCategory | filter:filterTerm" size="6">
       <ion-card class="bgCard" [routerLink]="['/', 'admin', 'details-category', c.id]">
         <ion-card-header>
           <ion-card-subtitle>{{c.libelle}}</ion-card-subtitle>
@@ -34,7 +34,8 @@
         </ion-card-header>
       
         <ion-card-content>
-          <img src="assets/imgs/gestion_projet.png" />
+          <!-- <img src="assets/imgs/gestion_projet.png" /> -->
+          <img [src]="c?.photo" />
         </ion-card-content>
       </ion-card>
     </ion-col>

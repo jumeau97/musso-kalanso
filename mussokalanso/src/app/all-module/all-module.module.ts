@@ -8,12 +8,15 @@ import { AllModulePageRoutingModule } from './all-module-routing.module';
 
 import { AllModulePage } from './all-module.page';
 
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    AllModulePageRoutingModule
+    AllModulePageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [AllModulePage]
 })
