@@ -10,6 +10,7 @@ import { HomeService } from '../pages/tabs/home/service/home.service';
 export class FormationsComponent implements OnInit {
   currentUser: any;
   myModules: any;
+  public filterTerm: any;
 
   constructor(private navCtrl : NavController, private homeService : HomeService) { 
     this.currentUser = JSON.parse(localStorage.getItem("session_auth" || ""));

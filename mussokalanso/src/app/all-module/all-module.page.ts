@@ -10,7 +10,7 @@ import { HomeService } from '../pages/tabs/home/service/home.service';
 })
 export class AllModulePage implements OnInit {
   listModule: any;
-  thumbnail: any;
+
 
   constructor(
     private homeService : HomeService,

@@ -12,7 +12,7 @@
     </ion-item>
   </ion-list>
   <div class="popover">
-    <ion-searchbar></ion-searchbar>
+    <ion-searchbar placeholder="Recherche" [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
   </div>
 </ion-header>
 
@@ -25,7 +25,7 @@
     </ion-item>
     <ion-row>
       <ion-slides [options]="slideOpts">
-        <ion-slide *ngFor="let item of listLastModule">
+        <ion-slide *ngFor="let item of listLastModule | filter:filterTerm">
           <ion-card class="bgCard" [routerLink]="['/', 'admin', 'tabs', 'items', item.id]">
             <!-- <img src="assets/imgs/gestion_projet.png" /> -->
             <img [src]="item?.photo" />
@@ -51,7 +51,7 @@
     </ion-item>
     <ion-row>
       <ion-slides [options]="slideOpts1">
-        <ion-slide *ngFor="let cat of listCategory">
+        <ion-slide *ngFor="let cat of listCategory | filter:filterTerm">
           <ion-card class="featured" [routerLink]="['/' , 'admin', 'details-category', cat.id]">
             <ion-card-header>
               <!-- <img [src]="cat?.img" />               -->

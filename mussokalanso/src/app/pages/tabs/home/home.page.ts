@@ -20,7 +20,7 @@ export class HomePage implements OnInit {
   featuredItems: any[] = [];
   listLastModule: any;
   listCategory: any;
-  thumbnail: any;
+
 
   constructor(public apiService: ApiService, private menu:MenuController, private homeService:HomeService,) { }
 
