@@ -4,6 +4,7 @@ import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import com.example.mussokalanso.mussokalansoBack.Inscription.Inscription;
 import com.example.mussokalanso.mussokalansoBack.Utilisateur.Utilisateur;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 import java.util.Collection;
 
 @Entity
+@Builder
 public class Module {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,10 +29,13 @@ public class Module {
 
     private String photo;
 
+    @Column(name = "image", unique = false, nullable = true, length = 100000)
+    private byte[] image;
+
     public Module() {
     }
 
-    public Module(long id, String libelle, String description, boolean etat, Categorie categorie, Utilisateur utilisateur, String photo) {
+    public Module(long id, String libelle, String description, boolean etat, Categorie categorie, Utilisateur utilisateur, String photo, byte[] image) {
         this.id = id;
         this.libelle = libelle;
         this.description = description;
@@ -38,6 +43,15 @@ public class Module {
         this.categorie = categorie;
         this.utilisateur = utilisateur;
         this.photo = photo;
+        this.image = image;
+    }
+
+    public byte[] getImage() {
+        return image;
+    }
+
+    public void setImage(byte[] image) {
+        this.image = image;
     }
 
     public String getPhoto() {

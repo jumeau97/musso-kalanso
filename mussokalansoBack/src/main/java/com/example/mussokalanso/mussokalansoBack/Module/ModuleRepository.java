@@ -34,4 +34,7 @@ public interface ModuleRepository extends JpaRepository<Module, Long> {
 
 
     List<Module> findAllByCategorie(Categorie categorie);
+
+    //find last id
+    Module findTopByOrderByIdDesc();
 }

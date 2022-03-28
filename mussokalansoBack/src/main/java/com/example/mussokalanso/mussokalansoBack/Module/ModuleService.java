@@ -2,6 +2,8 @@ package com.example.mussokalanso.mussokalansoBack.Module;
 
 import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
+import com.example.mussokalanso.mussokalansoBack.Image.Image;
+import com.example.mussokalanso.mussokalansoBack.Image.ImageUtility;
 import com.example.mussokalanso.mussokalansoBack.payload.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +40,7 @@ public class ModuleService {
 
         try {
             m = moduleRepository.findByCategorieAndEtat(categorie);
+
         } catch (Exception e) {
             e.printStackTrace(System.out);
             return Response.error("une erreur est survenue");
@@ -94,6 +97,11 @@ public class ModuleService {
 
         try {
             listMod = moduleRepository.findAllByEtatTrue();
+          /*  for (int i=0; i<listMod.size(); i++){
+                listMod.get(i).setImage(ImageUtility.decompressImage(listMod.get(i).getImage()));
+            }
+
+           */
         } catch (Exception e) {
             e.printStackTrace(System.out);
         }

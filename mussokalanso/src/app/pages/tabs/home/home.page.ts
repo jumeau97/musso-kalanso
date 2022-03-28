@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { MenuController } from '@ionic/angular';
 import { ApiService } from 'src/app/services/api/api.service';
 import { HomeService } from './service/home.service';
@@ -19,8 +20,9 @@ export class HomePage implements OnInit {
   featuredItems: any[] = [];
   listLastModule: any;
   listCategory: any;
+  thumbnail: any;
 
-  constructor(public apiService: ApiService, private menu:MenuController, private homeService:HomeService) { }
+  constructor(public apiService: ApiService, private menu:MenuController, private homeService:HomeService,) { }
 
   ngOnInit() {
     this.popularItems = this.apiService.items;
