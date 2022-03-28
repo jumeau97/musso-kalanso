@@ -29,4 +29,9 @@ export class ChapitreService {
   updateChapter(data:any, id:any){
     return this.http.put(this.host+"update/chapitre/"+id, data)
   }
+
+  //list all chapter
+  findAllChapitre(){
+    return this.http.get(this.host+"allChapitre");
+  }
 }

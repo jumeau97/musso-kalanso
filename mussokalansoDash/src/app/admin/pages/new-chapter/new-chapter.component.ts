@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
 import { Chapitre } from 'src/app/model/Chapitre';
 import { ChapitreService } from 'src/app/services/chapitre/chapitre.service';
@@ -8,7 +9,8 @@ import { ChapitreService } from 'src/app/services/chapitre/chapitre.service';
 @Component({
   selector: 'app-new-chapter',
   templateUrl: './new-chapter.component.html',
-  styleUrls: ['./new-chapter.component.scss']
+  styleUrls: ['./new-chapter.component.scss'],
+  providers:[MessageService]
 })
 export class NewChapterComponent implements OnInit {
   //  getmodule: any;
@@ -22,7 +24,8 @@ export class NewChapterComponent implements OnInit {
     private fb:FormBuilder,
     private config : DynamicDialogConfig,
     private chapterService:ChapitreService,
-    private httpClient:HttpClient
+    private httpClient:HttpClient,
+    private messageService :MessageService,
       ) 
   {
     // this.getmodule=this.config.data;
@@ -63,6 +66,7 @@ export class NewChapterComponent implements OnInit {
       console.log("save chapter", this.chapter);
       this.chapterService.saveChapter(this.formChap.value).subscribe((data)=>{
         console.log("save chapter", data);
+        this.messageService.add({severity:"success", summary:"Chapitre", detail:"Insertion reussie"}); 
         
       });
   
@@ -81,6 +85,11 @@ export class NewChapterComponent implements OnInit {
     }
     console.log("upload",this.myFiles);
     
+  }
+
+    //reject method
+    onReject() {
+      this.messageService.clear('c');
   }
 
 
