@@ -21,7 +21,7 @@ public class ImageController {
     @Autowired
     ImageRepository imageRepository;
 
-    @PostMapping("/upload/image")
+  /*  @PostMapping("/upload/image")
     public ResponseEntity<ImageUploadResponse> uplaodImage(@RequestParam("image") MultipartFile file)
             throws IOException {
 
@@ -33,6 +33,8 @@ public class ImageController {
                 .body(new ImageUploadResponse("Image uploaded successfully: " +
                         file.getOriginalFilename()));
     }
+
+   */
 
     @GetMapping(path = {"/get/image/info/{name}"})
     public Image getImageDetails(@PathVariable("name") String name) throws IOException {

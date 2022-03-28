@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { NavController } from '@ionic/angular';
 import { HomeService } from '../pages/tabs/home/service/home.service';
 
@@ -9,11 +10,12 @@ import { HomeService } from '../pages/tabs/home/service/home.service';
 })
 export class AllModulePage implements OnInit {
   listModule: any;
-  public filterTerm: any;
+
 
   constructor(
     private homeService : HomeService,
     public navCtrl: NavController,
+    private sanitizer: DomSanitizer
     ) { }
 
   ngOnInit() {
@@ -24,6 +26,8 @@ export class AllModulePage implements OnInit {
     this.homeService.allModulePublished().subscribe((data:any)=>{
       console.log("module published", data);
       this.listModule = data.body;
+      // let objectURL = 'data:image;base64,' + this.listModule.image;
+      // this.thumbnail = this.sanitizer.bypassSecurityTrustUrl(objectURL);
     })
   }
   

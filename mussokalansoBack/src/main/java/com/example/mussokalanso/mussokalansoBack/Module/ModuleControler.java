@@ -2,10 +2,16 @@ package com.example.mussokalanso.mussokalansoBack.Module;
 
 import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
+import com.example.mussokalanso.mussokalansoBack.Chapitre.ChapitreService;
+import com.example.mussokalanso.mussokalansoBack.Image.ImageUploadResponse;
+import com.example.mussokalanso.mussokalansoBack.Image.ImageUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 @CrossOrigin
 @RestController
@@ -13,6 +19,9 @@ import org.springframework.web.bind.annotation.*;
 public class ModuleControler {
     @Autowired
     ModuleService moduleService;
+
+    @Autowired
+    ModuleRepository moduleRepository;
 
 
     //les quatres derniers modules
@@ -78,5 +87,20 @@ public class ModuleControler {
     @GetMapping("/module/unpublish/{id}")
     public @ResponseBody ResponseEntity<?> unpublish(@PathVariable(value = "id") Long id){
         return new ResponseEntity<>(moduleService.unpublish(id), HttpStatus.OK);
+    }
+
+    //upload photo module
+    @PostMapping("/upload/image")
+    public ResponseEntity<ImageUploadResponse> uplaodImage(@RequestParam("image") MultipartFile file)
+            throws IOException {
+        Module lastmod ;
+       lastmod = moduleRepository.findTopByOrderByIdDesc();
+       lastmod.setImage(ImageUtility.compressImage(file.getBytes()));
+       moduleRepository.save(lastmod);
+     //   moduleRepository.save(Module.builder()
+      //          .image(ImageUtility.compressImage(file.getBytes())).build());
+        return ResponseEntity.status(HttpStatus.OK)
+                .body(new ImageUploadResponse("Image uploaded successfully: " +
+                        file.getOriginalFilename()));
     }
 }
