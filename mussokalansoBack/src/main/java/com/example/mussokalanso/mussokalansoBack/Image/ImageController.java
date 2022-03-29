@@ -21,66 +21,6 @@ public class ImageController {
     @Autowired
     ImageRepository imageRepository;
 
-  /*  @PostMapping("/upload/image")
-    public ResponseEntity<ImageUploadResponse> uplaodImage(@RequestParam("image") MultipartFile file)
-            throws IOException {
-
-        imageRepository.save(Image.builder()
-                .name(file.getOriginalFilename())
-                .type(file.getContentType())
-                .image(ImageUtility.compressImage(file.getBytes())).build());
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(new ImageUploadResponse("Image uploaded successfully: " +
-                        file.getOriginalFilename()));
-    }
-
-   */
-
-    @GetMapping(path = {"/get/image/info/{name}"})
-    public Image getImageDetails(@PathVariable("name") String name) throws IOException {
-
-        final Optional<Image> dbImage = imageRepository.findByName(name);
-
-        return Image.builder()
-                .name(dbImage.get().getName())
-                .type(dbImage.get().getType())
-                .image(ImageUtility.decompressImage(dbImage.get().getImage())).build();
-    }
-
-    @GetMapping(path = {"/get/image/{name}"})
-    public ResponseEntity<byte[]> getImage(@PathVariable("name") String name) throws IOException {
-
-        final Optional<Image> dbImage = imageRepository.findByName(name);
-
-        return ResponseEntity
-                .ok()
-                .contentType(MediaType.valueOf(dbImage.get().getType()))
-                .body(ImageUtility.decompressImage(dbImage.get().getImage()));
-    }
-
-    //=========================file upload=============================
-    /**
-     * Method to upload file
-     *
-     * @param file
-     * @return
-     */
-    @PostMapping("/upload")
-    public ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
-        try {
-            createDirIfNotExist();
-
-            byte[] bytes = new byte[0];
-            bytes = file.getBytes();
-            System.out.println("le nom"+file.getOriginalFilename());
-            Files.write(Paths.get(FileUtil.folderPath + file.getOriginalFilename()), bytes);
-            return ResponseEntity.status(HttpStatus.OK)
-                    .body("Files uploaded successfully: " + file.getOriginalFilename());
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
-                    .body("Exception occurred for: " + file.getOriginalFilename() + "!");
-        }
-    }
 
     /**
      * Create directory to save files, if not exist

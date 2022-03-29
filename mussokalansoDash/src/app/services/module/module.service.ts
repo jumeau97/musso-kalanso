@@ -44,5 +44,12 @@ host=environment.host;
     return this.http.get(this.host+"module/unpublish/"+id);
   }
 
+  //upload file
+  uploadFile(data:any){
+    return this.http.post(this.host+"upload", data, {responseType: 'blob'});
+  }
+
+
+
   
 }

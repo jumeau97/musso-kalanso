@@ -3,15 +3,21 @@ package com.example.mussokalanso.mussokalansoBack.Module;
 import com.example.mussokalanso.mussokalansoBack.Apprenant.Apprenant;
 import com.example.mussokalanso.mussokalansoBack.Categorie.Categorie;
 import com.example.mussokalanso.mussokalansoBack.Chapitre.ChapitreService;
+import com.example.mussokalanso.mussokalansoBack.Image.FileUtil;
 import com.example.mussokalanso.mussokalansoBack.Image.ImageUploadResponse;
 import com.example.mussokalanso.mussokalansoBack.Image.ImageUtility;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 @CrossOrigin
 @RestController
@@ -90,17 +96,40 @@ public class ModuleControler {
     }
 
     //upload photo module
-    @PostMapping("/upload/image")
-    public ResponseEntity<ImageUploadResponse> uplaodImage(@RequestParam("image") MultipartFile file)
-            throws IOException {
-        Module lastmod ;
-       lastmod = moduleRepository.findTopByOrderByIdDesc();
-       lastmod.setImage(ImageUtility.compressImage(file.getBytes()));
-       moduleRepository.save(lastmod);
-     //   moduleRepository.save(Module.builder()
-      //          .image(ImageUtility.compressImage(file.getBytes())).build());
-        return ResponseEntity.status(HttpStatus.OK)
-                .body(new ImageUploadResponse("Image uploaded successfully: " +
-                        file.getOriginalFilename()));
+    @PostMapping("/upload")
+    public @ResponseBody ResponseEntity<String> uploadFile(@RequestParam("file") MultipartFile file) {
+        try {
+            createDirIfNotExist();
+
+            byte[] bytes = new byte[0];
+            bytes = file.getBytes();
+            Files.write(Paths.get(FileUtil.folderPath + file.getOriginalFilename()), bytes);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body("Files uploaded successfully: " + file.getOriginalFilename());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
+                    .body("Exception occurred for: " + file.getOriginalFilename() + "!");
+        }
+    }
+
+    /**
+     * Create directory to save files, if not exist
+     */
+    private void createDirIfNotExist() {
+        //create directory to save the files
+        File directory = new File(FileUtil.folderPath);
+        if (!directory.exists()) {
+            directory.mkdir();
+        }
+    }
+
+    //Get photo by module
+    @GetMapping(path = "/image/{id}", produces = MediaType.IMAGE_JPEG_VALUE)
+    public byte[] image(@PathVariable("id") Long id) throws Exception{
+        Module m = moduleRepository.findById(id).get();
+        String photo = m.getPhoto();
+        File file = new File(System.getProperty("user.home")+"/mussokalanso/images/"+photo);
+        Path path = Paths.get(file.toURI());
+        return Files.readAllBytes(path);
     }
 }
