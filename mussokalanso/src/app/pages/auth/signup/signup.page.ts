@@ -19,12 +19,16 @@ export class SignupPage implements OnInit {
     email:["", Validators.required],
     motDePasse:["",Validators.required]
   });
+  logInfos: boolean = true;
   constructor(private fb:FormBuilder, private AuthService : AuthService, private toast:ToastController, private router : Router) { }
 
   ngOnInit() {
   }
 
   saveLearner(){
+    this.logInfos = true;
+    console.log("Inscrit", this.myform.value);
+
     console.log("le formulaire", this.myform.value);
     this.AuthService.saveLearner(this.myform.value).subscribe((data:any)=>{
       console.log("save leraner...", data);
