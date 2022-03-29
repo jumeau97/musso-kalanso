@@ -20,6 +20,7 @@ export class NewModuleComponent implements OnInit {
   uploadedImage!: File; 
   postResponse: any;
   successResponse: any;
+  moduleSend: any;
   constructor(
     private fb:FormBuilder,
      private categService : CategoryService,
@@ -38,6 +39,7 @@ export class NewModuleComponent implements OnInit {
     categorie: [this.category, Validators.required],
     description: ['', Validators.required],
     utilisateur: ['', Validators.required],
+    photo: ['', Validators.required]
   })
 
   ngOnInit(): void {
@@ -45,28 +47,29 @@ export class NewModuleComponent implements OnInit {
 
   //save new module
   saveModule(){
+    // =================
+    //get file information
+    const imageFormData = new FormData();
+    imageFormData.append('file', this.uploadedImage);
+    console.log("form data", this.uploadedImage.name);    
+
+    //save....
     console.log("insert...", this.fgmodule.value);
-    this.moduleServicr.saveModule(this.fgmodule.value).subscribe((data:any)=>{
+    this.moduleSend = this.fgmodule.value;
+    this.moduleSend.photo = this.uploadedImage.name
+    this.moduleServicr.saveModule(this.moduleSend).subscribe((data:any)=>{
       console.log("insert...", data);
       this.messageService.add({severity:'success', summary: 'Module', detail: 'Enregistrer avec succès'});
       
     });
 
-    // =================
-    const imageFormData = new FormData();
-    imageFormData.append('image', this.uploadedImage, this.uploadedImage.name);
-  
 
-    this.httpClient.post('http://localhost:8080/api/mussokalanso/upload/image/', imageFormData, { observe: 'response' })
-      .subscribe((response) => {
-        if (response.status === 200) { 
-          this.postResponse = response;                
-          this.successResponse = this.postResponse.body.message;
-        } else {
-          this.successResponse = 'Image not uploaded due to some error!';
-        }
-      }
-     );
+    
+    //upload in folder
+    this.moduleServicr.uploadFile(imageFormData).subscribe((data:any)=>{
+      console.log("upload image", data);
+      
+    });
   }
 
 

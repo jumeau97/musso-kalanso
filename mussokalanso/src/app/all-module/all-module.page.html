@@ -34,7 +34,7 @@
         </ion-card-header>
       
         <ion-card-content>
-          <img [src]="m?.photo" />
+          <img src="{{homeService.host+'/image/'+m.id}}" />
           <!-- <img [src]="m?.img" /> -->
         </ion-card-content>
       </ion-card>

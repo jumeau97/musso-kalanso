@@ -27,8 +27,8 @@
       <ion-slides [options]="slideOpts">
         <ion-slide *ngFor="let item of listLastModule | filter:filterTerm">
           <ion-card class="bgCard" [routerLink]="['/', 'admin', 'tabs', 'items', item.id]">
-            <!-- <img src="assets/imgs/gestion_projet.png" /> -->
-            <img [src]="item?.photo" />
+            <img src="{{homeService.host+'/image/'+item.id}}" />
+            <!-- <img [src]="item?.photo" /> -->
             <ion-card-header>
               <ion-label>
                 {{item?.libelle}}

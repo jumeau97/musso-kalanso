@@ -29,13 +29,11 @@ public class Module {
 
     private String photo;
 
-    @Column(name = "image", unique = false, nullable = true, length = 100000)
-    private byte[] image;
 
     public Module() {
     }
 
-    public Module(long id, String libelle, String description, boolean etat, Categorie categorie, Utilisateur utilisateur, String photo, byte[] image) {
+    public Module(long id, String libelle, String description, boolean etat, Categorie categorie, Utilisateur utilisateur, String photo) {
         this.id = id;
         this.libelle = libelle;
         this.description = description;
@@ -43,16 +41,8 @@ public class Module {
         this.categorie = categorie;
         this.utilisateur = utilisateur;
         this.photo = photo;
-        this.image = image;
     }
 
-    public byte[] getImage() {
-        return image;
-    }
-
-    public void setImage(byte[] image) {
-        this.image = image;
-    }
 
     public String getPhoto() {
         return photo;
