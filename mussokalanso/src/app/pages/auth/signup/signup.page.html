@@ -32,9 +32,9 @@
     <ion-input placeholder="Mot de passe" type="password" name="motDePasse" formControlName="motDePasse" clearInput="true"></ion-input>
   </ion-item>
   <!-- <ion-text color="medium"><p class="ion-margin-horizontal">Mot de passe oublié?</p></ion-text> -->
-  <ion-text color="medium"><p class="ion-margin-horizontal">vous avez dejà un compte?. <a routerLink="/login">Connexion</a></p></ion-text>
+  <ion-text color="medium"><p class="ion-margin-horizontal">vous avez déjà un compte?. <a routerLink="/login">Connexion</a></p></ion-text>
   <div align="right">
-    <ion-button shape="round" strong="true" class="ion-margin-end" type="submit">
+    <ion-button shape="round" strong="true" class="ion-margin-end" type="submit" [disabled]="!myform.valid">
       S'inscrire
       <ion-icon name="log-in" slot="end"></ion-icon>
     </ion-button>
