@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { UtilisateurService } from '../services/utilisateur/utilisateur.service';
 
 @Component({
   selector: 'app-test',
@@ -14,7 +15,8 @@ export class TestComponent implements OnInit {
   postResponse: any;
   successResponse!: string;
   image: any;
-  constructor(private httpClient: HttpClient) { }
+  blob!: Blob;
+  constructor(private httpClient: HttpClient, private testService : UtilisateurService) { }
 
   ngOnInit(): void {
   }
@@ -69,5 +71,42 @@ export class TestComponent implements OnInit {
         }
       );
   }
+
+  // download(){
+  //   let filename= "cahier.pdf";
+  //   this.testService.downloadFile(filename).subscribe((response:any)=>{
+  //     var binaryData = [];
+  //     binaryData.push(response.data);
+  //     console.log("new response", response);
+      
+  //     // var url = window.URL.createObjectURL(new Blob(binaryData, {type: "application/*"}));
+  //     // var a = document.createElement('a');
+  //     // document.body.appendChild(a);
+  //     // a.setAttribute('style', 'display: none');
+  //     // a.setAttribute('target', 'blank');
+  //     // a.href = url;
+  //     // a.download = response.filename;
+  //     // a.click();
+  //     // window.URL.revokeObjectURL(url);
+  //     // a.remove();
+  //   })
+  // }
+
+  download(){
+    const filename="cahier.pdf";
+    this.testService.getPdf(filename).subscribe((data:any) => {
+
+      this.blob = new Blob([data], {type: 'application/pdf'});
+    
+      var downloadURL = window.URL.createObjectURL(data);
+      var link = document.createElement('a');
+      link.href = downloadURL;
+      link.download = filename;
+      link.click();
+    
+    });
+  }
+
+  
 
 }
