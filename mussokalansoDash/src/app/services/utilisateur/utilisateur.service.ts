@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +33,27 @@ host = environment.host;
   //login
   login(data:any){
     return this.http.post(this.host+"login", data)
+  }
+
+  downloadFile(filename:any): Observable<any> {
+    return this.http.get(`${this.host}download/` + filename, { responseType: 'blob' }).pipe(map((resp:any)=>{
+      console.log(resp);
+      {
+        
+      }
+      return {
+          filename: filename,
+          data: resp.value
+      };
+  }));
+  }
+
+  getPdf(filename:any) {
+
+    const httpOptions = {
+      responseType:( 'blob' as 'json')
+    };
+  
+    return this.http.get(`${this.host}download/`+filename, httpOptions);
   }
 }
