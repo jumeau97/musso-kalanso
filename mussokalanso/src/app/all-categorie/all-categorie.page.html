@@ -35,7 +35,9 @@
       
         <ion-card-content>
           <!-- <img src="assets/imgs/gestion_projet.png" /> -->
-          <img [src]="c?.photo" />
+          <!-- <img [src]="c?.photo" /> -->
+          <img src="{{homeService.host+'/images/'+c.id}}" />
+          
         </ion-card-content>
       </ion-card>
     </ion-col>

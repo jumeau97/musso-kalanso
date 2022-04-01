@@ -19,14 +19,11 @@
       <div class="card-body">
         <h4 class="card-title">Renseignez les champ(s)</h4>
         <form class="form-sample"[formGroup]="fg" (ngSubmit)="updateCategory()">
-          <!-- <p class="card-description">Personal info</p> -->
           <div class="row">
             <div class="col-md-6">
-                <!-- <h5>Basic</h5> -->
                 <input type="text" name="libelle" [(ngModel)]="getCategory.libelle" formControlName="libelle" pInputText > 
             </div>
             <div class="col-md-6">
-                <!-- <button pButton pRipple type="submit" label="Enregistrer" class="btn-rose"></button> -->
                 <button type="button" type="submit" class="btn btn-sm ml-3 btn-rose"> Enregistrer </button>
             </div>
           </div>

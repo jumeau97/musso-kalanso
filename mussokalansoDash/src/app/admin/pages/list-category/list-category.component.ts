@@ -25,9 +25,14 @@ export class ListCategoryComponent implements OnInit {
   http: any;
   listCategorie: any;
   display: boolean = false;
+  uploadedImage!: File; 
+  postResponse: any;
+  successResponse: any;
+  categorieSend: any;
 
   fg = this.fb.group({
-    libelle : new FormControl('', [Validators.required])
+    libelle : new FormControl('', [Validators.required]),
+    photo : new FormControl('', [Validators.required])
   });
 
   @ViewChild('dt') dt: Table | undefined;
@@ -46,6 +51,35 @@ export class ListCategoryComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  //save new categorie
+  saveCategorie(){
+    // =================
+    //get file information
+    const imageFormData = new FormData();
+    imageFormData.append('file', this.uploadedImage);
+    console.log("form data", this.uploadedImage.name);    
+
+    //save....
+    console.log("insert...", this.fg.value);
+    this.categorieSend = this.fg.value;
+    this.categorieSend.photo = this.uploadedImage.name
+    this.categorieService.saveCategory(this.categorieSend).subscribe((data:any)=>{
+      console.log("insert...", data);
+      this.messageService.add({severity:'success', summary: 'Catégorie', detail: 'Enregistrer avec succès'});
+      
+    });
+
+    //upload in folder
+    this.categorieService.uploadFile(imageFormData).subscribe((data:any)=>{
+      console.log("upload image", data);
+      
+    });
+  }
+
+  onImageUpload(event:any) { 
+    this.uploadedImage = event.target.files[0];   
+    }
 
 
   show() {
@@ -98,21 +132,21 @@ export class ListCategoryComponent implements OnInit {
 
 
     // method to  insert new category
-    saveCtegory(){
+    // saveCtegory(){
       // this.ref.close();
-      console.log("category", this.fg.value);
-      this.categorieService.saveCategory(this.fg.value).subscribe((data:any)=>{
-        console.log("insert...", data);
-        if(data['status']=="OK"){
-          console.log("msg");
+    //   console.log("category", this.fg.value);
+    //   this.categorieService.saveCategory(this.fg.value).subscribe((data:any)=>{
+    //     console.log("insert...", data);
+    //     if(data['status']=="OK"){
+    //       console.log("msg");
           
-          this.messageService.add({severity:'success', summary: 'Categorie', detail: 'Enregistrer avec succès'});
-          this.findAllCateg();
-        }
+    //       this.messageService.add({severity:'success', summary: 'Categorie', detail: 'Enregistrer avec succès'});
+    //       this.findAllCateg();
+    //     }
         
-      });
+    //   });
       
-    }
+    // }
 
     //reject method
     onReject() {

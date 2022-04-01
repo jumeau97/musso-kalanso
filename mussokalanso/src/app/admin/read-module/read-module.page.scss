@@ -24,7 +24,7 @@ ion-header {
             margin-top: -30px;
         }
     }
-    
+
 }
 ion-card{
     margin-left: auto;
@@ -46,21 +46,20 @@ ion-card{
 //      }
 // }
 ion-card{
-    border-radius: 5px;
-    padding: 10%;
+    height: 30vh;
+    width: 100%;
+    border-radius: 10px;
     border: 4px solid #e3a5c5;
-    background-color: white;
-    color: black;
-    box-shadow: #e3a5c5;
--webkit-box-shadow: #e3a5c5;
--moz-box-shadow: #e3a5c5;
-}
-ion-card:hover {
-
     background-color: #e3a5c5;
-    // color: white;
-   }
-h2{
-    font-weight: bold;
-    font-size: 1.2rem;
+    color: black;
+    text-align: center;
+
+    @media screen and ( min-width:600px ) {
+       
+        ion-col{
+            display: flex;
+             flex-wrap: wrap; 
+        }
+
+}
 }

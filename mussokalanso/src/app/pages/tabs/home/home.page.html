@@ -67,7 +67,8 @@
                 <!-- <ion-text class="price" slot="end" color="primary"><b>{{item?.price}} Fcfa</b></ion-text> -->
               </ion-item>
             </ion-card-content>
-            <img [src]="cat?.photo" />
+            <img src="{{homeService.host+'/images/'+cat.id}}" />
+            <!-- <img [src]="cat?.photo" /> -->
             <!-- <img id="myimage" [src]='thumbnail' /> -->
           </ion-card>
         </ion-slide>

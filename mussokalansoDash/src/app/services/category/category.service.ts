@@ -38,4 +38,9 @@ host=environment.host;
   deleteCategory(id:any){
   return this.http.delete(this.host+"delete/category/"+id)
   }
+
+  //upload file
+  uploadFile(data:any){
+    return this.http.post(this.host+"uploadC", data, {responseType: 'blob'});
+  }
 }
