@@ -22,37 +22,13 @@
   <ion-item>
     <h5>Les chapitres</h5>
   </ion-item>
-  <!-- <ion-row>
-    <ion-col *ngFor="let l of listChapitre" size="6">
-      <ion-card [routerLink]="['/', 'detail-chapitre', l.id]">
-        <ion-card-content>
-          <h2>{{l.libelle}}</h2>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row> -->
   <ion-row>
   <ion-col *ngFor="let l of listChapitre" size-xs="6" size-md="20">
-    <ion-card [routerLink]="['/', 'detail-chapitre', l.id]" style="height: 100%;">
+    <ion-card class="bgCard" [routerLink]="['/', 'detail-chapitre', l.id]" style="height: 100%;">
       <h2>{{l.libelle}}</h2>
     </ion-card>
   </ion-col>
 </ion-row>
-  <!-- <ion-row>
-    <ion-col size="6">
-      <ion-card class="bgCard">
-        <ion-card-header>
-          <ion-card-subtitle></ion-card-subtitle>
-        </ion-card-header>
-      
-        <ion-card-content>
-          <h2>Chapitres 1</h2>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row> -->
 </ion-grid>
-
-
 
 </ion-content>
