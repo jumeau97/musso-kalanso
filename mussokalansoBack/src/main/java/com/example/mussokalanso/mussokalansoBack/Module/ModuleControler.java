@@ -103,7 +103,7 @@ public class ModuleControler {
 
             byte[] bytes = new byte[0];
             bytes = file.getBytes();
-            Files.write(Paths.get(FileUtil.folderPath + file.getOriginalFilename()), bytes);
+            Files.write(Paths.get(System.getProperty("user.home")+"/mussokalanso/images/"+ file.getOriginalFilename()), bytes);
             return ResponseEntity.status(HttpStatus.OK)
                     .body("Files uploaded successfully: " + file.getOriginalFilename());
         } catch (Exception e) {
