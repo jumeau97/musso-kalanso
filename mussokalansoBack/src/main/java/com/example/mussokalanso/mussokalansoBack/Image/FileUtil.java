@@ -8,6 +8,6 @@ public final class FileUtil {
         // restrict instantiation
     }
 
-    public static final String folderPath =  "C:\\Users\\awa.keita\\mussokalanso\\images\\";
+    public static final String folderPath =  "C:\\Users\\hp\\mussokalanso\\images\\";
     public static final Path filePath = Paths.get(folderPath);
 }

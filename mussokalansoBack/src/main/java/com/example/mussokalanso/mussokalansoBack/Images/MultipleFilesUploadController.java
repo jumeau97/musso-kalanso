@@ -35,7 +35,7 @@ public class MultipleFilesUploadController {
                 byte[] bytes = new byte[0];
                 try {
                     bytes = file.getBytes();
-                    Files.write(Paths.get(FileUtil.folderPath + file.getOriginalFilename()), bytes);
+                    Files.write(Paths.get(System.getProperty("user.home")+"/mussokalanso/documents/"+ file.getOriginalFilename()), bytes);
                     fileNames.add(file.getOriginalFilename());
                 } catch (IOException e) {
 

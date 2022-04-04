@@ -74,4 +74,14 @@ host=environment.host;
     return this.http.get(this.host+"/chapitre/"+id);
    }
 
+   //dowload document
+   getPdf(filename:any) {
+
+    const httpOptions = {
+      responseType:( 'blob' as 'json')
+    };
+  
+    return this.http.get(`${this.host}/download/`+filename, httpOptions);
+  }
+
 }
